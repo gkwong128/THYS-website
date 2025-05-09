@@ -1014,10 +1014,10 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   .join-waitlist-button .mobile-text { display: inline; }
 
   /* On all mobile widths, keep the email on one line */
-.landing-text-overlay .landing-headline {
-  font-size: 1.4rem !important;    /* or whatever size fits your design */
-  white-space: nowrap !important;
-}
+  .landing-text-overlay .landing-headline {
+    font-size: 1.4rem !important;    /* or whatever size fits your design */
+    white-space: nowrap !important;
+  }
 
   /* Center the "Elevate with THYS" heading */
   .elevate-text { text-align: center; }
@@ -1027,8 +1027,18 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
     font-weight: 700 !important;
   }
   /* Ensure header Instagram icon shows on mobile */
-.mobile-instagram-link {
-  display: inline-block !important;
-  margin-left: 1rem !important;
-}
+  .mobile-instagram-link {
+    display: inline-block !important;
+    margin-left: 1rem !important;
+  }
+
+  /* Adjust email and Instagram icon positioning on mobile contact page */
+  .contact-email {
+    margin-top: -0.5rem !important; /* Move email up by one line */
+  }
+  .mobile-instagram-link {
+    display: block !important;
+    margin-top: 1.5rem !important;  /* Place icon about 6 lines below email */
+    text-align: center;
+  }
 }
