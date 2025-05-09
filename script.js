@@ -1,11 +1,10 @@
 // script.js - Combined script for landing page and learn page
-console.log('SERVICE ACCOUNT EMAIL:', process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL);
-console.log('PRIVATE_KEY exists?', Boolean(process.env.GOOGLE_PRIVATE_KEY));
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded and parsed"); // General check
 
-
+    console.log('SERVICE ACCOUNT EMAIL:', process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL);
+    console.log('PRIVATE_KEY exists?', Boolean(process.env.GOOGLE_PRIVATE_KEY));
 
     // ===== Loading Screen Logic (Runs Once Per Session for Landing Page) Start =====
     const loadingScreen = document.getElementById('loading-screen');
