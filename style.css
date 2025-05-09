@@ -715,16 +715,21 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 .contact-email-line2 {
   font-family: var(--font-heading, 'Italiana', serif);
   text-align: center;
-  font-size: 2.5rem;       /* split the difference */
-  font-weight: 700;
-  margin: 0.5rem 0 0 0;     /* reduced top margin */
+  font-size: 2rem;       /* split the difference */
+  font-weight: 600;
+  margin: 0;             /* remove individual margins */
   line-height: 1.2;
 }
 
 /* Container for Instagram icon on contact page */
 .contact-instagram-container {
   text-align: center;
-  margin-top: 4rem;        /* split the difference */
+  margin-top: 8rem;        /* increased spacing to move icon further down */
+}
+
+/* Container to vertically offset both email lines */
+.contact-text-container {
+  margin-top: 8rem;   /* increase this value to move the block down */
 }
 
 
@@ -732,5 +737,18 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   /* Show Instagram icon only on mobile */
   .mobile-instagram-link {
     display: inline-block !important;
+  }
+}
+
+/* Desktop: combine the two email lines into a single inline line */
+@media (min-width: 768px) {
+  .contact-email-line1,
+  .contact-email-line2 {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .contact-email-line2 {
+    margin-left: 0.5rem !important; /* small space between the parts */
   }
 }
