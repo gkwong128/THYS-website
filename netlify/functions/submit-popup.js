@@ -102,7 +102,7 @@ exports.handler = async (event) => {
     let subject, textPart, htmlPart;
     if (flowType === 'download') {
       subject = "Here’s Your Product Guide";
-      textPart = `Hello ${name},\n\nThank you for downloading our Product Guide! We hope you enjoy it.\n\nAccess it here:\nhttps://www.gordonkwong.com/productguide.pdf\n\nFeel free to reach out with any questions at gordon@gordonkwong.com.`;
+      textPart = `Hello ${name},\n\nThank you for downloading our Product Guide! We hope you enjoy it.\n\nAccess it here:\nhttps://www.thys.co/productguide.pdf\n\nFeel free to reach out with any questions at info@thys.co.`;
       htmlPart = `
      <!DOCTYPE html>
      <html lang="en">
@@ -117,7 +117,7 @@ exports.handler = async (event) => {
          <!-- Header -->
          <tr bgcolor="#000000" style="background-color:#000000!important;">
            <td align="center" style="padding:2rem;">
-             <img src="https://www.gordonkwong.com/logo-inverted.png" alt="THYS Logo" style="display:block; max-width:200px; height:auto; mix-blend-mode: normal !important; filter: none !important;">
+             <img src="https://www.thys.co/logo-inverted.png" alt="THYS Logo" style="display:block; max-width:200px; height:auto; mix-blend-mode: normal !important; filter: none !important;">
            </td>
          </tr>
          <!-- Content -->
@@ -128,7 +128,7 @@ exports.handler = async (event) => {
                Hello ${name},<br><br>
                Thank you for downloading our <strong>Product Guide</strong>! We hope you find it insightful.
              </p>
-             <a href="https://www.gordonkwong.com/productguide.pdf"
+             <a href="https://www.thys.co/productguide.pdf"
                 style="display:inline-block; padding:0.75rem 1.5rem; background-color:#000000; color:#ffffff; text-decoration:none; border-radius:4px; font-family:Manrope, sans-serif;">
                View Product Guide
              </a>
@@ -137,11 +137,11 @@ exports.handler = async (event) => {
          <!-- Footer -->
          <tr bgcolor="#f5f5f5">
            <td align="center" style="padding:1.5rem;">
-             <a href="https://www.instagram.com/gordonkwongphotos/" target="_blank" style="text-decoration:none;">
-               <img src="https://www.gordonkwong.com/instagramicon.png" alt="Instagram" style="display:inline-block; width:32px; height:auto; margin:0 0.5rem; mix-blend-mode: normal !important; filter: none !important;">
+             <a href="https://www.instagram.com/THYS/" target="_blank" style="text-decoration:none;">
+               <img src="https://www.thys.co/instagramicon.png" alt="Instagram" style="display:inline-block; width:32px; height:auto; margin:0 0.5rem; mix-blend-mode: normal !important; filter: none !important;">
              </a>
              <p style="font-family:Manrope, sans-serif; color:#333333; margin:1rem 0 0;">
-               <a href="mailto:gordon@gordonkwong.com" style="color:#333333; text-decoration:none;">gordon@gordonkwong.com</a>
+               <a href="mailto:hello@thys.co" style="color:#333333; text-decoration:none;">hello@thys.co</a>
              </p>
            </td>
          </tr>
@@ -165,7 +165,7 @@ exports.handler = async (event) => {
          <!-- Header -->
          <tr bgcolor="#000000" style="background-color:#000000!important;">
            <td align="center" style="padding:2rem;">
-             <img src="https://www.gordonkwong.com/logo-inverted.png" alt="THYS Logo" style="display:block; max-width:200px; height:auto; mix-blend-mode: normal !important; filter: none !important;">
+             <img src="https://www.thys.co/logo-inverted.png" alt="THYS Logo" style="display:block; max-width:200px; height:auto; mix-blend-mode: normal !important; filter: none !important;">
            </td>
          </tr>
          <!-- Content -->
@@ -181,11 +181,11 @@ exports.handler = async (event) => {
          <!-- Footer -->
          <tr bgcolor="#f5f5f5">
            <td align="center" style="padding:1.5rem;">
-             <a href="https://www.instagram.com/gordonkwongphotos/" target="_blank" style="text-decoration:none;">
-               <img src="https://www.gordonkwong.com/instagramicon.png" alt="Instagram" style="display:inline-block; width:32px; height:auto; margin:0 0.5rem; mix-blend-mode: normal !important; filter: none !important;">
+             <a href="https://www.instagram.com/THYS/" target="_blank" style="text-decoration:none;">
+               <img src="https://www.thys.co/instagramicon.png" alt="Instagram" style="display:inline-block; width:32px; height:auto; margin:0 0.5rem; mix-blend-mode: normal !important; filter: none !important;">
              </a>
              <p style="font-family:Manrope, sans-serif; color:#333333; margin:1rem 0 0;">
-               <a href="mailto:gordon@gordonkwong.com" style="color:#333333; text-decoration:none;">gordon@gordonkwong.com</a>
+               <a href="mailto:hello@thys.co" style="color:#333333; text-decoration:none;">hello@thys.co</a>
              </p>
            </td>
          </tr>
@@ -205,8 +205,8 @@ exports.handler = async (event) => {
         "Messages": [
           {
             "From": {
-              "Email": "gordon@gordonkwong.com",
-              "Name": "Gordon"
+              "Email": "hello@thys.co",
+              "Name": "THYS"
             },
             "To": [ { "Email": email, "Name": name } ],
             "Subject": subject,
