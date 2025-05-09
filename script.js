@@ -1,4 +1,4 @@
-// script.js - Combined script for landing page and learnmore page
+// script.js - Combined script for landing page and learn page
 
 let lenis = null; // Initialize lenis as null
 
