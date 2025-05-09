@@ -565,7 +565,7 @@ button {
 
 
 /* ========================================
-   Original Content Styles (For learnmore.html etc.)
+   Original Content Styles (For learn.html etc.)
    ======================================== */
 
   /* Logo Link Styling */
@@ -1019,5 +1019,15 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   .landing-nav a {
     font-size: 1.5rem !important;
     font-weight: 700 !important;
+  }
+}
+
+/* Ensure contact email fits on the smallest mobile screens */
+@media (max-width: 480px) {
+  .landing-text-overlay .landing-headline {
+    font-size: clamp(1rem, 6vw, 1.5rem) !important;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }
