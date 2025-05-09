@@ -1,3 +1,7 @@
+/* Hide mobile Instagram icon by default */
+.mobile-instagram-link {
+  display: none !important;
+}
 /* ========================================
    Waitlist Button Text Swap & Elevate Text Centering
    ======================================== */
@@ -564,52 +568,6 @@ button {
 }
 
 
-/* ========================================
-   Original Content Styles (For learn.html etc.)
-   ======================================== */
-
-  /* Logo Link Styling */
-  .nav-logo-link { text-decoration: none; line-height: 0; flex-shrink: 0; display: inline-block; }
-  .nav-logo-link img { display: block; vertical-align: middle; max-width: 100%; }
-  /* Initial Navbar */
-  #navbar { background-color: var(--color-background-dark); padding: 1.2rem 0 0.6rem; text-align: center; position: relative; z-index: 50; }
-  #navbar .nav-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: var(--container-max-width); margin: 0 auto; padding: 0 var(--container-padding); box-sizing: border-box; position: relative; }
-  #navbar .nav-logo-link { display: block; margin-bottom: 0.6rem; }
-  #navbar .nav-logo { height: 45px; width: auto; max-height: none; }
-  #navbar .nav-links { display: flex; justify-content: center; gap: var(--navbar-gap-initial-desktop); max-width: var(--navbar-links-max-width); flex-grow: 0; align-items: normal; margin-top: 0; }
-  #navbar .nav-item { text-align: center; }
-  #navbar .nav-item span { color: var(--color-text-light); }
-  #navbar .nav-item:hover span { color: var(--color-accent); }
-  #navbar .mega-menu { background-color: var(--color-background-dark); box-shadow: none; }
-  #navbar .mega-menu a { color: var(--color-text-light); }
-  #navbar .mega-menu a:hover { text-decoration: underline; }
-  /* Sticky Navbar */
-  .sticky-navbar { position: fixed; top: 0; left: 0; right: 0; height: var(--navbar-sticky-height); background-color: var(--color-background); z-index: 999; opacity: 0; pointer-events: none; transform: translateY(var(--sticky-nav-translateY)); transition: opacity 0.4s cubic-bezier(0.5, 0, 1, 1), transform 0.6s ease-out; display: flex; align-items: center; }
-  .sticky-navbar.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
-  .sticky-navbar .container { display: flex; align-items: center; position: relative; }
-  .sticky-navbar .nav-logo-link { margin-right: auto; position: relative; z-index: 1; }
-  .sticky-navbar .nav-logo { height: 24px; width: auto; max-height: none; }
-  .sticky-navbar .nav-links { display: flex; justify-content: center; align-items: center; }
-  .sticky-navbar .nav-item { text-align: center; }
-  .sticky-navbar .nav-item span { color: var(--color-text-dark); }
-  .sticky-navbar .nav-item:hover span { color: var(--color-accent); }
-  .sticky-navbar .mega-menu { background-color: var(--color-background); box-shadow: none; }
-  .sticky-navbar .mega-menu a { color: var(--color-text-dark); }
-  .sticky-navbar .mega-menu a:hover { text-decoration: underline; }
-  /* General Navigation Styles */
-  .nav-item { position: relative; }
-  #navbar .nav-item span, .sticky-navbar .nav-item span { font-size: 0.55rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; display: inline-block; text-align: center; }
-  .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding: 1rem; display: none; flex-direction: column; gap: 0.5rem; z-index: 1001; min-width: max-content; background-color: var(--color-background); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-  #navbar .mega-menu { background-color: var(--color-background-dark); box-shadow: none; }
-  .sticky-navbar .mega-menu { background-color: var(--color-background); box-shadow: none; }
-  .nav-item:hover .mega-menu, .nav-item:focus-within .mega-menu { display: flex; }
-  #navbar .mega-menu a, .sticky-navbar .mega-menu a { text-decoration: none; white-space: nowrap; text-transform: uppercase; font-size: 0.55rem; letter-spacing: 0.03em; padding: 0.2rem 0; transition: color 0.3s ease; }
-  #navbar .mega-menu a:hover, .sticky-navbar .mega-menu a:hover { text-decoration: underline; }
-  /* Mobile Menu Toggle & Placeholder */
-  .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.6rem; padding: 0 0.5rem; line-height: 1; color: var(--color-text-dark); order: 3; margin-left: auto; }
-  #navbar .mobile-menu-toggle { display: none; color: var(--color-text-light); }
-  .nav-utility-placeholder { display: none; flex-shrink: 0; margin-left: auto; order: 4; pointer-events: none; }
-  .nav-utility-placeholder span { opacity: 0; user-select: none; display: inline-block; height: 100%; }
   /* Content Sections */
   .hero-carousel-wrapper { max-width: var(--container-max-width); margin: 0 auto var(--section-vertical-margin) auto; padding: 0 var(--container-padding); box-sizing: border-box; position: relative; }
   .hero-carousel { position: relative; overflow: hidden; aspect-ratio: 2.40 / 1; width: 100%; }
@@ -658,7 +616,6 @@ button {
   .footer-section strong { margin-bottom: 0.3rem; font-weight: 600; font-size: 0.7rem; }
 .footer-section a {
   color: var(--color-text-dark);
-  font-size: clamp(0.5rem, 2.5vw, 0.8rem);
   font-weight: 400;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -731,282 +688,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 }
 
 
-  /* ========================================
-     Media Queries (Tablet & Mobile)
-     ======================================== */
-  @media (max-width: 1023px) {
-     body:not(.landing-page-body) { padding-top: var(--navbar-sticky-height); } /* Apply padding only if not landing page */
-     #navbar { display: none; }
-     .sticky-navbar { opacity: 1; transform: none; pointer-events: auto; transition: none; border-bottom: 1px solid var(--color-border); height: var(--navbar-sticky-height); }
-     .sticky-navbar .container { justify-content: space-between !important; }
-     .container, .hero-carousel-wrapper, .product-section, .sidekick-section, section { padding-left: 1.5rem; padding-right: 1.5rem; }
-     .sticky-navbar .nav-logo { margin-right: 0 !important; height: 24px; }
-     .sticky-navbar .mobile-menu-toggle { display: block !important; margin-left: 0 !important; order: 0 !important;}
-     .nav-utility-placeholder { display: none !important; }
-     .sticky-navbar .nav-links { display: none !important; margin: 0 !important; }
-     .sticky-navbar .nav-links.mobile-nav-menu { display: none; position: absolute; top: var(--navbar-sticky-height); left: 0; right: 0; background-color: var(--color-background); flex-direction: column; padding: 0.8rem 0; align-items: center; gap: 0.3rem; z-index: 1000; width: 100%; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-top: 1px solid var(--color-border); }
-     .sticky-navbar .nav-links.mobile-nav-menu.is-open { display: flex !important; }
-     .sticky-navbar .mobile-nav-menu .nav-item { width: 100%; text-align: center; }
-     .sticky-navbar .mobile-nav-menu .nav-item span { display: block; padding: 0.6rem 1rem; font-size: 0.8rem; width: 100%; box-sizing: border-box; font-weight: 600; letter-spacing: 0.05em; }
-     .sticky-navbar .nav-item:hover .mega-menu, .sticky-navbar .nav-item:focus-within .mega-menu { display: none; }
-     .sticky-navbar .mega-menu { display: none; position: static; transform: none; box-shadow: none; padding: 0.5rem 0; background-color: transparent !important; width: 100%; text-align: center; margin-top: 0; border: none !important; }
-     .sticky-navbar .nav-item.submenu-open > .mega-menu { display: flex; flex-direction: column; gap: 0; }
-     .sticky-navbar .mobile-nav-menu .mega-menu a { color: var(--color-text-subtle); font-size: 0.8rem; white-space: normal; padding: 0.6rem 1rem; display: block; width: 100%; box-sizing: border-box; letter-spacing: 0.03em; transition: background-color 0.3s ease; }
-     .sticky-navbar .mobile-nav-menu .mega-menu a:hover { text-decoration: underline; background-color: #f7f7f7; }
-     .hero-carousel { aspect-ratio: 1 / 1; }
-     .carousel-button { display: none; }
-     .product-section { grid-template-columns: 1fr 1fr; gap: 1rem; margin: var(--section-vertical-margin) auto; }
-     .sidekick-section { grid-template-columns: 1fr; margin: var(--section-vertical-margin) auto; }
-     .sidekick-section .text-block { text-align: center; }
-     .sidekick-section .text-block h2 { margin-left: auto; margin-right: auto; }
-     .sidekick-section .text-block p { margin-left: auto; margin-right: auto; }
-     .footer .container { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-     .footer .footer-section:last-child { grid-column: 1 / -1; }
-     section:not(.video-scrub-section) { margin: var(--section-vertical-margin) auto; padding: 0 var(--container-padding); }
-     .hero-text h1 { font-size: 1.5rem; letter-spacing: 0.03em; } .hero-text p { font-size: 1rem; }
-     section h2 { font-size: 1.4rem; letter-spacing: 0.03em; }
-      /* Video section stacking & NO pinning */
-      /* Base styles handle mobile layout now */
 
-      /* Mobile Shadow Removal */
-      .landing-text-overlay {
-          text-shadow: none;
-      }
-      .popup-content {
-          box-shadow: none;
-      }
-      .sticky-navbar .nav-links.mobile-nav-menu {
-          box-shadow: none; /* Remove shadow from expanded mobile nav */
-      }
-
-  }
-
-    /* Media query for explore section stacking */
-    @media (max-width: 767px) {
-       .explore-grid { grid-template-columns: 1fr; gap: 2rem; }
-       .explore-text-column { text-align: center; }
-        .explore-image-column { order: -1; }
-        .landing-headline {
-          font-size: 2.5rem; /* Adjust headline size */
-        }
-        .landing-subheadline {
-          font-size: 1.4rem; /* Increased from 1.0rem */
-        }
-        .landing-text-overlay {
-            width: 90%; /* Ensure it doesn't hit edges */
-            /* text-shadow: none; */ /* Already applied in max-width: 1023px */
-        }
-         #loading-text { /* Responsive loading text */
-            font-size: 1.8rem;
-            /* Inherits block centering and left text alignment */
-         }
-    }
-
-    @media (max-width: 480px) {
-     .container, .hero-carousel-wrapper, .product-section, .sidekick-section, section { padding-left: 1rem; padding-right: 1rem; }
-      .sticky-navbar .mobile-nav-menu .nav-item span { font-size: 0.75rem; letter-spacing: 0.04em; }
-      .sticky-navbar .mobile-nav-menu .mega-menu a { font-size: 0.75rem; letter-spacing: 0.02em; }
-      .hero-text h1 { font-size: 1.3rem; letter-spacing: 0.02em; }
-      .hero-text p { font-size: 0.9rem; }
-      section h2 { font-size: 1.3rem; letter-spacing: 0.02em; }
-      .product-block span { letter-spacing: 0.03em; }
-      .video-player-column { width: 100%; padding: 0; }
-      .video-pin-wrapper { width: 100%; max-width: none; }
-      .landing-headline {
-        font-size: 2rem; /* Further adjust headline size */
-      }
-      .landing-subheadline {
-        font-size: 1.2rem; /* Increased from 0.9rem */
-      }
-       #loading-text { /* Responsive loading text */
-            font-size: 1.5rem;
-            /* Inherits block centering and left text alignment */
-        }
-   }
-
-   /* ========================================
-     Desktop - Standard (1024px+) - Base 1x Scale
-     ======================================== */
-   @media (min-width: 1024px) {
-      body:not(.landing-page-body) { padding-top: 0; } /* Remove padding only if not landing page */
-      #navbar { display: block; }
-      #navbar .nav-inner { flex-direction: column; justify-content: center; }
-      #navbar .nav-logo-link { margin-bottom: 0.6rem; width: auto; }
-      #navbar .nav-links { display: flex; width: auto; max-width: var(--navbar-links-max-width); flex-grow: 0; justify-content: center; gap: var(--navbar-gap-initial-desktop); align-items: normal; }
-      #navbar .nav-item span { font-weight: 600; letter-spacing: 0.05em; }
-      .sticky-navbar .container { justify-content: normal; position: relative; }
-      .sticky-navbar .nav-logo-link { margin-right: auto; position: relative; z-index: 1; }
-      .sticky-navbar .nav-logo { height: 24px; }
-      .sticky-navbar .nav-links { position: absolute; left: 50%; top: 0; bottom: 0; transform: translateX(-50%); display: flex; gap: var(--navbar-gap-initial-desktop); justify-content: center; align-items: center; width: auto; max-width: var(--navbar-links-max-width); padding: 0; box-shadow: none; border-top: none; }
-      .mobile-menu-toggle { display: none; }
-      .nav-utility-placeholder { display: none; width: var(--placeholder-width-desktop); height: 24px; flex-shrink: 0; margin-left: auto; order: 4; pointer-events: none; }
-      .nav-utility-placeholder span { opacity: 0; user-select: none; display: inline-block; }
-      .nav-item:hover .mega-menu, .nav-item:focus-within .mega-menu { display: flex; }
-      .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding: 1rem; width: auto; min-width: max-content; margin-top: 0; text-align: left; flex-direction: column; gap: 0.5rem; background-color: var(--color-background); }
-      #navbar .mega-menu { background-color: var(--color-background-dark); }
-      .sticky-navbar .mega-menu { background-color: var(--color-background); }
-      .mega-menu a { padding: 0.2rem 0; display: block; width: auto; background-color: transparent; white-space: nowrap; letter-spacing: 0.03em; transition: color 0.3s ease; }
-      #navbar .mega-menu a { color: var(--color-text-light); }
-      .sticky-navbar .mega-menu a { color: var(--color-text-dark); }
-      #navbar .mega-menu a:hover { text-decoration: underline; }
-      .sticky-navbar .mega-menu a:hover { text-decoration: underline; }
-      .product-section { grid-template-columns: repeat(4, 1fr); margin: var(--section-vertical-margin) auto; }
-      .footer .container { grid-template-columns: 1fr 1fr 2fr; }
-      .sidekick-section { grid-template-columns: 1fr 1fr; margin: var(--section-vertical-margin) auto; }
-      .sidekick-section .text-block { text-align: left; }
-      .explore-section { margin-top: var(--section-vertical-margin); }
-      section:not(.video-scrub-section) { margin: var(--section-vertical-margin) auto; padding: 0 var(--container-padding); }
-
-      /* Video Scrub Section Desktop Overrides */
-      .video-scrub-section {
-        margin: var(--section-vertical-margin) auto;
-        height: var(--video-scrub-duration-height);
-        padding: 0;
-        /* Removed padding-bottom */
-      }
-      .video-content-wrapper {
-        display: flex; /* Use Flexbox */
-        flex-direction: row;
-        height: auto;
-        align-items: center; /* Vertically center columns */
-        gap: 3rem;
-        padding-top: 0;
-        width: 100%;
-        max-width: var(--container-max-width);
-        margin: 0 auto;
-        position: static; /* Not sticky */
-      }
-      .video-pin-wrapper {
-        /* UPDATED: Set explicit height */
-        height: var(--video-pin-height);
-        position: sticky;
-        top: 10vh; /* Adjusted pinning position */
-        width: 100%; /* Fill its column */
-        max-width: none;
-        /* UPDATED: Remove padding-bottom */
-        /* padding-bottom: 2rem; */
-        overflow: hidden; /* Added to contain video */
-      }
-      .video-player-column {
-        flex: 0 1 60%;
-        max-width: 60%;
-        grid-column: auto;
-        padding: 0;
-        order: 0;
-        height: auto; /* Let pin wrapper control height */
-        display: block;
-        width: auto;
-      }
-      .video-text-column {
-        flex: 1;
-        min-width: 0;
-        grid-column: auto;
-        display: block;
-        justify-content: initial;
-        height: auto;
-        padding-left: 1rem;
-        padding-right: 0;
-        text-align: left;
-        order: 0;
-        padding-top: 0;
-        position: relative; /* Keep stacking context */
-        z-index: 1;
-        width: auto;
-      }
-      #heel-scrub-video {
-        /* UPDATED: Fill explicit height of wrapper */
-        width: auto;
-        height: 100%;
-        aspect-ratio: 1 / 1; /* Keep 1:1 */
-        object-fit: contain; /* Use contain to ensure square is visible */
-        max-height: none;
-      }
-   }
-
-   /* ========================================
-     Scaling for Medium-High Res Displays (~1.25x Scale) - UPDATED
-     ======================================== */
-/* Responsive fixes for 1440p and similar screen widths */
-@media (min-width: 1400px) and (max-width: 1919px) {
-  .hero-carousel a {
-    max-width: 100%;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .section-wrapper,
-  .video-scrub-section,
-  .content-block,
-  .page-section {
-    padding-left: 4rem;
-    padding-right: 4rem;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  .video-content-wrapper {
-    width: 100%;
-    padding: 2rem 0;
-  }
-
-  header .nav-container,
-  #sticky-navbar .nav-container {
-    max-width: 90%;
-    margin: 0 auto;
-  }
-}
-
-
-   /* ========================================
-     Scaling for High Res Displays (~1.5x Scale)
-     ======================================== */
-   @media (min-width: 1920px) {
-      html { font-size: 150%; }
-       :root {
-         --navbar-sticky-height: 60px;
-         --placeholder-width-desktop: 120px;
-         --container-max-width: 1650px;
-         --navbar-links-max-width: 1221px;
-         --social-icon-size: 36px;
-         --form-input-max-width: 375px;
-         --sticky-nav-translateY: -30px;
-      }
-      #navbar .nav-logo { height: 68px; width: auto; max-height: none; }
-      .sticky-navbar .nav-logo { height: 36px; width: auto; max-height: none; }
-      .nav-utility-placeholder { height: 36px; }
-      .social-icons img { width: var(--social-icon-size); height: var(--social-icon-size); }
-      .footer form input[type="email"] { max-width: var(--form-input-max-width); }
-      .sticky-navbar { transform: translateY(var(--sticky-nav-translateY)); }
-      #navbar .nav-links { max-width: var(--navbar-links-max-width); }
-      .sticky-navbar .nav-links { max-width: var(--navbar-links-max-width); }
-      .video-pin-wrapper { top: 10vh; } /* Keep consistent top */
-   }
-   /* ========================================
-   Scaling for Ultra-High Res Displays (8K+)
-   ======================================== */
-@media (min-width: 3840px) {
-  html { font-size: 175%; }
-
-  :root {
-    --navbar-sticky-height: 72px;
-    --placeholder-width-desktop: 140px;
-    --container-max-width: 2000px;
-    --navbar-links-max-width: 1350px;
-    --social-icon-size: 40px;
-    --form-input-max-width: 400px;
-    --sticky-nav-translateY: -36px;
-  }
-
-  #navbar .nav-logo { height: 76px; width: auto; max-height: none; }
-  .sticky-navbar .nav-logo { height: 40px; width: auto; max-height: none; }
-  .nav-utility-placeholder { height: 40px; }
-  .social-icons img { width: var(--social-icon-size); height: var(--social-icon-size); }
-  .footer form input[type="email"] { max-width: var(--form-input-max-width); }
-  .sticky-navbar { transform: translateY(var(--sticky-nav-translateY)); }
-  #navbar .nav-links,
-  .sticky-navbar .nav-links { max-width: var(--navbar-links-max-width); }
-  .video-pin-wrapper { top: 10vh; }
-}
 
 @media (max-width: 767px) {
   /* Swap waitlist button text on mobile */
@@ -1026,19 +708,17 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
     font-size: 1.5rem !important;
     font-weight: 700 !important;
   }
-  /* Ensure header Instagram icon shows on mobile */
-  .mobile-instagram-link {
-    display: inline-block !important;
-    margin-left: 1rem !important;
-  }
 
-  /* Adjust email and Instagram icon positioning on mobile contact page */
+  /* Stabilize contact email and move Instagram icon on mobile contact page */
   .contact-email {
-    margin-top: -0.5rem !important; /* Move email up by one line */
+    white-space: nowrap !important;
+    overflow: visible !important;
+    font-size: 1.4rem !important;
+    margin-top: -0.5rem !important;
   }
-  .mobile-instagram-link {
+  .contact-email + .mobile-instagram-link {
     display: block !important;
-    margin-top: 1.5rem !important;  /* Place icon about 6 lines below email */
+    margin: 1.5rem auto 0 auto !important;
     text-align: center;
   }
 }
