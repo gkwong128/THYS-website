@@ -3,93 +3,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded and parsed"); // General check
 
-    // ===== Loading Screen Logic (Runs Once Per Session for Landing Page) Start =====
-    const loadingScreen = document.getElementById('loading-screen');
-    const loadingTextElement = document.getElementById('loading-text');
-    const loadingSessionKey = 'hasVisitedLandingPage'; // Use the specific key
-
-    if (document.body.classList.contains('landing-page-body')) { // Check if we are on the landing page
-        if (sessionStorage.getItem(loadingSessionKey)) {
-            if (loadingScreen) {
-                // Only on subsequent visits: hide the loader immediately (keep initial hiding logic direct for safety)
-                loadingScreen.style.opacity = '0';
-                loadingScreen.style.pointerEvents = 'none';
-                setTimeout(() => { loadingScreen.classList.remove('show'); }, 0);
-            }
-        } else if (loadingScreen && loadingTextElement) {
-            console.log("First visit to landing page this session, showing loading screen.");
-            sessionStorage.setItem(loadingSessionKey, 'true'); // Set the key
-
-            // Show loader using CSS class
-            loadingScreen.classList.add('show');
-            loadingTextElement.innerHTML = 'You are a <span id="loading-word">friend</span>';
-            const loadingWordSpan = document.getElementById('loading-word');
-
-            if (loadingWordSpan) {
-                const wordsSequence = [ /* ... words sequence ... */
-                    { word: "dreamer", delay: 600 }, { word: "leader", delay: 560 },
-                    { word: "storyteller", delay: 520 }, { word: "lover", delay: 470 },
-                    { word: "rebel", delay: 420 }, { word: "collaborator", delay: 360 },
-                    { word: "daughter", delay: 300 }, { word: "mentor", delay: 250 },
-                    { word: "woman", delay: 210 }, { word: "mother", delay: 180 },
-                    { word: "sister", delay: 150 }, { word: "creator", delay: 130 },
-                    { word: "doer", delay: 110 }, { word: "trend setter", delay: 95 },
-                    { word: "fashionista", delay: 80 }, { word: "care taker", delay: 70 },
-                    { word: "visionary", delay: 60 }, { word: "trailblazer", delay: 55 },
-                    { word: "healer", delay: 50 }, { word: "protector", delay: 50 },
-                    { word: "listener", delay: 50 }, { word: "multitasker", delay: 50 },
-                    { word: "storyteller", delay: 50 }, { word: "fighter", delay: 50 },
-                    { word: "nurturer", delay: 50 }, { word: "strategist", delay: 50 },
-                    { word: "explorer", delay: 50 }, { word: "provider", delay: 50 },
-                    { word: "student", delay: 50 }, { word: "human", delay: 50 },
-                ];
-                const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-                const animateWords = async () => {
-                  try {
-                    for (const item of wordsSequence) {
-                      const effectiveDelay = Math.max(item.delay, 0);
-                      await delay(effectiveDelay);
-                      const currentWordSpan = document.getElementById('loading-word');
-                      if (!currentWordSpan) return;
-                      currentWordSpan.textContent = item.word;
-                    }
-                    if (loadingTextElement) {
-                        loadingTextElement.innerHTML = 'You are <span class="accent-word">human</span>';
-                    }
-                    await delay(400);
-                    if (loadingScreen) loadingScreen.classList.add('hidden');
-                    await delay(600);
-                    if (loadingScreen) loadingScreen.classList.remove('show');
-                  } catch (error) {
-                      console.error("Error loading anim:", error);
-                      if (loadingScreen) {
-                          // On error, just hide loader
-                          loadingScreen.classList.remove('show');
-                      }
-                  }
-                };
-                animateWords();
-            } else {
-                 console.error("#loading-word span not found after reset!");
-                 if (loadingScreen) loadingScreen.classList.remove('show');
-            }
-        } else {
-             let missing = [];
-             if (!loadingScreen) missing.push("#loading-screen");
-             if (!loadingTextElement) missing.push("#loading-text");
-             if (missing.length > 0 && document.body.classList.contains('landing-page-body')) {
-                console.error(`Loading screen HTML elements not found: ${missing.join(', ')}`);
-             }
-             if (loadingScreen) loadingScreen.classList.remove('show');
-        }
-    } else {
-        if (loadingScreen) {
-             loadingScreen.classList.remove('show');
-        }
-    }
-    // ===== Loading Screen Logic End =====
-
-
     // ===== Timer Popup Logic Start =====
     const popup = document.getElementById('timer-popup');
     const popupStep1 = document.getElementById('popup-step-1');
@@ -338,6 +251,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+   // ===== Loading Screen Logic (RUNS ONCE PER SESSION for index.html) Start =====
+   const loadingScreen = document.getElementById('loading-screen');
+   const loadingTextElement = document.getElementById('loading-text'); // Get parent container
+   const sessionKey = 'hasVisitedLandingPage'; // Specific key for landing page visit
+ 
+   // Check if the landing page loading screen has already been shown this session
+   if (sessionStorage.getItem(sessionKey)) {
+     // Already visited this session, hide loader immediately without animation
+     if (loadingScreen) {
+       loadingScreen.style.opacity = '0'; // Start hidden
+       loadingScreen.style.pointerEvents = 'none';
+       // Use setTimeout to ensure it's removed after potential initial render flash
+       setTimeout(() => {
+           loadingScreen.style.display = 'none';
+       }, 0);
+       console.log("Landing page session active, skipping loading screen animation.");
+     }
+   } else if (loadingScreen && loadingTextElement) {
+     // First visit to landing page this session, show animation
+     console.log("First visit to landing page this session, showing loading screen animation.");
+ 
+     // Mark landing page as visited for this session *immediately*
+     sessionStorage.setItem(sessionKey, 'true');
+ 
+     // --- Reset state for the animation ---
+     loadingScreen.style.opacity = '1';
+     loadingScreen.style.display = 'flex';
+     loadingScreen.classList.remove('hidden');
+     // Typing animation for three lines with colored "you"
+     const lines = [
+       'unlimited heights',
+       'unlimited transformation',
+       'unlimited you'
+     ];
+     // Clear and prepare text container
+     loadingTextElement.innerHTML = '<span id="typed"></span>';
+     const typed = document.getElementById('typed');
+     let lineIndex = 0, charIndex = 0;
+     const typeSpeed = 30; // even faster typing speed
+
+     const typeLine = () => {
+       const line = lines[lineIndex];
+       if (charIndex < line.length) {
+         typed.innerHTML += line.charAt(charIndex);
+         charIndex++;
+         setTimeout(typeLine, typeSpeed);
+       } else {
+         lineIndex++;
+         charIndex = 0;
+         if (lineIndex < lines.length) {
+           typed.innerHTML += '<br>';
+           setTimeout(typeLine, typeSpeed);
+         } else {
+           // Color the final word "you"
+           typed.innerHTML = typed.innerHTML.replace(/you$/, '<span class="accent-word">you</span>');
+           // Fade out after typing completes
+           setTimeout(() => {
+             if (loadingScreen) loadingScreen.classList.add('hidden');
+             setTimeout(() => {
+               if (loadingScreen) loadingScreen.style.display = 'none';
+             }, 600);
+           }, 1500);
+         }
+       }
+     };
+
+     // Start typing animation
+     typeLine();
+   } else {
+       // Handle missing loading screen elements on landing page
+       let missing = [];
+       if (!loadingScreen) missing.push("#loading-screen");
+       if (!loadingTextElement) missing.push("#loading-text");
+       console.error(`Loading screen HTML elements not found: ${missing.join(', ')}`);
+       // Ensure screen doesn't block if missing
+       if (loadingScreen) loadingScreen.style.display = 'none';
+   }
+   // ===== Loading Screen Logic End =====
 
     // ===== Hamburger Menu Toggle (All Pages) =====
     const menuToggle = document.querySelector('.landing-menu-toggle');
@@ -354,19 +345,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== Hamburger Menu Toggle End =====
 
 
-    // ===== Original script.js Logic (Carousel, Sticky Nav, Video Scrub, etc.) Start =====
-    // Add checks for element existence before running logic
+    // ===== Learnsimple Page “You are human” Animation =====
+    if (window.location.pathname.endsWith('learn.html')) {
+      const loadingText = document.getElementById('loading-text');
+      if (loadingText) {
+        // Ensure text is white
+        loadingText.style.color = '#000000';
 
-    // --- Variable Setup ---
-    const stickyNavbar = document.getElementById('sticky-navbar');
-    const nonStickyNavbar = document.getElementById('navbar');
-    const heroCarousel = document.querySelector('.hero-carousel');
-    const slides = heroCarousel ? heroCarousel.querySelectorAll('.hero-carousel > a') : null;
-    const prevBtn = heroCarousel ? document.querySelector('.carousel-button.prev') : null;
-    const nextBtn = heroCarousel ? document.querySelector('.carousel-button.next') : null;
-    const indicatorContainer = document.querySelector('.carousel-indicators');
-    let indicators = []; let currentSlide = 0; let slideInterval;
-    const desktopBreakpoint = 1024;
+        // Original-timing sequence with delays
+        const wordsSequence = [
+          { word: "a dreamer", delay: 600 }, { word: "a leader", delay: 560 },
+          { word: "a storyteller", delay: 520 }, { word: "a lover", delay: 470 },
+          { word: "a rebel", delay: 420 }, { word: "a collaborator", delay: 360 },
+          { word: "a daughter", delay: 300 }, { word: "a mentor", delay: 250 },
+          { word: "a woman", delay: 210 }, { word: "a mother", delay: 180 },
+          { word: "a sister", delay: 150 }, { word: "a creator", delay: 130 },
+          { word: "a doer", delay: 110 }, { word: "a trend setter", delay: 95 },
+          { word: "a fashionista", delay: 80 }, { word: "a care taker", delay: 70 },
+          { word: "a visionary", delay: 60 }, { word: "a trailblazer", delay: 55 },
+          { word: "a healer", delay: 50 }, { word: "a protector", delay: 50 },
+          { word: "a listener", delay: 50 }, { word: "a multitasker", delay: 50 },
+          { word: "a fighter", delay: 50 }, { word: "a nurturer", delay: 50 },
+          { word: "a strategist", delay: 50 }, { word: "a explorer", delay: 50 },
+          { word: "a provider", delay: 50 }, { word: "a student", delay: 50 },
+          { word: "human", delay: 50 }
+        ];
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+
+        // Looping async animation with original timings
+        (async function loopHuman() {
+          for (const item of wordsSequence) {
+            loadingText.textContent = 'You are ' + item.word;
+            await delay(item.delay);
+          }
+          // Final colored "human"
+          loadingText.innerHTML = 'You are <span style="color:#000000">human</span>';
+          await delay(1000);
+          // Repeat
+          loopHuman();
+        })();
+      }
+    }
+    // ===== End Learnsimple “You are human” Animation =====
 
 
 
@@ -424,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
             // Recalculate sticky nav visibility on resize
-            if (stickyNavbar || nonStickyNavbar) { handleScroll(); }
+            // (Removed stickyNavbar/nonStickyNavbar reference and handleScroll call)
         }, 150);
      }, { passive: true });
 

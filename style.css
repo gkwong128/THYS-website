@@ -752,3 +752,43 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
     margin-left: 0.5rem !important; /* small space between the parts */
   }
 }
+/* Hide page content until loading screen finishes */
+body.loading-active > :not(#loading-screen) {
+  display: none !important;
+}
+/* Override for LearnSimple page text and menu icon */
+body.learn-page-body {
+  color: var(--color-text-dark) !important;
+}
+
+body.learn-page-body .landing-menu-toggle,
+body.learn-page-body .landing-menu-toggle svg {
+  color: var(--color-text-dark) !important;
+  stroke: var(--color-text-dark) !important;
+}
+
+/* Ensure headings, paragraphs, links are black */
+body.learn-page-body h1,
+body.learn-page-body h2,
+body.learn-page-body h3,
+body.learn-page-body h4,
+body.learn-page-body h5,
+body.learn-page-body h6,
+body.learn-page-body p,
+body.learn-page-body li,
+body.learn-page-body a {
+  color: var(--color-text-dark) !important;
+}
+
+/* Exclude buttons from this override */
+body.learn-page-body button,
+body.learn-page-body .landing-button,
+body.learn-page-body .join-waitlist-button {
+  color: inherit !important;
+}
+
+/* Ensure popup text remains default */
+body.learn-page-body #timer-popup,
+body.learn-page-body #timer-popup * {
+  color: initial !important;
+}
