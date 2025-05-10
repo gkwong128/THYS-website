@@ -174,7 +174,7 @@ exports.handler = async (event) => {
              <h1 style="font-family:Italiana, serif; margin:0 0 1rem; color:#000000;">Thanks for Joining Our Waitlist!</h1>
              <p style="font-family:Manrope, sans-serif; color:#333333; line-height:1.5; margin:0 0 1.5rem;">
                Hello ${name},<br><br>
-               We’re thrilled to have you in the THYS community. You’ll be the first to receive updates and early access to THYS.
+               We’re thrilled to have you in the THYS community.
              </p>
            </td>
          </tr>
