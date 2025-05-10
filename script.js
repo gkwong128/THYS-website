@@ -346,7 +346,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ===== Learnsimple Page “You are human” Animation =====
-    if (window.location.pathname.endsWith('learn.html')) {
+    if (document.getElementById('loading-text') &&
+        document.getElementById('loading-word')) {
+    
       const youareText = document.getElementById('loading-text');
       const youareWord = document.getElementById('loading-word');
       if (youareText && youareWord) {
