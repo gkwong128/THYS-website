@@ -379,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
             await delay(item.delay);
           }
           // Final colored "human"
-          youareText.innerHTML = 'You are <span style="color:#000000">human</span>';
+          youareText.innerHTML = 'You are human</span>';
           await delay(1000);
           // Repeat
           loopHuman();
