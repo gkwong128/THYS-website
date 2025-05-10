@@ -137,7 +137,7 @@ exports.handler = async (event) => {
          <!-- Footer -->
          <tr bgcolor="#f5f5f5">
            <td align="center" style="padding:1.5rem;">
-             <a href="https://www.instagram.com/THYS/" target="_blank" style="text-decoration:none;">
+             <a href="https://www.instagram.com/thisisthys/" target="_blank" style="text-decoration:none;">
                <img src="https://www.thys.co/instagramicon.png" alt="Instagram" style="display:inline-block; width:32px; height:auto; margin:0 0.5rem; mix-blend-mode: normal !important; filter: none !important;">
              </a>
              <p style="font-family:Manrope, sans-serif; color:#333333; margin:1rem 0 0;">
@@ -174,14 +174,14 @@ exports.handler = async (event) => {
              <h1 style="font-family:Italiana, serif; margin:0 0 1rem; color:#000000;">Thanks for Joining Our Waitlist!</h1>
              <p style="font-family:Manrope, sans-serif; color:#333333; line-height:1.5; margin:0 0 1.5rem;">
                Hello ${name},<br><br>
-               We’re thrilled to have you. You’ll be the first to receive exclusive updates and early access to THYS.
+               We’re thrilled to have you in the THYS community. You’ll be the first to receive updates and early access to THYS.
              </p>
            </td>
          </tr>
          <!-- Footer -->
          <tr bgcolor="#f5f5f5">
            <td align="center" style="padding:1.5rem;">
-             <a href="https://www.instagram.com/THYS/" target="_blank" style="text-decoration:none;">
+             <a href="https://www.instagram.com/thisisthys/" target="_blank" style="text-decoration:none;">
                <img src="https://www.thys.co/instagramicon.png" alt="Instagram" style="display:inline-block; width:32px; height:auto; margin:0 0.5rem; mix-blend-mode: normal !important; filter: none !important;">
              </a>
              <p style="font-family:Manrope, sans-serif; color:#333333; margin:1rem 0 0;">
