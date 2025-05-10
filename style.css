@@ -752,3 +752,8 @@ body.loading-active > :not(#loading-screen) {
   stroke: #000000 !important;
   fill: #000000 !important;
 }
+/* Force black text for learn page animation */
+body.learn-page-body #loading-text,
+body.learn-page-body #loading-text * {
+  color: #000000 !important;
+}

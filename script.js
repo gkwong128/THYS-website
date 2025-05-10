@@ -348,7 +348,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== Learnsimple Page “You are human” Animation =====
     if (window.location.pathname.endsWith('learn.html')) {
       const youareText = document.getElementById('loading-text');
-      if (youareText) {
+      const youareWord = document.getElementById('loading-word');
+      if (youareText && youareWord) {
 
         youareText.style.color = '#000000';
 
@@ -375,13 +376,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Looping async animation with original timings
         (async function loopHuman() {
           for (const item of wordsSequence) {
-            youareText.textContent = 'You are ' + item.word;
+            // Remove accent style during the sequence
+            youareWord.classList.remove('accent-word');
+            youareWord.textContent = item.word;
             await delay(item.delay);
           }
-          // Final colored "human"
-          youareText.innerHTML = 'You are human</span>';
+          // Highlight the final word "human" and pause
+          youareWord.classList.add('accent-word');
+          youareWord.textContent = 'human';
           await delay(1000);
-          // Repeat
+          // Restart the loop
           loopHuman();
         })();
       }
