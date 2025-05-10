@@ -127,18 +127,6 @@
     width: 30ch; /* Fixed width for desktop */
     padding-left: 9ch; /* Adjust left padding for desktop */
     box-sizing: border-box;
-    color: var(--color-text-light); /* Make "You are a " visible */
-  }
-
-  /* Base style for the changing word span */
-  #loading-word {
-    display: inline; /* Default display */
-    vertical-align: baseline;
-    color: #8f859b;
-    /* Ensure font styles match */
-    font-size: inherit;
-    font-family: inherit;
-    letter-spacing: inherit;
   }
 
   .accent-word { /* Base style for the final "human" word */
@@ -755,40 +743,4 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 /* Hide page content until loading screen finishes */
 body.loading-active > :not(#loading-screen) {
   display: none !important;
-}
-/* Override for LearnSimple page text and menu icon */
-body.learn-page-body {
-  color: var(--color-text-dark) !important;
-}
-
-body.learn-page-body .landing-menu-toggle,
-body.learn-page-body .landing-menu-toggle svg {
-  color: var(--color-text-dark) !important;
-  stroke: var(--color-text-dark) !important;
-}
-
-/* Ensure headings, paragraphs, links are black */
-body.learn-page-body h1,
-body.learn-page-body h2,
-body.learn-page-body h3,
-body.learn-page-body h4,
-body.learn-page-body h5,
-body.learn-page-body h6,
-body.learn-page-body p,
-body.learn-page-body li,
-body.learn-page-body a {
-  color: var(--color-text-dark) !important;
-}
-
-/* Exclude buttons from this override */
-body.learn-page-body button,
-body.learn-page-body .landing-button,
-body.learn-page-body .join-waitlist-button {
-  color: inherit !important;
-}
-
-/* Ensure popup text remains default */
-body.learn-page-body #timer-popup,
-body.learn-page-body #timer-popup * {
-  color: initial !important;
 }

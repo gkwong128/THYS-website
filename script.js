@@ -347,10 +347,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== Learnsimple Page “You are human” Animation =====
     if (window.location.pathname.endsWith('learn.html')) {
-      const loadingText = document.getElementById('loading-text');
-      if (loadingText) {
-        // Ensure text is white
-        loadingText.style.color = '#000000';
+      const youareText = document.getElementById('loading-text');
+      if (youareText) {
+
+        youareText.style.color = '#000000';
 
         // Original-timing sequence with delays
         const wordsSequence = [
@@ -375,11 +375,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Looping async animation with original timings
         (async function loopHuman() {
           for (const item of wordsSequence) {
-            loadingText.textContent = 'You are ' + item.word;
+            youareText.textContent = 'You are ' + item.word;
             await delay(item.delay);
           }
           // Final colored "human"
-          loadingText.innerHTML = 'You are <span style="color:#000000">human</span>';
+          youareText.innerHTML = 'You are <span style="color:#000000">human</span>';
           await delay(1000);
           // Repeat
           loopHuman();
