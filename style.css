@@ -813,22 +813,35 @@ body.learn-page-body .accent-word{
     color:#000 !important;            /* override peach accent from landing */
 }
 
-/* Mobile layout adjustments for the looping “You are a … human” text */
 @media (max-width: 767px){
 
-    /* Raise the loader block slightly on Learn page */
-    body.learn-page-body #loading-screen{
-        padding-top:28vh !important;  /* was 35vh */
+    /* Keep loader block comfortably high on Learn page
+       and stop it jumping when `.show` toggles */
+    body.learn-page-body #loading-screen,
+    body.learn-page-body #loading-screen.show{
         align-items:flex-start !important;
         justify-content:center !important;
+        padding-top:24vh !important;   /* slightly higher than before */
     }
 
-    /* Widen the text block so “You are a” remains on one line */
+    /* Let the animated sentence use nearly the full width
+       so “You are a” stays on one line */
     body.learn-page-body #loading-text{
-        max-width:90% !important;
-        white-space:nowrap !important;
-        overflow:hidden;
-        text-overflow:ellipsis;
+        position:static !important;
+        top:auto !important;
+        left:auto !important;
+        transform:none !important;
+
+        width:95% !important;
+        max-width:none !important;
+        padding:0 !important;
+        text-align:center !important;
+
+        white-space:normal !important;    /* allow wrapping if truly needed */
+        overflow:visible !important;
+        text-overflow:clip !important;
+
+        font-size:2.2rem !important;      /* matches earlier mobile size */
     }
 }
 /* ===== Learn page desktop width tweak ===== */
@@ -837,4 +850,11 @@ body.learn-page-body #loading-text{
   max-width: 1200px !important; /* override the old 30 ch limit            */
   padding-left: 0 !important;   /* no desktop offset                       */
   text-align: center !important;
+}
+
+/* Ensure loader on Learn page starts in the same position on desktop too */
+body.learn-page-body #loading-screen{
+    align-items:flex-start;
+    justify-content:center;
+    padding-top:18vh;         /* raise slightly on larger screens */
 }
