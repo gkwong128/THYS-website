@@ -13,6 +13,10 @@
   font-style: normal;
   font-display: swap;
 }
+/* Hide manual mobile break on desktop */
+.landing-headline br.mobile-break {
+  display: none;
+}
 /* ========================================
    Waitlist Button Text Swap & Elevate Text Centering
    ======================================== */
@@ -320,8 +324,12 @@ body.landing-page-body #loading-screen #loading-text {
   /* Mobile Shadow Removal & Text Alignment */
   @media (max-width: 767px) {
     .landing-headline {
-      font-size: 5rem !important;      /* larger on mobile */
-      font-weight: 800 !important;     /* bolder on mobile */
+      font-size: 6rem !important;    /* bigger on mobile */
+      font-weight: 800 !important;
+    }
+    /* Show manual break on mobile */
+    .landing-headline br.mobile-break {
+      display: block !important;
     }
     .landing-subheadline { font-size: 1.4rem; }
     .landing-text-overlay {
