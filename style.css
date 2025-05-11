@@ -265,7 +265,16 @@ body.landing-page-body #loading-screen #loading-text {
       top: 45% !important;  /* shift up by ~1 row */
     }
   }
-  .landing-headline { font-family: var(--font-heading, serif); font-size: 3rem !important;        /* was 3.5rem – slightly larger */ font-weight: 700; line-height: 1.2; margin: 0 0 1.5rem 0; letter-spacing: 0.03em; color: var(--color-text-dark, #000);} /* Headline Black */
+.landing-headline {
+  font-family: var(--font-heading, serif);
+  font-size: 2.5rem !important;   /* slightly smaller on desktop */
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.03em;
+  color: var(--color-text-dark, #000);
+  text-shadow: none !important;   /* remove drop shadow */
+} /* Headline Black */
 .landing-subheadline {
   font-family: var(--font-default, sans-serif);
   font-size: 1.8rem;
@@ -638,12 +647,6 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   /* Swap waitlist button text on mobile */
   .join-waitlist-button .desktop-text { display: none; }
   .join-waitlist-button .mobile-text { display: inline; }
-
-  /* On all mobile widths, keep the email on one line */
-  .landing-text-overlay .landing-headline {
-    font-size: 1.4rem !important;    /* or whatever size fits your design */
-    white-space: nowrap !important;
-  }
 
   /* Center the "Elevate with THYS" heading */
   .elevate-text { text-align: center; }
