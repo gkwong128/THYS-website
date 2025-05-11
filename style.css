@@ -280,7 +280,7 @@ body.landing-page-body #loading-screen #loading-text {
 
   /* Mobile Shadow Removal & Text Alignment */
   @media (max-width: 767px) {
-    .landing-headline { font-size: 2.8rem; /* was 2.5rem */ }
+    .landing-headline { font-size: 3.2rem !important; }
     .landing-subheadline { font-size: 1.4rem; }
     .landing-text-overlay {
         width: 90%;
@@ -294,7 +294,7 @@ body.landing-page-body #loading-screen #loading-text {
     }
   }
   @media (max-width: 480px) {
-    .landing-headline { font-size: 2.2rem; /* was 2rem */ }
+    .landing-headline { font-size: 2.8rem !important; }
     .landing-subheadline { font-size: 1.2rem; }
   }
 
@@ -811,4 +811,43 @@ body.learn-page-body #loading-screen{
     top: 0 !important;
     left: 5.5ch !important;                     /* shift right by prefix width */
     white-space: nowrap !important;
+}
+# Mobile adjustments for landing-page loader text
+@media (max-width: 767px) {
+  body.landing-page-body #loading-screen #loading-text {
+    font-size: 1.6rem !important;           /* reduce font size for smaller screens */
+    width: 80vw !important;                /* constrain width to 80% of viewport */
+    padding-left: 0 !important;            /* remove desktop padding */
+    white-space: normal !important;        /* allow text to wrap to new lines */
+    overflow-wrap: break-word !important;  /* prevent overflow on long words */
+    text-align: center !important;         /* center align multiline text */
+  }
+}
+
+@media (max-width: 480px) {
+  body.landing-page-body #loading-screen #loading-text {
+    font-size: 1.4rem !important;           /* further reduce on very small screens */
+  }
+}
+
+/* Learn-page mobile: prefix and word on separate centered lines */
+@media (max-width: 767px) {
+  /* Ensure the animation container spans full width and is vertically centered */
+  .hero-human-animation {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: 100% !important;
+      text-align: center !important;
+      white-space: normal !important;  /* allow wrapping */
+  }
+  /* Force prefix and word onto separate lines and center them */
+  #loading-prefix,
+  #loading-word {
+      display: block !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+  }
 }
