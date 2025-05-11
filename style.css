@@ -1,3 +1,18 @@
+/* Load local fonts */
+@font-face {
+  font-family: 'Italiana';
+  src: url('Italiana-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('Manrope-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 /* ========================================
    Waitlist Button Text Swap & Elevate Text Centering
    ======================================== */
@@ -789,39 +804,21 @@ body.learn-page-body #loading-screen{
 }
 
 @media (max-width: 767px) {
-  body.landing-page-body #loading-screen #loading-text {
-    font-size: 1.6rem !important;           /* reduce font size for smaller screens */
-    width: 80vw !important;                /* constrain width to 80% of viewport */
-    padding-left: 0 !important;            /* remove desktop padding */
-    white-space: normal !important;        /* allow text to wrap to new lines */
-    overflow-wrap: break-word !important;  /* prevent overflow on long words */
-    text-align: center !important;         /* center align multiline text */
+/* Learn-page mobile: pin “You are” one line, dynamic word on the next */
+.hero-human-animation {
+    position: absolute !important;
+     top: 50% !important;
+     left: 50% !important;
+     transform: translate(-50%, -50%) !important;
+     width: 100% !important;
+     text-align: center !important;
+     white-space: normal !important;
   }
-}
-
-@media (max-width: 480px) {
-  body.landing-page-body #loading-screen #loading-text {
-    font-size: 1.4rem !important;           /* further reduce on very small screens */
-  }
-}
-
-/* Learn-page mobile: prefix and word on separate centered lines */
-@media (max-width: 767px) {
-  /* Ensure the animation container spans full width and is vertically centered */
-  .hero-human-animation {
-      position: absolute !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
-      width: 100% !important;
-      text-align: center !important;
-      white-space: normal !important;  /* allow wrapping */
-  }
-  /* Force prefix and word onto separate lines and center them */
+  /* Force prefix and word onto separate, centered lines */
   #loading-prefix,
   #loading-word {
       display: block !important;
-      width: 100% !important;
+     width: 100% !important;
       margin: 0 auto !important;
       text-align: center !important;
   }
