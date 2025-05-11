@@ -276,9 +276,9 @@ body.landing-page-body #loading-screen #loading-text {
   text-shadow: none !important;   /* remove drop shadow */
 } /* Headline Black */
 .landing-subheadline {
-  font-family: var(--font-default, sans-serif);
-  font-size: 1.8rem;
-  font-weight: 400;
+  font-family: var(--font-heading, serif);
+  font-size: 2rem;       /* slightly larger */
+  font-weight: 600;      /* bolder */
   line-height: 1.5;
   margin: 0 auto;
   letter-spacing: 0.02em;
@@ -341,7 +341,10 @@ body.landing-page-body #loading-screen #loading-text {
     .landing-headline br.mobile-break {
       display: block !important;
     }
-    .landing-subheadline { font-size: 1.4rem; }
+    .landing-subheadline {
+      font-size: 1.8rem !important;   /* slightly smaller than mobile headline */
+      font-weight: 600 !important;    /* keep it distinct but not overpowering */
+    }
     .landing-text-overlay {
         width: 90%;
         text-shadow: none; /* Remove text shadow on mobile */
