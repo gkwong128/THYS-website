@@ -798,6 +798,15 @@ body.learn-page-body .accent-word{
 
         font-size:2.2rem !important;      /* matches earlier mobile size */
     }
+
+    /* Mobile: expand learn page headline width and increase size */
+    body.learn-page-body .hero-simple h1 {
+        width: 90% !important;               /* allow it to span more of the viewport */
+        font-size: 2.4rem !important;        /* slightly larger for readability */
+        padding: 0 !important;               /* remove extra side padding */
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
 }
 /* ===== Learn page desktop width tweak ===== */
 body.learn-page-body #loading-text {
