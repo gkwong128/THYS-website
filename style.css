@@ -859,12 +859,14 @@ body.learn-page-body #loading-screen{
      text-align: center !important;
      white-space: normal !important;
   }
-  /* Force prefix and word onto separate, centered lines */
+  /* Force prefix and word onto separate, centered lines, reset positioning, allow wrapping */
   #loading-prefix,
   #loading-word {
-      display: block !important;
-     width: 100% !important;
-      margin: 0 auto !important;
+      position: static !important;       /* reset absolute positioning */
+      display: block !important;         /* each on its own line */
+      width: 100% !important;            /* span full container */
+      margin: 0 auto !important;         /* center align */
       text-align: center !important;
+      white-space: normal !important;    /* allow wrapping if needed */
   }
 }
