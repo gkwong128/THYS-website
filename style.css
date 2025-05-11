@@ -128,15 +128,7 @@
        box-sizing: border-box;
      }
    
-   .accent-word { /* Base style for the final "human" word */
-        color: #cdc5d6;   /* brand light‑purple accent for “you” on landing */
-        font-size: inherit;
-        font-family: inherit;
-        letter-spacing: inherit;
-        display: inline; /* Default display */
-        vertical-align: baseline;
-     }
-     
+
   #loading-screen.hidden { opacity: 0; pointer-events: none; }
 
   /* Mobile Loading Text Adjustments */
@@ -760,10 +752,10 @@ body.loading-active > :not(#loading-screen) {
   stroke: #000000 !important;
   fill: #000000 !important;
 }
-/* Use white text for the Learn‑page animation so it pops on a black bg */
+/* Learn-page animation text should be black */
 body.learn-page-body #loading-text,
 body.learn-page-body #loading-text * {
-  color: #ffffff !important;
+  color: #000 !important;
 }
 /* Match black background used on Index & Contact */
 body.learn-page-body{
@@ -853,11 +845,13 @@ body.learn-page-body .accent-word{
     }
 }
 /* ===== Learn page desktop width tweak ===== */
-body.learn-page-body #loading-text{
-  width: 90% !important;        /* wider, like the landing headline */
-  max-width: 1200px !important; /* override the old 30 ch limit            */
-  padding-left: 0 !important;   /* no desktop offset                       */
+body.learn-page-body #loading-text {
+  width: 90% !important;
+  max-width: 1200px !important;
+  padding-left: 0 !important;
   text-align: center !important;
+  white-space: normal !important;            /* allow long words to wrap */
+  overflow-wrap: break-word !important;      /* don’t orphan last letters */
 }
 
 /* Ensure loader on Learn page starts in the same position on desktop too */

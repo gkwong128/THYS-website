@@ -1,6 +1,65 @@
 // script.js - Combined script for landing page and learn page
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Global loader sync flags and checker (available to entire callback)
+    let videoLoaded = false;
+    let typingDone  = false;
+    function hideLoaderIfReady() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (videoLoaded && typingDone && loadingScreen) {
+            loadingScreen.classList.add('hidden');
+            document.body.classList.remove('landing-loading');
+            setTimeout(() => { loadingScreen.style.display = 'none'; }, 600);
+        }
+    }
+    // In-place Learn-page animation (skip loading overlay logic)
+    if (document.body.classList.contains('learn-page-body')) {
+        const learnTextEl = document.querySelector('.hero-human-animation #loading-text');
+        const learnWordEl = document.querySelector('.hero-human-animation #loading-word');
+        if (learnTextEl && learnWordEl) {
+            const wordsSequence = [
+                { word: 'dreamer', delay: 600 },
+                { word: 'leader', delay: 560 },
+                { word: 'storyteller', delay: 520 },
+                { word: 'lover', delay: 470 },
+                { word: 'rebel', delay: 420 },
+                { word: 'collaborator', delay: 360 },
+                { word: 'daughter', delay: 300 },
+                { word: 'mentor', delay: 250 },
+                { word: 'woman', delay: 210 },
+                { word: 'mother', delay: 180 },
+                { word: 'sister', delay: 150 },
+                { word: 'creator', delay: 130 },
+                { word: 'doer', delay: 110 },
+                { word: 'trend setter', delay: 95 },
+                { word: 'fashionista', delay: 80 },
+                { word: 'care taker', delay: 70 },
+                { word: 'visionary', delay: 60 },
+                { word: 'trailblazer', delay: 55 },
+                { word: 'healer', delay: 50 },
+                { word: 'protector', delay: 50 },
+                { word: 'listener', delay: 50 },
+                { word: 'multitasker', delay: 50 },
+                { word: 'fighter', delay: 50 },
+                { word: 'nurturer', delay: 50 },
+                { word: 'strategist', delay: 50 },
+                { word: 'explorer', delay: 50 },
+                { word: 'provider', delay: 50 },
+                { word: 'student', delay: 50 },
+                { word: 'human', delay: 50 }
+            ];
+            const pause = ms => new Promise(res => setTimeout(res, ms));
+            (async function animateLearn() {
+                for (const { word, delay: ms } of wordsSequence) {
+                    learnTextEl.textContent = 'You are ';
+                    learnTextEl.appendChild(learnWordEl);
+                    learnWordEl.textContent = word;
+                    await pause(ms);
+                }
+                animateLearn();
+            })();
+        }
+    }
     console.log("DOM fully loaded and parsed"); // General check
     let skipLoader = false;   // true when we bypass the "Unlimited You" screen
 
@@ -253,97 +312,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
    // ===== Loading Screen Logic (RUNS ONCE PER SESSION for index.html) Start =====
-   const loadingScreen = document.getElementById('loading-screen');
-   const loadingText   = document.getElementById('loading-text');
-   if (!loadingScreen || !loadingText) {
-       console.warn('Learn page: loader markup missing; starting animation anyway');
-   }
-   
-   // --- Loader/Hero sync flags ---
-   let videoLoaded  = false;   // set true when <video> fires loadeddata
-   let typingDone   = false;   // set true when "unlimited you" animation finishes
-
-   function hideLoaderIfReady() {
-       if (videoLoaded && typingDone && loadingScreen) {
-           loadingScreen.classList.add('hidden');                 // fade out (CSS handles opacity)
-           document.body.classList.remove('landing-loading');     // unhide hero elements via CSS
-           setTimeout(() => { loadingScreen.style.display = 'none'; }, 600);
-       }
-   }
-   const sessionKey  = 'landingPageShown';
-   const isLanding   = document.body.classList.contains('landing-page-body');
-
-   // Check if the landing page loading screen has already been shown this session
-   if (isLanding && sessionStorage.getItem(sessionKey)) {
-     /* Already visited this session → skip the animation
-        and make sure the main page is immediately visible. */
-     if (loadingScreen) {
-       loadingScreen.style.display = 'none';
-       loadingScreen.classList.add('hidden');
-     }
-     /* Remove the flag that keeps hero elements invisible */
-     document.body.classList.remove('landing-loading');
-
-     /* Mark the sync flags so hideLoaderIfReady() isn’t needed */
-     videoLoaded = true;
-     typingDone  = true;
-     skipLoader = true;
-   } else if (loadingScreen && loadingText) {
-     // First visit to landing page this session, show animation
-     console.log("First visit to landing page this session, showing loading screen animation.");
- 
-     // Mark landing page as visited for this session *immediately*
-     if (isLanding) {
-      sessionStorage.setItem(sessionKey, 'true');
-  }
- 
-     // --- Reset state for the animation ---
-     loadingScreen.style.opacity = '1';
-     loadingScreen.style.display = 'flex';
-     loadingScreen.classList.remove('hidden');
-     // Typing animation for three lines with colored "you"
-     const lines = [
-       'unlimited heights',
-       'unlimited transformation',
-       'unlimited you'
-     ];
-     // Clear and prepare text container
-     loadingText.innerHTML = '<span id="typed"></span>';
-     const typed = document.getElementById('typed');
-     let lineIndex = 0, charIndex = 0;
-     const typeSpeed = 30; // even faster typing speed
-
-     const typeLine = () => {
-       const line = lines[lineIndex];
-       if (charIndex < line.length) {
-         typed.innerHTML += line.charAt(charIndex);
-         charIndex++;
-         setTimeout(typeLine, typeSpeed);
+   const isLanding = document.body.classList.contains('landing-page-body');
+   if (isLanding) {
+       const loadingScreen = document.getElementById('loading-screen');
+       const loadingText   = document.getElementById('loading-text');
+       if (!loadingScreen || !loadingText) {
+           console.error('Landing page: loader elements missing; loader logic skipped.');
        } else {
-         lineIndex++;
-         charIndex = 0;
-         if (lineIndex < lines.length) {
-           typed.innerHTML += '<br>';
-           setTimeout(typeLine, typeSpeed);
-         } else {
-           // Color the final word "you"
-           typed.innerHTML = typed.innerHTML.replace(/you$/, '<span class="accent-word">you</span>');
-           // Delay briefly so the user sees the final line, then mark typing finished
-           setTimeout(() => {
-               typingDone = true;
-               hideLoaderIfReady();
-           }, 1500);
-         }
-       }
-     };
+           const sessionKey = 'landingPageShown';
+           // First visit: show loading animation
+           if (!sessionStorage.getItem(sessionKey)) {
+               // mark as shown and reset state
+               sessionStorage.setItem(sessionKey, 'true');
+               loadingScreen.style.opacity = '1';
+               loadingScreen.style.display = 'flex';
+               loadingScreen.classList.remove('hidden');
 
-     // Start typing animation
-     typeLine();
-   } else {
-       // Loader markup missing (e.g., on Learn page) – treat as already loaded
-       videoLoaded = true;
-       typingDone  = true;
-       hideLoaderIfReady();
+               // typing animation
+               const lines = [
+                   'unlimited heights',
+                   'unlimited transformation',
+                   'unlimited you'
+               ];
+               loadingText.innerHTML = '<span id="typed"></span>';
+               const typed = document.getElementById('typed');
+               let lineIndex = 0, charIndex = 0;
+               const typeSpeed = 30;
+
+               function typeLine() {
+                   const line = lines[lineIndex];
+                   if (charIndex < line.length) {
+                       typed.innerHTML += line.charAt(charIndex++);
+                       setTimeout(typeLine, typeSpeed);
+                   } else {
+                       lineIndex++;
+                       charIndex = 0;
+                       if (lineIndex < lines.length) {
+                           typed.innerHTML += '<br>';
+                           setTimeout(typeLine, typeSpeed);
+                       } else {
+                           setTimeout(() => {
+                               typingDone = true;
+                               hideLoaderIfReady();
+                           }, 1500);
+                       }
+                   }
+               }
+               typeLine();
+           } else {
+               // Subsequent visits: skip loader immediately
+               loadingScreen.style.display = 'none';
+               loadingScreen.classList.add('hidden');
+               document.body.classList.remove('landing-loading');
+               videoLoaded = true;
+               typingDone  = true;
+               hideLoaderIfReady();
+           }
+       }
    }
    // ===== Loading Screen Logic End =====
 
@@ -362,59 +387,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== Hamburger Menu Toggle End =====
 
 
-    // ===== Learn page “You are human” Animation =====
-    if (document.body.classList.contains('learn-page-body') &&
-        document.getElementById('loading-text') &&
-        document.getElementById('loading-word')) {
-    
-      const youareText = document.getElementById('loading-text');
-      const youareWord = document.getElementById('loading-word');
-      if (youareText && youareWord) {
-
-        youareText.style.color = '#000000';
-        // Keep "You are a" together on one line by replacing spaces with non-breaking spaces
-        if (youareText.firstChild && youareText.firstChild.nodeType === 3) {
-           youareText.firstChild.textContent = 'You\u00A0are\u00A0a\u00A0';
-        }
-
-        // Updated sequence without leading "a " in words
-        const wordsSequence = [
-          { word: "dreamer", delay: 600 }, { word: "leader", delay: 560 },
-          { word: "storyteller", delay: 520 }, { word: "lover", delay: 470 },
-          { word: "rebel", delay: 420 }, { word: "collaborator", delay: 360 },
-          { word: "daughter", delay: 300 }, { word: "mentor", delay: 250 },
-          { word: "woman", delay: 210 }, { word: "mother", delay: 180 },
-          { word: "sister", delay: 150 }, { word: "creator", delay: 130 },
-          { word: "doer", delay: 110 }, { word: "trend setter", delay: 95 },
-          { word: "fashionista", delay: 80 }, { word: "care taker", delay: 70 },
-          { word: "visionary", delay: 60 }, { word: "trailblazer", delay: 55 },
-          { word: "healer", delay: 50 }, { word: "protector", delay: 50 },
-          { word: "listener", delay: 50 }, { word: "multitasker", delay: 50 },
-          { word: "fighter", delay: 50 }, { word: "nurturer", delay: 50 },
-          { word: "strategist", delay: 50 }, { word: "explorer", delay: 50 },
-          { word: "provider", delay: 50 }, { word: "student", delay: 50 },
-          { word: "human", delay: 50 }
-        ];
-        const delay = ms => new Promise(res => setTimeout(res, ms));
-
-        // Looping async animation with original timings
-        (async function loopHuman() {
-          for (const item of wordsSequence) {
-            // Remove accent style during the sequence
-            youareWord.classList.remove('accent-word');
-            youareWord.textContent = item.word;
-            await delay(item.delay);
-          }
-          // Show the final word “human” (no accent colour) and pause
-          youareWord.classList.remove('accent-word');  // ensure accent is off
-          youareWord.textContent = 'human';
-          await delay(1000);
-          // Restart the loop
-          loopHuman();
-        })();
-      }
-    }
-    // ===== End Learnsimple “You are human” Animation =====
 
 
 
