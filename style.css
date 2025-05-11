@@ -91,9 +91,9 @@
    #loading-screen {
     position: fixed; inset: 0; width: 100%; height: 100vh;
     background-color: #000; color: #fff;
+    display: flex;                        /* was none – make loader visible */
     font-family: var(--font-heading, serif); /* Base font for children */
     letter-spacing: 0.03em; /* Base letter spacing */
-    display: none; /* Hide loading screen by default */
     /* align-items: center; justify-content: center; */ /* Center content block - now controlled by .show */
     z-index: 9999; pointer-events: auto;
     opacity: 1; transition: opacity 0.6s ease-out;
@@ -208,6 +208,8 @@
     margin-top: calc(-1 * env(safe-area-inset-top));
     z-index: -1;
     overflow: hidden;
+    /* Poster fallback ensures no white flash on repeat visits */
+    background: #000 url('home-poster.jpg') center / cover no-repeat;
   }
 
 /* Full-screen background cover on mobile, including safe area */
@@ -756,4 +758,43 @@ body.loading-active > :not(#loading-screen) {
 body.learn-page-body #loading-text,
 body.learn-page-body #loading-text * {
   color: #000000 !important;
+}
+/* ===================================================
+   PRELOADER × LANDING‑PAGE CROSS‑FADE LOGIC
+   =================================================== */
+
+/* 1. Make sure the loader is visible as long as the
+      <body> carries the .landing-loading flag. */
+body.landing-loading #loading-screen {
+  display: flex !important;        /* override default display:none */
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 2. Fade the loader out once your script adds `.hidden` */
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 600ms ease, visibility 600ms ease;
+}
+
+/* 3. Keep the hero content invisible until the loader is gone */
+body.landing-loading .landing-header,
+body.landing-loading .video-background-container,
+body.landing-loading .landing-text-overlay,
+body.landing-loading .landing-button {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 600ms ease, visibility 600ms ease;
+}
+
+/* 4. Reveal the hero once `.landing-loading` is removed */
+body:not(.landing-loading) .landing-header,
+body:not(.landing-loading) .video-background-container,
+body:not(.landing-loading) .landing-text-overlay,
+body:not(.landing-loading) .landing-button {
+  opacity: 1;
+  visibility: visible;
 }

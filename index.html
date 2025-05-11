@@ -10,7 +10,6 @@
 
 </head>
 <body class="landing-page-body landing-loading">
-
   <div id="loading-screen" role="status" aria-hidden="true">
     <div id="loading-text">
       You are <span id="loading-word">friend</span>
@@ -44,10 +43,17 @@
   </header>
 
   <div class="video-background-container" style="position:fixed; top:0; left:0; width:100%; height:100vh; overflow:hidden; z-index:-1;">
-    <video autoplay loop muted playsinline id="landing-video" style="width:100%; height:100%; object-fit:cover;">
-      <source src="home.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <video id="landing-video"
+       autoplay
+       muted
+       loop
+       playsinline
+       preload="auto"
+       poster="home-poster.jpg"
+       style="object-fit:cover;width:100%;height:100%;display:block;">
+       <source src="home.mp4" type="video/mp4">
+</video>
+
   </div>
 
   <div class="landing-text-overlay">

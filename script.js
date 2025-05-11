@@ -2,6 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded and parsed"); // General check
+    let skipLoader = false;   // true when we bypass the "Unlimited You" screen
 
     // ===== Timer Popup Logic Start =====
     const popup = document.getElementById('timer-popup');
@@ -254,20 +255,34 @@ document.addEventListener('DOMContentLoaded', () => {
    // ===== Loading Screen Logic (RUNS ONCE PER SESSION for index.html) Start =====
    const loadingScreen = document.getElementById('loading-screen');
    const loadingTextElement = document.getElementById('loading-text'); // Get parent container
+   // --- Loader/Hero sync flags ---
+   let videoLoaded  = false;   // set true when <video> fires loadeddata
+   let typingDone   = false;   // set true when "unlimited you" animation finishes
+
+   function hideLoaderIfReady() {
+       if (videoLoaded && typingDone && loadingScreen) {
+           loadingScreen.classList.add('hidden');                 // fade out (CSS handles opacity)
+           document.body.classList.remove('landing-loading');     // unhide hero elements via CSS
+           setTimeout(() => { loadingScreen.style.display = 'none'; }, 600);
+       }
+   }
    const sessionKey = 'hasVisitedLandingPage'; // Specific key for landing page visit
  
    // Check if the landing page loading screen has already been shown this session
    if (sessionStorage.getItem(sessionKey)) {
-     // Already visited this session, hide loader immediately without animation
+     /* Already visited this session → skip the animation
+        and make sure the main page is immediately visible. */
      if (loadingScreen) {
-       loadingScreen.style.opacity = '0'; // Start hidden
-       loadingScreen.style.pointerEvents = 'none';
-       // Use setTimeout to ensure it's removed after potential initial render flash
-       setTimeout(() => {
-           loadingScreen.style.display = 'none';
-       }, 0);
-       console.log("Landing page session active, skipping loading screen animation.");
+       loadingScreen.style.display = 'none';
+       loadingScreen.classList.add('hidden');
      }
+     /* Remove the flag that keeps hero elements invisible */
+     document.body.classList.remove('landing-loading');
+
+     /* Mark the sync flags so hideLoaderIfReady() isn’t needed */
+     videoLoaded = true;
+     typingDone  = true;
+     skipLoader = true;
    } else if (loadingScreen && loadingTextElement) {
      // First visit to landing page this session, show animation
      console.log("First visit to landing page this session, showing loading screen animation.");
@@ -306,12 +321,10 @@ document.addEventListener('DOMContentLoaded', () => {
          } else {
            // Color the final word "you"
            typed.innerHTML = typed.innerHTML.replace(/you$/, '<span class="accent-word">you</span>');
-           // Fade out after typing completes
+           // Delay briefly so the user sees the final line, then mark typing finished
            setTimeout(() => {
-             if (loadingScreen) loadingScreen.classList.add('hidden');
-             setTimeout(() => {
-               if (loadingScreen) loadingScreen.style.display = 'none';
-             }, 600);
+               typingDone = true;
+               hideLoaderIfReady();
            }, 1500);
          }
        }
@@ -455,5 +468,28 @@ document.addEventListener('DOMContentLoaded', () => {
      }, { passive: true });
 
     // ===== Original script.js Logic End =====
+
+    /* ----- Background video fade‑in & loader sync (landing page) ----- */
+    const vid = document.getElementById('landing-video');
+    if (vid) {
+        if (skipLoader) {
+            /* Second+ visit – show poster immediately, don’t start opaque‑0 fade */
+            vid.style.opacity = 1;
+        } else {
+            /* First visit – start with a fade from poster to video */
+            vid.style.opacity = 0;
+            vid.addEventListener('loadeddata', () => {
+                vid.style.transition = 'opacity 400ms ease';
+                requestAnimationFrame(() => vid.style.opacity = 1);
+                videoLoaded = true;
+                hideLoaderIfReady();
+            });
+        }
+    } else {
+        // No background video on this page – consider it “loaded” so loader can close
+        videoLoaded = true;
+        hideLoaderIfReady();
+    }
+  
 
 }); // End DOMContentLoaded
