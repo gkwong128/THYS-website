@@ -254,7 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
    // ===== Loading Screen Logic (RUNS ONCE PER SESSION for index.html) Start =====
    const loadingScreen = document.getElementById('loading-screen');
-   const loadingTextElement = document.getElementById('loading-text'); // Get parent container
+   const loadingText   = document.getElementById('loading-text');
+   if (!loadingScreen || !loadingText) {
+       console.warn('Learn page: loader markup missing; starting animation anyway');
+   }
+   
    // --- Loader/Hero sync flags ---
    let videoLoaded  = false;   // set true when <video> fires loadeddata
    let typingDone   = false;   // set true when "unlimited you" animation finishes
@@ -266,10 +270,11 @@ document.addEventListener('DOMContentLoaded', () => {
            setTimeout(() => { loadingScreen.style.display = 'none'; }, 600);
        }
    }
-   const sessionKey = 'hasVisitedLandingPage'; // Specific key for landing page visit
- 
+   const sessionKey  = 'landingPageShown';
+   const isLanding   = document.body.classList.contains('landing-page-body');
+
    // Check if the landing page loading screen has already been shown this session
-   if (sessionStorage.getItem(sessionKey)) {
+   if (isLanding && sessionStorage.getItem(sessionKey)) {
      /* Already visited this session → skip the animation
         and make sure the main page is immediately visible. */
      if (loadingScreen) {
@@ -283,12 +288,14 @@ document.addEventListener('DOMContentLoaded', () => {
      videoLoaded = true;
      typingDone  = true;
      skipLoader = true;
-   } else if (loadingScreen && loadingTextElement) {
+   } else if (loadingScreen && loadingText) {
      // First visit to landing page this session, show animation
      console.log("First visit to landing page this session, showing loading screen animation.");
  
      // Mark landing page as visited for this session *immediately*
-     sessionStorage.setItem(sessionKey, 'true');
+     if (isLanding) {
+      sessionStorage.setItem(sessionKey, 'true');
+  }
  
      // --- Reset state for the animation ---
      loadingScreen.style.opacity = '1';
@@ -301,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
        'unlimited you'
      ];
      // Clear and prepare text container
-     loadingTextElement.innerHTML = '<span id="typed"></span>';
+     loadingText.innerHTML = '<span id="typed"></span>';
      const typed = document.getElementById('typed');
      let lineIndex = 0, charIndex = 0;
      const typeSpeed = 30; // even faster typing speed
@@ -333,13 +340,10 @@ document.addEventListener('DOMContentLoaded', () => {
      // Start typing animation
      typeLine();
    } else {
-       // Handle missing loading screen elements on landing page
-       let missing = [];
-       if (!loadingScreen) missing.push("#loading-screen");
-       if (!loadingTextElement) missing.push("#loading-text");
-       console.error(`Loading screen HTML elements not found: ${missing.join(', ')}`);
-       // Ensure screen doesn't block if missing
-       if (loadingScreen) loadingScreen.style.display = 'none';
+       // Loader markup missing (e.g., on Learn page) – treat as already loaded
+       videoLoaded = true;
+       typingDone  = true;
+       hideLoaderIfReady();
    }
    // ===== Loading Screen Logic End =====
 
@@ -368,27 +372,27 @@ document.addEventListener('DOMContentLoaded', () => {
       if (youareText && youareWord) {
 
         youareText.style.color = '#000000';
-      // Keep "You are a" together on one line by replacing spaces with non-breaking spaces
-      if (youareText.firstChild && youareText.firstChild.nodeType === 3) {
-         youareText.firstChild.textContent = 'You\u00A0are\u00A0a\u00A0';
-      }
+        // Keep "You are a" together on one line by replacing spaces with non-breaking spaces
+        if (youareText.firstChild && youareText.firstChild.nodeType === 3) {
+           youareText.firstChild.textContent = 'You\u00A0are\u00A0a\u00A0';
+        }
 
-        // Original-timing sequence with delays
+        // Updated sequence without leading "a " in words
         const wordsSequence = [
-          { word: "a dreamer", delay: 600 }, { word: "a leader", delay: 560 },
-          { word: "a storyteller", delay: 520 }, { word: "a lover", delay: 470 },
-          { word: "a rebel", delay: 420 }, { word: "a collaborator", delay: 360 },
-          { word: "a daughter", delay: 300 }, { word: "a mentor", delay: 250 },
-          { word: "a woman", delay: 210 }, { word: "a mother", delay: 180 },
-          { word: "a sister", delay: 150 }, { word: "a creator", delay: 130 },
-          { word: "a doer", delay: 110 }, { word: "a trend setter", delay: 95 },
-          { word: "a fashionista", delay: 80 }, { word: "a care taker", delay: 70 },
-          { word: "a visionary", delay: 60 }, { word: "a trailblazer", delay: 55 },
-          { word: "a healer", delay: 50 }, { word: "a protector", delay: 50 },
-          { word: "a listener", delay: 50 }, { word: "a multitasker", delay: 50 },
-          { word: "a fighter", delay: 50 }, { word: "a nurturer", delay: 50 },
-          { word: "a strategist", delay: 50 }, { word: "a explorer", delay: 50 },
-          { word: "a provider", delay: 50 }, { word: "a student", delay: 50 },
+          { word: "dreamer", delay: 600 }, { word: "leader", delay: 560 },
+          { word: "storyteller", delay: 520 }, { word: "lover", delay: 470 },
+          { word: "rebel", delay: 420 }, { word: "collaborator", delay: 360 },
+          { word: "daughter", delay: 300 }, { word: "mentor", delay: 250 },
+          { word: "woman", delay: 210 }, { word: "mother", delay: 180 },
+          { word: "sister", delay: 150 }, { word: "creator", delay: 130 },
+          { word: "doer", delay: 110 }, { word: "trend setter", delay: 95 },
+          { word: "fashionista", delay: 80 }, { word: "care taker", delay: 70 },
+          { word: "visionary", delay: 60 }, { word: "trailblazer", delay: 55 },
+          { word: "healer", delay: 50 }, { word: "protector", delay: 50 },
+          { word: "listener", delay: 50 }, { word: "multitasker", delay: 50 },
+          { word: "fighter", delay: 50 }, { word: "nurturer", delay: 50 },
+          { word: "strategist", delay: 50 }, { word: "explorer", delay: 50 },
+          { word: "provider", delay: 50 }, { word: "student", delay: 50 },
           { word: "human", delay: 50 }
         ];
         const delay = ms => new Promise(res => setTimeout(res, ms));

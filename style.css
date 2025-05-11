@@ -1,142 +1,142 @@
 /* ========================================
    Waitlist Button Text Swap & Elevate Text Centering
    ======================================== */
-.join-waitlist-button .desktop-text { display: inline; }
-.join-waitlist-button .mobile-text { display: none; }
-
-/* Header actions layout */
-.header-actions {
-  display: flex;
-  align-items: center;
-}
-
-/* Mobile: stack join button above menu toggle */
-@media (max-width: 767px) {
-  .header-actions {
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .join-waitlist-button {
-    order: 1;
-    margin: 1rem 0 0.5rem 0 !important;
-  }
-  .landing-menu-toggle {
-    order: 2;
-    margin: 0 !important;
-  }
-}
-
-/* style.css */
-
-/* ========================================
-   Base Styles & Variables (STANDARD 1x Scale)
-   ======================================== */
-   :root {
-/* Hide mobile-instagram-link on desktop */
-.mobile-instagram-link {
-  display: none !important;
-}
-    --font-default: 'Manrope', sans-serif;
-    --font-heading: 'Italiana', serif;
-    --color-text-dark: #000;
-    --color-text-light: #fff;
-    --color-text-subtle: #555;
-    --color-background: #fff;
-    --color-background-dark: #000;
-    --color-accent: #8f859b;
-    --color-border: #eee; /* Default subtle border color */
-    /* --- Standard (1x) Pixel Values --- */
-    --navbar-sticky-height: 40px;
-    --navbar-gap-initial-desktop: 5rem;
-    --placeholder-width-desktop: 80px;
-    --container-max-width: 1100px;
-    --container-padding: 1.5rem;
-    --video-pin-height: 85vh; /* Explicit height for pinned video container */
-    --video-scrub-duration-height: 250vh; /* Adjusted */
-    --section-vertical-margin: 2.5rem;
-    --navbar-links-max-width: 814px;
-    --social-icon-size: 24px;
-    --form-input-max-width: 250px;
-    --sticky-nav-translateY: -20px;
-  }
-
-  /* Optional: Global Box Sizing */
-  *, *::before, *::after { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; font-size: 100%; }
-  html, body:not(.landing-page-body) { /* Apply default font/margin etc. only if NOT landing page body */
-      font-family: var(--font-default);
-      margin: 0;
-      padding: 0;
-      background-color: var(--color-background);
-  }
-  /* Ensure landing page body also has margin/padding reset if needed */
-  body {
-      margin: 0;
-      padding: 0;
-  }
-  /* Style to prevent scrolling when popup is open */
-  html.popup-open, body.popup-open {
-      overflow: hidden;
-      height: 100%;
-  }
-
-  .container { max-width: var(--container-max-width); margin: 0 auto; padding: 0 var(--container-padding); width: 100%; }
-
-
-/* ========================================
-   Loading Screen Styles (Should be in main style.css)
-   ======================================== */
-
-   #loading-screen {
-    position: fixed; inset: 0; width: 100%; height: 100vh;
-    background-color: #000; color: #fff;
-    display: flex;                        /* was none – make loader visible */
-    font-family: var(--font-heading, serif); /* Base font for children */
-    letter-spacing: 0.03em; /* Base letter spacing */
-    /* align-items: center; justify-content: center; */ /* Center content block - now controlled by .show */
-    z-index: 9999; pointer-events: auto;
-    opacity: 1; transition: opacity 0.6s ease-out;
-    padding: 1rem; /* General padding for screen edges */
-    overflow: hidden; /* Prevent potential overflow issues */
-  }
-
-  /* Show loading screen when not hidden by default */
-  #loading-screen.show {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Base (Desktop) Loading Text Style - Absolute Position Centering */
-  #loading-text {
-    /* Positioning */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the block */
-
-    /* Text properties */
-    font-size: 2.5rem; /* Base font size */
-    text-align: left; /* Align text left within the block */
-    white-space: nowrap; /* Prevent wrapping */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Show ... if too long */
-
-    /* Sizing */
-    width: 30ch; /* Fixed width for desktop */
-    padding-left: 9ch; /* Adjust left padding for desktop */
-    box-sizing: border-box;
-  }
-
-.accent-word { /* Base style for the final "human" word */
-     color: #cdc5d6;   /* brand light‑purple accent for “you” on landing */
-     font-size: inherit;
-     font-family: inherit;
-     letter-spacing: inherit;
-     display: inline; /* Default display */
-     vertical-align: baseline;
-  }
+   .join-waitlist-button .desktop-text { display: inline; }
+   .join-waitlist-button .mobile-text { display: none; }
+   
+   /* Header actions layout */
+   .header-actions {
+     display: flex;
+     align-items: center;
+   }
+   
+   /* Mobile: stack join button above menu toggle */
+   @media (max-width: 767px) {
+     .header-actions {
+       flex-direction: column;
+       align-items: flex-end;
+     }
+     .join-waitlist-button {
+       order: 1;
+       margin: 1rem 0 0.5rem 0 !important;
+     }
+     .landing-menu-toggle {
+       order: 2;
+       margin: 0 !important;
+     }
+   }
+   
+   /* style.css */
+   
+   /* ========================================
+      Base Styles & Variables (STANDARD 1x Scale)
+      ======================================== */
+      :root {
+   /* Hide mobile-instagram-link on desktop */
+   .mobile-instagram-link {
+     display: none !important;
+   }
+       --font-default: 'Manrope', sans-serif;
+       --font-heading: 'Italiana', serif;
+       --color-text-dark: #000;
+       --color-text-light: #fff;
+       --color-text-subtle: #555;
+       --color-background: #fff;
+       --color-background-dark: #000;
+       --color-accent: #8f859b;
+       --color-border: #eee; /* Default subtle border color */
+       /* --- Standard (1x) Pixel Values --- */
+       --navbar-sticky-height: 40px;
+       --navbar-gap-initial-desktop: 5rem;
+       --placeholder-width-desktop: 80px;
+       --container-max-width: 1100px;
+       --container-padding: 1.5rem;
+       --video-pin-height: 85vh; /* Explicit height for pinned video container */
+       --video-scrub-duration-height: 250vh; /* Adjusted */
+       --section-vertical-margin: 2.5rem;
+       --navbar-links-max-width: 814px;
+       --social-icon-size: 24px;
+       --form-input-max-width: 250px;
+       --sticky-nav-translateY: -20px;
+     }
+   
+     /* Optional: Global Box Sizing */
+     *, *::before, *::after { box-sizing: border-box; }
+   
+     html { scroll-behavior: smooth; font-size: 100%; }
+     html, body:not(.landing-page-body) { /* Apply default font/margin etc. only if NOT landing page body */
+         font-family: var(--font-default);
+         margin: 0;
+         padding: 0;
+         background-color: var(--color-background);
+     }
+     /* Ensure landing page body also has margin/padding reset if needed */
+     body {
+         margin: 0;
+         padding: 0;
+     }
+     /* Style to prevent scrolling when popup is open */
+     html.popup-open, body.popup-open {
+         overflow: hidden;
+         height: 100%;
+     }
+   
+     .container { max-width: var(--container-max-width); margin: 0 auto; padding: 0 var(--container-padding); width: 100%; }
+   
+   /* ========================================
+      Loading Screen Styles (Should be in main style.css)
+      ======================================== */
+   
+      #loading-screen {
+       position: fixed; inset: 0; width: 100%; height: 100vh;
+       background-color: #000; color: #fff;
+       display: flex;                        /* was none – make loader visible */
+       font-family: var(--font-heading, serif); /* Base font for children */
+       letter-spacing: 0.03em; /* Base letter spacing */
+       /* align-items: center; justify-content: center; */ /* Center content block - now controlled by .show */
+       z-index: 9999; pointer-events: auto;
+       opacity: 1; transition: opacity 0.6s ease-out;
+       padding: 1rem; /* General padding for screen edges */
+       overflow: hidden; /* Prevent potential overflow issues */
+     }
+   
+     /* Show loading screen when not hidden by default */
+     #loading-screen.show {
+       display: flex !important;
+       align-items: center;
+       justify-content: center;
+     }
+   
+     /* Base (Desktop) Loading Text Style - Absolute Position Centering */
+     #loading-text {
+       /* Positioning */
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%); /* Center the block */
+   
+       /* Text properties */
+       font-size: 2.5rem; /* Base font size */
+       text-align: left; /* Align text left within the block */
+       white-space: nowrap; /* Prevent wrapping */
+       overflow: hidden; /* Hide overflow */
+       text-overflow: ellipsis; /* Show ... if too long */
+   
+       /* Sizing */
+       width: 30ch; /* Fixed width for desktop */
+       padding-left: 9ch; /* Adjust left padding for desktop */
+       box-sizing: border-box;
+     }
+   
+   .accent-word { /* Base style for the final "human" word */
+        color: #cdc5d6;   /* brand light‑purple accent for “you” on landing */
+        font-size: inherit;
+        font-family: inherit;
+        letter-spacing: inherit;
+        display: inline; /* Default display */
+        vertical-align: baseline;
+     }
+     
   #loading-screen.hidden { opacity: 0; pointer-events: none; }
 
   /* Mobile Loading Text Adjustments */
@@ -760,10 +760,18 @@ body.loading-active > :not(#loading-screen) {
   stroke: #000000 !important;
   fill: #000000 !important;
 }
-/* Force black text for learn page animation */
+/* Use white text for the Learn‑page animation so it pops on a black bg */
 body.learn-page-body #loading-text,
 body.learn-page-body #loading-text * {
-  color: #000000 !important;
+  color: #ffffff !important;
+}
+/* Match black background used on Index & Contact */
+body.learn-page-body{
+  background:#000 !important;
+}
+/* Break line before each animated word on Learn page */
+body.learn-page-body #loading-word{
+  display:block !important;
 }
 /* ===================================================
    PRELOADER × LANDING‑PAGE CROSS‑FADE LOGIC
