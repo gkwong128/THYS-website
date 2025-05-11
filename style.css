@@ -319,7 +319,10 @@ body.landing-page-body #loading-screen #loading-text {
 
   /* Mobile Shadow Removal & Text Alignment */
   @media (max-width: 767px) {
-    .landing-headline { font-size: 4rem !important; }
+    .landing-headline {
+      font-size: 5rem !important;      /* larger on mobile */
+      font-weight: 800 !important;     /* bolder on mobile */
+    }
     .landing-subheadline { font-size: 1.4rem; }
     .landing-text-overlay {
         width: 90%;
