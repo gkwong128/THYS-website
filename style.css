@@ -831,3 +831,10 @@ body.learn-page-body .accent-word{
         text-overflow:ellipsis;
     }
 }
+/* ===== Learn page desktop width tweak ===== */
+body.learn-page-body #loading-text{
+  width: 90% !important;        /* wider, like the landing headline */
+  max-width: 1200px !important; /* override the old 30 ch limit            */
+  padding-left: 0 !important;   /* no desktop offset                       */
+  text-align: center !important;
+}

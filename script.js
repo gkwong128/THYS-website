@@ -367,6 +367,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (youareText && youareWord) {
 
         youareText.style.color = '#000000';
+      // Keep "You are" together on one line by replacing spaces with non-breaking spaces
+      if (youareText.firstChild && youareText.firstChild.nodeType === 3) {
+         youareText.firstChild.textContent = 'You\u00A0are\u00A0';
+      }
 
         // Original-timing sequence with delays
         const wordsSequence = [
