@@ -222,7 +222,14 @@ body.landing-page-body #loading-screen #loading-text {
     z-index: 100;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
-  .landing-headline { font-family: var(--font-heading, serif); font-size: 4rem;        /* was 3.5rem – slightly larger */ font-weight: 700; line-height: 1.2; margin: 0 0 1.5rem 0; letter-spacing: 0.03em; color: var(--color-text-dark, #000);} /* Headline Black */
+
+  /* Move index headline slightly higher on desktop */
+  @media (min-width: 768px) {
+    .landing-text-overlay {
+      top: 45% !important;  /* shift up by ~1 row */
+    }
+  }
+  .landing-headline { font-family: var(--font-heading, serif); font-size: 3rem !important;        /* was 3.5rem – slightly larger */ font-weight: 700; line-height: 1.2; margin: 0 0 1.5rem 0; letter-spacing: 0.03em; color: var(--color-text-dark, #000);} /* Headline Black */
 .landing-subheadline {
   font-family: var(--font-default, sans-serif);
   font-size: 1.8rem;
@@ -280,7 +287,7 @@ body.landing-page-body #loading-screen #loading-text {
 
   /* Mobile Shadow Removal & Text Alignment */
   @media (max-width: 767px) {
-    .landing-headline { font-size: 3.2rem !important; }
+    .landing-headline { font-size: 4rem !important; }
     .landing-subheadline { font-size: 1.4rem; }
     .landing-text-overlay {
         width: 90%;
@@ -294,7 +301,7 @@ body.landing-page-body #loading-screen #loading-text {
     }
   }
   @media (max-width: 480px) {
-    .landing-headline { font-size: 2.8rem !important; }
+    .landing-headline { font-size: 3.5rem !important; }
     .landing-subheadline { font-size: 1.2rem; }
   }
 
@@ -489,38 +496,6 @@ button {
 }
 
 
-  /* Content Sections */
-  .hero-carousel-wrapper { max-width: var(--container-max-width); margin: 0 auto var(--section-vertical-margin) auto; padding: 0 var(--container-padding); box-sizing: border-box; position: relative; }
-  .hero-carousel { position: relative; overflow: hidden; aspect-ratio: 2.40 / 1; width: 100%; }
-  .hero-carousel a { display: block; width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.6s ease-in-out; line-height: 0; }
-  .hero-carousel a img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .hero-carousel a.active { opacity: 1; z-index: 1; }
-  .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--color-text-light); text-align: center; z-index: 2; text-shadow: 1px 1px 3px rgba(0,0,0,0.4); }
-  .hero-text h1 { font-family: var(--font-heading); margin-bottom: 0.5rem; letter-spacing: 0.03em; font-size: 2rem; }
-  .hero-text p { font-size: 1rem; }
-  .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; background: none; border: none; color: rgba(248, 248, 248, 0.7); padding: 0.3rem; line-height: 0; transition: color 0.3s ease; }
-  .carousel-button svg { display: block; width: 2.5rem; height: 2.5rem; stroke: currentColor; stroke-width: 0.5; }
-  .carousel-button:hover { color: #FAFAFA; }
-  .carousel-button.prev { left: 0.1rem; }
-  .carousel-button.next { right: 0.1rem; }
-  .carousel-indicators { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; gap: 0.5rem; }
-  .carousel-indicator { width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.4); border: none; padding: 0; transition: background-color 0.3s ease; }
-  .carousel-indicator.active { background-color: var(--color-accent); }
-  .product-section { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: var(--container-max-width); margin: var(--section-vertical-margin) auto; padding: 0 var(--container-padding); box-sizing: border-box; }
-  .product-block { position: relative; aspect-ratio: 4 / 5; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; }
-  .product-block a { display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; line-height: 0; }
-  .product-block a img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .product-block span { position: relative; z-index: 2; font-family: var(--font-heading); font-size: 1.25rem; text-transform: uppercase; padding: 0.75rem 1rem; color: #FAFAFA; letter-spacing: 0.05em; text-align: center; pointer-events: none; margin-top: 1.5rem; }
-  .sidekick-section { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 2rem; max-width: var(--container-max-width); margin: var(--section-vertical-margin) auto; padding: 0 var(--container-padding); box-sizing: border-box; }
-  .sidekick-section .text-block { }
-  .sidekick-section .text-block h2 { font-family: var(--font-heading); font-size: 1.4rem; margin-top: 0; margin-bottom: 0.8rem; letter-spacing: 0.03em; }
-  .sidekick-section .text-block p { font-family: var(--font-default); font-size: 0.9rem; line-height: 1.6; margin-top: 0; margin-bottom: 0; }
-  .sidekick-section .sidekick img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
-  .explore-section { margin: var(--section-vertical-margin) auto; padding: 0 var(--container-padding); max-width: var(--container-max-width); box-sizing: border-box; }
-  .explore-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-  .explore-image-column img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
-  .explore-text-column h2 { margin-top: 0; }
-  .explore-text-column p:last-child { margin-bottom: 0; }
    section:not(.video-scrub-section):not(.sidekick-section):not(.explore-section) { margin: var(--section-vertical-margin) auto; padding: 0 var(--container-padding); max-width: var(--container-max-width); box-sizing: border-box; }
     section h2 { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 1rem; letter-spacing: 0.03em; }
     section p { line-height: 1.6; font-size: 0.9rem; margin-top: 0; margin-bottom: 1rem; }
@@ -812,7 +787,7 @@ body.learn-page-body #loading-screen{
     left: 5.5ch !important;                     /* shift right by prefix width */
     white-space: nowrap !important;
 }
-# Mobile adjustments for landing-page loader text
+
 @media (max-width: 767px) {
   body.landing-page-body #loading-screen #loading-text {
     font-size: 1.6rem !important;           /* reduce font size for smaller screens */

@@ -1,6 +1,22 @@
-// script.js - Combined script for landing page and learn page
-
 document.addEventListener('DOMContentLoaded', () => {
+// Show+fade the black loader overlay on Learn page, reveal content simultaneously
+if (document.body.classList.contains('learn-page-body')) {
+  const loadingScreen = document.getElementById('loading-screen');
+  if (loadingScreen) {
+      loadingScreen.style.display = 'flex';
+      // On next frame, remove loading class and fade out overlay
+      requestAnimationFrame(() => {
+          // Reveal content by dropping the loading flag
+          document.body.classList.remove('landing-loading');
+          // Fade overlay out
+          loadingScreen.classList.add('hidden');
+          // After the CSS transition, fully remove overlay
+          setTimeout(() => {
+              loadingScreen.style.display = 'none';
+          }, 600);
+      });
+  }
+}
     // Global loader sync flags and checker (available to entire callback)
     let videoLoaded = false;
     let typingDone  = false;
@@ -312,10 +328,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== Timer Popup Logic End =====
 
 
-
    // ===== Loading Screen Logic (RUNS ONCE PER SESSION for index.html) Start =====
    const isLanding = document.body.classList.contains('landing-page-body');
-   if (isLanding) {
+   // Skip the once-per-session loader on Learn page, use immediate fade instead
+   if (isLanding && !document.body.classList.contains('learn-page-body')) {
        const loadingScreen = document.getElementById('loading-screen');
        const loadingText   = document.getElementById('loading-text');
        if (!loadingScreen || !loadingText) {
@@ -474,5 +490,4 @@ document.addEventListener('DOMContentLoaded', () => {
         hideLoaderIfReady();
     }
   
-
 }); // End DOMContentLoaded
