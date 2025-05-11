@@ -358,8 +358,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== Hamburger Menu Toggle End =====
 
 
-    // ===== Learnsimple Page “You are human” Animation =====
-    if (document.getElementById('loading-text') &&
+    // ===== Learn page “You are human” Animation =====
+    if (document.body.classList.contains('learn-page-body') &&
+        document.getElementById('loading-text') &&
         document.getElementById('loading-word')) {
     
       const youareText = document.getElementById('loading-text');
@@ -367,9 +368,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (youareText && youareWord) {
 
         youareText.style.color = '#000000';
-      // Keep "You are" together on one line by replacing spaces with non-breaking spaces
+      // Keep "You are a" together on one line by replacing spaces with non-breaking spaces
       if (youareText.firstChild && youareText.firstChild.nodeType === 3) {
-         youareText.firstChild.textContent = 'You\u00A0are\u00A0';
+         youareText.firstChild.textContent = 'You\u00A0are\u00A0a\u00A0';
       }
 
         // Original-timing sequence with delays
