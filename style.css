@@ -333,7 +333,7 @@ body.landing-page-body #loading-screen #loading-text {
   /* Mobile Shadow Removal & Text Alignment */
   @media (max-width: 767px) {
     .landing-headline {
-      font-size: 3rem !important;    /* reduced for better fit */
+      font-size: 2.8rem !important;   /* tiny bit smaller */
       font-weight: 900 !important;   /* extra bold */
       line-height: 1.1 !important;   /* tighter line-height */
     }
@@ -355,7 +355,7 @@ body.landing-page-body #loading-screen #loading-text {
   }
   @media (max-width: 480px) {
     .landing-headline {
-      font-size: 2.5rem !important;   /* smaller on very small screens */
+      font-size: 2.2rem !important;   /* tiny bit smaller for small phones */
       font-weight: 900 !important;     /* extra bold */
       line-height: 1.1 !important;     /* tighter line-height */
     }
