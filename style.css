@@ -858,6 +858,7 @@ body.learn-page-body #loading-screen{
      width: 100% !important;
      text-align: center !important;
      white-space: normal !important;
+     margin-top: 1.5rem !important; /* add spacing on mobile */
   }
   /* Force prefix and word onto separate, centered lines, reset positioning, allow wrapping */
   #loading-prefix,
