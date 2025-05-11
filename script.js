@@ -396,8 +396,8 @@ document.addEventListener('DOMContentLoaded', () => {
             youareWord.textContent = item.word;
             await delay(item.delay);
           }
-          // Highlight the final word "human" and pause
-          youareWord.classList.add('accent-word');
+          // Show the final word “human” (no accent colour) and pause
+          youareWord.classList.remove('accent-word');  // ensure accent is off
           youareWord.textContent = 'human';
           await delay(1000);
           // Restart the loop

@@ -129,8 +129,8 @@
     box-sizing: border-box;
   }
 
-  .accent-word { /* Base style for the final "human" word */
-     color: #cec7d7;
+.accent-word { /* Base style for the final "human" word */
+     color: #cdc5d6;   /* brand light‑purple accent for “you” on landing */
      font-size: inherit;
      font-family: inherit;
      letter-spacing: inherit;
@@ -145,6 +145,12 @@
     #loading-screen {
         align-items: flex-start; /* Align block to top */
         padding-top: 35vh; /* Increased padding to push down more */
+    }
+    /* Keep loading text in the same spot on mobile even after .show is added */
+    #loading-screen.show {
+        align-items: flex-start !important;   /* don’t jump to middle */
+        justify-content: center !important;
+        padding-top: 35vh;                    /* same offset as initial state */
     }
     #loading-text {
       font-size: 2.2rem; /* Keep increased font size */
@@ -291,7 +297,7 @@
     z-index: 100;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
-  .landing-headline { font-family: var(--font-heading, serif); font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin: 0 0 1.5rem 0; letter-spacing: 0.03em; color: var(--color-text-dark, #000);} /* Headline Black */
+  .landing-headline { font-family: var(--font-heading, serif); font-size: 4rem;        /* was 3.5rem – slightly larger */ font-weight: 700; line-height: 1.2; margin: 0 0 1.5rem 0; letter-spacing: 0.03em; color: var(--color-text-dark, #000);} /* Headline Black */
 .landing-subheadline {
   font-family: var(--font-default, sans-serif);
   font-size: 1.8rem;
@@ -349,7 +355,7 @@
 
   /* Mobile Shadow Removal & Text Alignment */
   @media (max-width: 767px) {
-    .landing-headline { font-size: 2.5rem; }
+    .landing-headline { font-size: 2.8rem; /* was 2.5rem */ }
     .landing-subheadline { font-size: 1.4rem; }
     .landing-text-overlay {
         width: 90%;
@@ -363,7 +369,7 @@
     }
   }
   @media (max-width: 480px) {
-    .landing-headline { font-size: 2rem; }
+    .landing-headline { font-size: 2.2rem; /* was 2rem */ }
     .landing-subheadline { font-size: 1.2rem; }
   }
 
@@ -797,4 +803,31 @@ body:not(.landing-loading) .landing-text-overlay,
 body:not(.landing-loading) .landing-button {
   opacity: 1;
   visibility: visible;
+}
+/* =========================================
+   Learn page mobile tweaks
+   ========================================= */
+
+/* Keep “human” (final word) the same colour as other words on learn.html */
+body.learn-page-body .accent-word{
+    color:#000 !important;            /* override peach accent from landing */
+}
+
+/* Mobile layout adjustments for the looping “You are a … human” text */
+@media (max-width: 767px){
+
+    /* Raise the loader block slightly on Learn page */
+    body.learn-page-body #loading-screen{
+        padding-top:28vh !important;  /* was 35vh */
+        align-items:flex-start !important;
+        justify-content:center !important;
+    }
+
+    /* Widen the text block so “You are a” remains on one line */
+    body.learn-page-body #loading-text{
+        max-width:90% !important;
+        white-space:nowrap !important;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
 }
