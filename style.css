@@ -86,111 +86,44 @@
    /* ========================================
       Loading Screen Styles (Should be in main style.css)
       ======================================== */
-   
-      #loading-screen {
-       position: fixed; inset: 0; width: 100%; height: 100vh;
-       background-color: #000; color: #fff;
-       display: flex;                        /* was none – make loader visible */
-       font-family: var(--font-heading, serif); /* Base font for children */
-       letter-spacing: 0.03em; /* Base letter spacing */
-       /* align-items: center; justify-content: center; */ /* Center content block - now controlled by .show */
-       z-index: 9999; pointer-events: auto;
-       opacity: 1; transition: opacity 0.6s ease-out;
-       padding: 1rem; /* General padding for screen edges */
-       overflow: hidden; /* Prevent potential overflow issues */
-     }
-   
-     /* Show loading screen when not hidden by default */
-     #loading-screen.show {
-       display: flex !important;
-       align-items: center;
-       justify-content: center;
-     }
-   
-     /* Base (Desktop) Loading Text Style - Absolute Position Centering */
-     #loading-text {
-       /* Positioning */
-       position: absolute;
-       top: 50%;
-       left: 50%;
-       transform: translate(-50%, -50%); /* Center the block */
-   
-       /* Text properties */
-       font-size: 2.5rem; /* Base font size */
-       text-align: left; /* Align text left within the block */
-       white-space: nowrap; /* Prevent wrapping */
-       overflow: hidden; /* Hide overflow */
-       text-overflow: ellipsis; /* Show ... if too long */
-   
-       /* Sizing */
-       width: 30ch; /* Fixed width for desktop */
-       padding-left: 9ch; /* Adjust left padding for desktop */
-       box-sizing: border-box;
-     }
-   
 
-  #loading-screen.hidden { opacity: 0; pointer-events: none; }
+/* Unified full-page loader overlay */
+#loading-screen,
+#loading-screen.show {
+    position: fixed;
+    inset: 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #000;
+    z-index: 10000;                          /* ensure loader sits above all content */
+    font-family: var(--font-heading, serif); /* use Italiana for loading text */
+    color: #fff;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+}
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
 
-  /* Mobile Loading Text Adjustments */
-  @media (max-width: 767px) {
-    /* UPDATED: Move block down slightly using padding */
-    #loading-screen {
-        align-items: flex-start; /* Align block to top */
-        padding-top: 35vh; /* Increased padding to push down more */
-    }
-    /* Keep loading text in the same spot on mobile even after .show is added */
-    #loading-screen.show {
-        align-items: flex-start !important;   /* don’t jump to middle */
-        justify-content: center !important;
-        padding-top: 35vh;                    /* same offset as initial state */
-    }
-    #loading-text {
-      font-size: 2.2rem; /* Keep increased font size */
-      /* Override positioning and sizing for mobile */
-      position: static;
-      top: auto;
-      left: auto;
-      transform: none;
-      width: auto; /* Allow natural width */
-      padding-left: 0; /* Remove desktop padding */
-      padding-right: 0;
-      max-width: 95%; /* Limit width */
-      /* Center align the text itself */
-      text-align: center;
-      /* Allow normal wrapping */
-      white-space: normal;
-      overflow: visible;
-      text-overflow: clip;
-      margin: 0 auto; /* Center block horizontally */
-     }
-     /* Force word onto new line on mobile */
-     #loading-word {
-        display: block; /* Force onto new line */
-        margin-left: 0; /* Remove any inherited margin */
-        /* Ensure word break works if needed */
-        overflow-wrap: break-word;
-        word-break: break-word;
-        font-size: 2.2rem; /* Match parent */
-     }
-     /* Force final word onto new line on mobile */
-     .accent-word {
-        display: block; /* Force onto new line */
-        font-size: 2.2rem; /* Match parent */
-     }
-  }
-  @media (max-width: 480px) {
-     /* UPDATED: Move block down slightly */
-     #loading-screen {
-        padding-top: 30vh; /* Adjust vertical position for smaller screens */
-    }
-    #loading-text {
-      font-size: 1.8rem; /* Keep increased smaller mobile font size */
-    }
-     #loading-word,
-     .accent-word {
-        font-size: 1.8rem; /* Match parent */
-     }
-  }
+/* Landing-page loading screen text styling */
+body.landing-page-body #loading-screen #loading-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 30ch;
+    padding-left: 9ch;
+    box-sizing: border-box;
+    font-family: var(--font-heading, serif);
+}
 
 /* ========================================
    Landing Page Styles (Should be in main style.css)
@@ -761,10 +694,6 @@ body.learn-page-body #loading-text * {
 body.learn-page-body{
   background:#000 !important;
 }
-/* Break line before each animated word on Learn page */
-body.learn-page-body #loading-word{
-  display:block !important;
-}
 /* ===================================================
    PRELOADER × LANDING‑PAGE CROSS‑FADE LOGIC
    =================================================== */
@@ -859,4 +788,27 @@ body.learn-page-body #loading-screen{
     align-items:flex-start;
     justify-content:center;
     padding-top:18vh;         /* raise slightly on larger screens */
+}
+/* Pin “You are ” prefix exactly at center; dynamic word follows */
+.hero-human-animation {
+    position: absolute !important;
+    top: 50% !important;
+    left: 44% !important;    /* shift prefix slightly left of center */
+    transform: translateY(-50%) !important;  /* center vertically */
+    width: 0 !important;                      /* container has zero width */
+    height: auto !important;
+}
+
+#loading-prefix {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;                       /* prefix starts at container’s left */
+    white-space: nowrap !important;
+}
+
+#loading-word {
+    position: absolute !important;
+    top: 0 !important;
+    left: 5.5ch !important;                     /* shift right by prefix width */
+    white-space: nowrap !important;
 }

@@ -41,10 +41,13 @@
         the desire for transformation is by design
       </h1>
       <!-- Learn page “You are human” animation -->
-      <div class="hero-human-animation" role="status" aria-hidden="true" 
-           style="position:absolute; top:50%; left:50%; transform:translate(-50%,0); z-index:1; color:#000000; font-family:var(--font-heading); font-size:2rem; text-align:center;">
-        <div id="loading-text">You are <span id="loading-word"></span></div>
-      </div>
+      <div class="hero-human-animation" role="status" aria-hidden="true"
+      style="position:absolute; top:50%; left:50%; z-index:1; color:#000000; font-family:var(--font-heading); font-size:2rem;">
+   <!-- static prefix: -->
+   <span id="loading-prefix">You are </span>
+   <!-- dynamic word: -->
+   <span id="loading-word"></span>
+ </div>
     </div>
     <button id="download-guide-button" class="landing-button">
       Download our product guide

@@ -14,51 +14,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // In-place Learn-page animation (skip loading overlay logic)
     if (document.body.classList.contains('learn-page-body')) {
-        const learnTextEl = document.querySelector('.hero-human-animation #loading-text');
-        const learnWordEl = document.querySelector('.hero-human-animation #loading-word');
-        if (learnTextEl && learnWordEl) {
+        const prefixEl = document.getElementById('loading-prefix');
+        const wordEl   = document.getElementById('loading-word');
+        if (prefixEl && wordEl) {
             const wordsSequence = [
-                { word: 'dreamer', delay: 600 },
-                { word: 'leader', delay: 560 },
-                { word: 'storyteller', delay: 520 },
-                { word: 'lover', delay: 470 },
-                { word: 'rebel', delay: 420 },
-                { word: 'collaborator', delay: 360 },
-                { word: 'daughter', delay: 300 },
-                { word: 'mentor', delay: 250 },
-                { word: 'woman', delay: 210 },
-                { word: 'mother', delay: 180 },
-                { word: 'sister', delay: 150 },
-                { word: 'creator', delay: 130 },
-                { word: 'doer', delay: 110 },
-                { word: 'trend setter', delay: 95 },
-                { word: 'fashionista', delay: 80 },
-                { word: 'care taker', delay: 70 },
-                { word: 'visionary', delay: 60 },
-                { word: 'trailblazer', delay: 55 },
-                { word: 'healer', delay: 50 },
-                { word: 'protector', delay: 50 },
-                { word: 'listener', delay: 50 },
-                { word: 'multitasker', delay: 50 },
-                { word: 'fighter', delay: 50 },
-                { word: 'nurturer', delay: 50 },
-                { word: 'strategist', delay: 50 },
-                { word: 'explorer', delay: 50 },
-                { word: 'provider', delay: 50 },
-                { word: 'student', delay: 50 },
-                { word: 'human', delay: 50 }
+                { word: 'a dreamer', delay: 600 },
+                { word: 'a leader', delay: 560 },
+                { word: 'a storyteller', delay: 520 },
+                { word: 'a lover', delay: 470 },
+                { word: 'a rebel', delay: 420 },
+                { word: 'a collaborator', delay: 360 },
+                { word: 'a daughter', delay: 300 },
+                { word: 'a mentor', delay: 250 },
+                { word: 'a woman', delay: 210 },
+                { word: 'a mother', delay: 180 },
+                { word: 'a sister', delay: 150 },
+                { word: 'a creator', delay: 130 },
+                { word: 'a doer', delay: 110 },
+                { word: 'a trend setter', delay: 95 },
+                { word: 'a fashionista', delay: 80 },
+                { word: 'a care taker', delay: 70 },
+                { word: 'a visionary', delay: 60 },
+                { word: 'a trailblazer', delay: 55 },
+                { word: 'a healer', delay: 50 },
+                { word: 'a protector', delay: 50 },
+                { word: 'a listener', delay: 50 },
+                { word: 'a multitasker', delay: 50 },
+                { word: 'a fighter', delay: 50 },
+                { word: 'a nurturer', delay: 50 },
+                { word: 'a strategist', delay: 50 },
+                { word: 'an explorer', delay: 50 },
+                { word: 'a provider', delay: 50 },
+                { word: 'a student', delay: 50 },
+                { word: 'human', delay: 1500 }
             ];
             const pause = ms => new Promise(res => setTimeout(res, ms));
             (async function animateLearn() {
                 for (const { word, delay: ms } of wordsSequence) {
-                    learnTextEl.textContent = 'You are ';
-                    learnTextEl.appendChild(learnWordEl);
-                    learnWordEl.textContent = word;
+                    // Only update the dynamic word; prefix remains static
+                    wordEl.textContent = word;
                     await pause(ms);
                 }
+                // Extra pause on final "human"
+                await pause(1500);
                 animateLearn();
             })();
         }
+        // Continue with the rest of the script on learn page
     }
     console.log("DOM fully loaded and parsed"); // General check
     let skipLoader = false;   // true when we bypass the "Unlimited You" screen
