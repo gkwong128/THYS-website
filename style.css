@@ -802,7 +802,7 @@ body.learn-page-body .accent-word{
     /* Mobile: expand learn page headline width and increase size */
     body.learn-page-body .hero-simple h1 {
         width: 90% !important;               /* allow it to span more of the viewport */
-        font-size: 2.4rem !important;        /* slightly larger for readability */
+        font-size: 2rem !important;          /* reduced for better fit */
         padding: 0 !important;               /* remove extra side padding */
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
