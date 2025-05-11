@@ -345,7 +345,11 @@ body.landing-page-body #loading-screen #loading-text {
     }
   }
   @media (max-width: 480px) {
-    .landing-headline { font-size: 3.5rem !important; }
+    .landing-headline {
+      font-size: 6rem !important;      /* bigger on smaller phones */
+      font-weight: 900 !important;     /* extra bold */
+      line-height: 1.1 !important;     /* tighter line-height */
+    }
     .landing-subheadline { font-size: 1.2rem; }
   }
 
