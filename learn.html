@@ -12,6 +12,7 @@
   <div id="loading-screen">
     <div id="loading-text"></div>
   </div>
+
   <!-- Header -->
   <header class="landing-header" style="position:absolute; top:0; left:0; width:100%; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; z-index:1000;">
     <a href="index.html" class="landing-logo-link" aria-label="THYS Homepage">
@@ -28,7 +29,7 @@
       <nav id="landing-navigation" class="landing-nav" aria-hidden="true">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="learn.html">Learn</a></li>
+          <li><a href="learn.html" aria-current="page">Learn</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -44,46 +45,15 @@
       </h1>
       <!-- Learn page “You are human” animation -->
       <div class="hero-human-animation" role="status" aria-hidden="true"
-      style="position:absolute; top:50%; left:50%; z-index:1; color:#000000; font-family:var(--font-heading); font-size:2rem;">
-   <!-- static prefix: -->
-   <span id="loading-prefix">You are </span>
-   <!-- dynamic word: -->
-   <span id="loading-word"></span>
- </div>
+           style="position:absolute; top:50%; left:50%; z-index:1; color:#000000; font-family:var(--font-heading); font-size:2rem;">
+        <span id="loading-prefix">You are </span>
+        <span id="loading-word"></span>
+      </div>
     </div>
-    <button id="download-guide-button" class="landing-button">
-      Download our product guide
-    </button>
+    <!-- Download button and popup removed -->
   </main>
 
-  <!-- Popup (reused) -->
-  <div id="timer-popup" style="display: none;">
-    <div class="popup-content">
-      <div id="popup-step-1">
-        <h2>Enter your name to download a product guide.</h2>
-        <p>Please enter your name to receive the product guide.</p>
-        <div class="popup-input-group">
-          <label for="popup-name">Name:</label>
-          <input type="text" id="popup-name" name="name" required>
-        </div>
-        <button type="button" id="popup-next-step">Continue</button>
-      </div>
-      <div id="popup-step-2" style="display: none;">
-        <h2>Where should we send it?</h2>
-        <p>Please enter your email so we can send you the guide.</p>
-        <div class="popup-input-group">
-          <label for="popup-email">Email:</label>
-          <input type="email" id="popup-email" name="email" required>
-        </div>
-        <button type="button" id="popup-submit">Submit & Download PDF</button>
-      </div>
-      <div id="popup-submitting" style="display: none;"><p>Submitting...</p></div>
-      <div id="popup-success" style="display: none;">
-        <p>Success! Please check your email for the link to the product guide.</p>
-      </div>
-      <div id="popup-error" style="display: none;"><p>Error. Please try again later.</p></div>
-    </div>
-  </div>
+  <!-- Removed: #timer-popup and its children -->
 
   <script src="script.js" defer></script>
 </body>
