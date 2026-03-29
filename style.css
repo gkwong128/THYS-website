@@ -308,9 +308,9 @@ body.landing-page-body #loading-screen #loading-text {
     z-index: 101;
     display: inline-block;
     padding: 0.5rem 1.2rem;
-    background-color: #1e1030; /* Deep Plum */
-    color: var(--color-text-light, #f5ede8); /* Warm Ivory Text */
-    border: 2px solid #1e1030; /* Deep Plum Border */
+    background-color: var(--color-warm-ivory); /* Warm Ivory */
+    color: var(--color-deep-plum); /* Deep Plum Text */
+    border: 2px solid var(--color-warm-ivory); /* Warm Ivory Border */
     border-radius: 50px;
     text-decoration: none;
     font-family: var(--font-heading, serif); /* Or var(--font-default) for Manrope */
@@ -338,9 +338,9 @@ body.landing-page-body #loading-screen #loading-text {
   /* Landing Button Hover state (Semi-transparent White BG, Black Text/Border) */
   .landing-button:hover,
   .landing-button:focus {
-    background-color: rgba(245, 237, 232, 0.5); /* Semi-transparent Warm Ivory background */
-    border-color: #1e1030; /* Keep Deep Plum border on hover */
-    color: var(--color-text-dark, #1e1030); /* Deep Plum text */
+    background-color: transparent;
+    border-color: var(--color-warm-ivory); /* Warm Ivory ghost border */
+    color: var(--color-warm-ivory); /* Warm Ivory text */
   }
 
   /* Mobile Shadow Removal & Text Alignment */
@@ -498,8 +498,8 @@ body.landing-page-body #loading-screen #loading-text {
   padding: 0.4rem 1.2rem;
   border: none; /* Default no border */
   border-radius: 50px; /* Pill shape */
-  background-color: #1e1030; /* Deep Plum */
-  color: var(--color-text-light, #f5ede8); /* Warm Ivory Text */
+  background-color: var(--color-antique-lilac-mid); /* Antique Lilac Mid */
+  color: var(--color-warm-ivory); /* Warm Ivory Text */
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
@@ -517,8 +517,8 @@ button {
 /* General Popup Button Hover - Keep darker orange as default hover */
 .popup-content button:hover,
 .popup-content button:focus {
-  background-color: #6a4a90; /* Antique Lilac Mid */
-  color: var(--color-text-light, #f5ede8);
+  background-color: var(--color-deep-plum); /* Deep Plum on hover only */
+  color: var(--color-warm-ivory);
   border: none;
 }
 
@@ -979,7 +979,7 @@ body.learn-page-body #loading-screen{
   margin: 0 auto 2.5rem;
 }
 .section-divider--light {
-  background-color: rgba(212, 176, 200, 0.4);
+  background-color: var(--color-wisteria-mid);
 }
 
 /* Small-caps label above headings */
@@ -994,7 +994,7 @@ body.learn-page-body #loading-screen{
   margin-bottom: 1.2rem;
 }
 .section-label--light {
-  color: var(--color-wisteria-mid);
+  color: var(--color-antique-lilac-mid);
 }
 
 /* Section headline */
@@ -1009,7 +1009,7 @@ body.learn-page-body #loading-screen{
   letter-spacing: 0.015em;
 }
 .section-heading--light {
-  color: var(--color-warm-ivory);
+  color: var(--color-deep-plum);
 }
 
 /* Body copy */
@@ -1037,7 +1037,7 @@ body.learn-page-body #loading-screen{
    ================================================================ */
 
 .traction-banner {
-  background-color: var(--color-deep-plum);
+  background-color: var(--color-antique-lilac-mid);
   color: var(--color-warm-ivory);
   text-align: center;
   padding: 0.9rem 1.5rem;
@@ -1075,7 +1075,7 @@ body.learn-page-body #loading-screen{
 }
 
 .stat-card {
-  background-color: #fff;
+  background-color: var(--color-warm-ivory);
   border-radius: 14px;
   padding: 2.8rem 2.2rem;
   box-shadow: 0 4px 28px rgba(30, 16, 48, 0.08);
@@ -1183,7 +1183,7 @@ body.learn-page-body #loading-screen{
    ================================================================ */
 
 .section-investor-cta {
-  background-color: var(--color-deep-plum);
+  background-color: var(--color-warm-ivory);
   padding: 8rem 2rem 11rem;
   text-align: center;
 }
@@ -1192,10 +1192,10 @@ body.learn-page-body #loading-screen{
   font-family: var(--font-default);
   font-size: 0.95rem;
   line-height: 1.85;
-  color: var(--color-warm-ivory);
+  color: var(--color-deep-plum);
   max-width: 520px;
   margin: 0 auto 2.8rem;
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
 .investor-cta-button {
@@ -1215,9 +1215,9 @@ body.learn-page-body #loading-screen{
 }
 .investor-cta-button:hover,
 .investor-cta-button:focus {
-  background-color: transparent;
-  color: var(--color-aged-gold);
-  border-color: var(--color-aged-gold);
+  background-color: var(--color-deep-plum);
+  color: var(--color-warm-ivory);
+  border-color: var(--color-deep-plum);
   outline: none;
 }
 
@@ -1227,8 +1227,8 @@ body.learn-page-body #loading-screen{
    ================================================================ */
 
 .site-footer {
-  background-color: var(--color-deep-plum);
-  border-top: 1px solid rgba(212, 176, 200, 0.15);
+  background-color: var(--color-antique-lilac);
+  border-top: 1px solid var(--color-wisteria-mid);
   padding: 2.8rem 2rem calc(2.8rem + env(safe-area-inset-bottom));
   font-family: var(--font-default);
   position: relative;
@@ -1253,8 +1253,8 @@ body.learn-page-body #loading-screen{
 
 .site-footer-copy {
   font-size: 0.68rem;
-  color: var(--color-warm-ivory);
-  opacity: 0.45;
+  color: var(--color-deep-plum);
+  opacity: 0.55;
   text-align: center;
   flex: 1;
 }
@@ -1270,9 +1270,9 @@ body.learn-page-body #loading-screen{
 .site-footer-links a {
   font-family: var(--font-default);
   font-size: 0.68rem;
-  color: var(--color-warm-ivory);
+  color: var(--color-deep-plum);
   text-decoration: none;
-  opacity: 0.6;
+  opacity: 0.7;
   transition: opacity 0.2s ease;
 }
 .site-footer-links a:hover,
