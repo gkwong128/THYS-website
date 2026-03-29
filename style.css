@@ -918,10 +918,9 @@ body.learn-page-body #loading-screen{
 
 /* Frosted-glass header once user scrolls past the hero */
 .landing-header.header-scrolled {
-  background-color: rgba(245, 237, 232, 0.9); /* Warm Ivory, semi-transparent */
+  background-color: rgba(30, 16, 48, 0.35); /* Deep Plum smoked glass */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 2px 20px rgba(30, 16, 48, 0.1);
 }
 
 /* Hamburger icon — warm ivory on dark hero background */
@@ -932,31 +931,31 @@ body.learn-page-body #loading-screen{
   fill: var(--color-warm-ivory) !important;
 }
 
-/* Hamburger icon — deep plum when header is light */
+/* Hamburger icon — antique lilac against smoked-glass header */
 .landing-header.header-scrolled .landing-menu-toggle,
 .landing-header.header-scrolled .landing-menu-toggle svg {
-  color: var(--color-deep-plum) !important;
-  stroke: var(--color-deep-plum) !important;
-  fill: var(--color-deep-plum) !important;
+  color: #ddd4e8 !important;
+  stroke: #ddd4e8 !important;
+  fill: #ddd4e8 !important;
 }
 
 /* Nav dropdown background & link colours in scrolled state */
 .landing-header.header-scrolled .landing-nav {
-  background-color: rgba(245, 237, 232, 0.97);
+  background-color: rgba(30, 16, 48, 0.85);
 }
 .landing-header.header-scrolled .landing-nav a {
-  color: var(--color-deep-plum);
+  color: #ddd4e8;
 }
 .landing-header.header-scrolled .landing-nav a:hover,
 .landing-header.header-scrolled .landing-nav a:focus {
-  color: var(--color-antique-lilac-mid);
+  color: var(--color-warm-ivory);
 }
 
-/* Join-waitlist button stays legible in scrolled state */
+/* Join-waitlist button — antique lilac outline against smoked-glass header */
 .landing-header.header-scrolled .landing-button.join-waitlist-button {
-  background-color: var(--color-deep-plum);
-  border-color: var(--color-deep-plum);
-  color: var(--color-warm-ivory);
+  background-color: transparent;
+  border-color: #ddd4e8;
+  color: #ddd4e8;
 }
 
 
