@@ -57,13 +57,22 @@
    }
        --font-default: 'Manrope', sans-serif;
        --font-heading: 'Italiana', serif;
-       --color-text-dark: #000;
-       --color-text-light: #fff;
-       --color-text-subtle: #555;
-       --color-background: #fff;
-       --color-background-dark: #000;
-       --color-accent: #8f859b;
-       --color-border: #eee; /* Default subtle border color */
+       /* ── THYS Brand Palette 2026 ── */
+       --color-deep-plum: #1e1030;          /* Anchor · exterior · type */
+       --color-antique-lilac-mid: #6a4a90;  /* Logo · marks · bridge */
+       --color-antique-lilac: #ddd4e8;      /* Signature field · backgrounds */
+       --color-blushed-wisteria: #ecdfe8;   /* Warmth · interior · draw */
+       --color-wisteria-mid: #d4b0c8;       /* Soft borders · transitions */
+       --color-aged-gold: #c8a06e;          /* Accent · hardware · foil */
+       --color-warm-ivory: #f5ede8;         /* Type on dark · cream ground */
+       /* ── Semantic aliases ── */
+       --color-text-dark: #1e1030;
+       --color-text-light: #f5ede8;
+       --color-text-subtle: #6a4a90;
+       --color-background: #ddd4e8;
+       --color-background-dark: #1e1030;
+       --color-accent: #6a4a90;
+       --color-border: #d4b0c8; /* Default subtle border color */
        /* --- Standard (1x) Pixel Values --- */
        --navbar-sticky-height: 40px;
        --navbar-gap-initial-desktop: 5rem;
@@ -114,7 +123,7 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: #000;
+    background: #1e1030;
     z-index: 10000;                          /* ensure loader sits above all content */
     font-family: var(--font-heading, serif); /* use Italiana for loading text */
     color: #fff;
@@ -165,7 +174,7 @@ body.landing-page-body #loading-screen #loading-text {
    Landing Page Styles (Should be in main style.css)
    ======================================== */
 
-   .landing-page-body { overflow: hidden; margin: 0; background-color: #000; }
+   .landing-page-body { overflow: hidden; margin: 0; background-color: #1e1030; }
   .video-background-container {
     position: fixed;
     top: 0;
@@ -176,7 +185,7 @@ body.landing-page-body #loading-screen #loading-text {
     z-index: -1;
     overflow: hidden;
     /* Poster fallback ensures no white flash on repeat visits */
-    background: #000 url('home-poster.jpg') center / cover no-repeat;
+    background: #1e1030 url('home-poster.jpg') center / cover no-repeat;
   }
 
 /* Full-screen background cover on mobile, including safe area */
@@ -212,7 +221,7 @@ body.landing-page-body #loading-screen #loading-text {
     position: absolute;
     top: 100%;                 /* directly below the header */
     right: var(--container-padding);
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(30, 16, 48, 0.85);
     border-radius: 6px;
     padding: 0.75rem 1rem;
     display: none;             /* hidden by default */
@@ -295,9 +304,9 @@ body.landing-page-body #loading-screen #loading-text {
     z-index: 101;
     display: inline-block;
     padding: 0.5rem 1.2rem;
-    background-color: #000; /* Black Background */
-    color: var(--color-text-light, #fff); /* White Text */
-    border: 2px solid #000; /* Black Border */
+    background-color: #1e1030; /* Deep Plum */
+    color: var(--color-text-light, #f5ede8); /* Warm Ivory Text */
+    border: 2px solid #1e1030; /* Deep Plum Border */
     border-radius: 50px;
     text-decoration: none;
     font-family: var(--font-heading, serif); /* Or var(--font-default) for Manrope */
@@ -325,9 +334,9 @@ body.landing-page-body #loading-screen #loading-text {
   /* Landing Button Hover state (Semi-transparent White BG, Black Text/Border) */
   .landing-button:hover,
   .landing-button:focus {
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
-    border-color: #000; /* Keep black border on hover */
-    color: var(--color-text-dark, #000); /* Black text */
+    background-color: rgba(245, 237, 232, 0.5); /* Semi-transparent Warm Ivory background */
+    border-color: #1e1030; /* Keep Deep Plum border on hover */
+    color: var(--color-text-dark, #1e1030); /* Deep Plum text */
   }
 
   /* Mobile Shadow Removal & Text Alignment */
@@ -382,7 +391,7 @@ body.landing-page-body #loading-screen #loading-text {
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(30, 16, 48, 0.8);
   z-index: 10000;
   align-items: center;
   justify-content: center;
@@ -476,7 +485,7 @@ body.landing-page-body #loading-screen #loading-text {
   outline: none;
   border-color: var(--color-text-dark, #000); /* Keep border black */
   /* Purple Glow */
-  box-shadow: 0 0 0 3px rgba(143, 133, 155, 0.5); /* Purple glow (using accent color) */
+  box-shadow: 0 0 0 3px rgba(106, 74, 144, 0.5); /* Purple glow (Antique Lilac Mid) */
 }
 
 /* General Popup Button Style (Default Orange Background) */
@@ -485,8 +494,8 @@ body.landing-page-body #loading-screen #loading-text {
   padding: 0.4rem 1.2rem;
   border: none; /* Default no border */
   border-radius: 50px; /* Pill shape */
-  background-color: #000; /* Black Background */
-  color: var(--color-text-light, #fff); /* White Text */
+  background-color: #1e1030; /* Deep Plum */
+  color: var(--color-text-light, #f5ede8); /* Warm Ivory Text */
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
@@ -504,8 +513,8 @@ button {
 /* General Popup Button Hover - Keep darker orange as default hover */
 .popup-content button:hover,
 .popup-content button:focus {
-  background-color: #8f859b; /* Darker accent color */
-  color: var(--color-text-dark, #000);
+  background-color: #6a4a90; /* Antique Lilac Mid */
+  color: var(--color-text-light, #f5ede8);
   border: none;
 }
 
@@ -589,12 +598,12 @@ button {
    .footer form input, .footer form button { font-family: inherit; }
    /* Footer form styling */
    #footer-newsletter-form { display: flex; flex-direction: column; align-items: flex-start; } /* Adjust alignment */
-   #footer-email-input { padding: 0.5rem; width: 100%; max-width: var(--form-input-max-width); border: 1px solid #ccc; box-sizing: border-box; margin-bottom: 0.5rem; /* Add margin */ }
+   #footer-email-input { padding: 0.5rem; width: 100%; max-width: var(--form-input-max-width); border: 1px solid #d4b0c8; box-sizing: border-box; margin-bottom: 0.5rem; /* Add margin */ }
    /* ADDED: Footer Input Focus Style (Orange Glow) */
    #footer-email-input:focus {
        outline: none;
-       border-color: #ccc; /* Keep original border color */
-       box-shadow: 0 0 0 3px rgba(143, 133, 155, 0.5); /* purple glow */
+       border-color: #d4b0c8; /* Keep Wisteria Mid border color */
+       box-shadow: 0 0 0 3px rgba(106, 74, 144, 0.5); /* Antique Lilac Mid glow */
        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Add transition */
    }
    #footer-subscribe-button { margin-top: 0; /* Remove top margin */ padding: 0.5rem 1rem; background-color: var(--color-text-dark); color: var(--color-text-light); border: none; /* cursor: pointer; */ font-size: 0.6rem; transition: background-color 0.3s ease; }
@@ -620,17 +629,17 @@ button {
 
 /* Default cursor */
 html {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='%23000' stroke='%23fff' stroke-width='1.5'/></svg>") 8 8, auto;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='%231e1030' stroke='%23f5ede8' stroke-width='1.5'/></svg>") 8 8, auto;
 }
 
 /* Interactive elements cursor (Orange dot) */
 a, button, [onclick], [role="button"], input[type="button"], input[type="submit"], input[type="reset"], select, label:hover {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='%238f859b' stroke='%23000' stroke-width='1'/></svg>") 8 8, pointer;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='%236a4a90' stroke='%231e1030' stroke-width='1'/></svg>") 8 8, pointer;
   }
 
 /* Text input cursor (Purple dot) */
 input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="tel"], input[type="url"], textarea {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='%238f859b' stroke='%23000' stroke-width='1'/></svg>") 8 8, pointer;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='%236a4a90' stroke='%231e1030' stroke-width='1'/></svg>") 8 8, pointer;
 }
 
 /* Ensure landing button retains its specific cursor if needed */
@@ -640,7 +649,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
 .sticky-navbar .nav-item span,
 .carousel-indicator,
 .carousel-button {
-   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='%238f859b' stroke='%23000' stroke-width='1'/></svg>") 8 8, pointer;
+   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='%236a4a90' stroke='%231e1030' stroke-width='1'/></svg>") 8 8, pointer;
 }
 
 
@@ -710,9 +719,9 @@ body.loading-active > :not(#loading-screen) {
 /* ===== Ensure hamburger menu button is always black ===== */
 .landing-menu-toggle,
 .landing-menu-toggle svg {
-  color: #000000 !important;
-  stroke: #000000 !important;
-  fill: #000000 !important;
+  color: #1e1030 !important;
+  stroke: #1e1030 !important;
+  fill: #1e1030 !important;
 }
 /* Learn-page animation text should be black */
 body.learn-page-body #loading-text,
@@ -721,7 +730,7 @@ body.learn-page-body #loading-text * {
 }
 /* Match black background used on Index & Contact */
 body.learn-page-body{
-  background:#000 !important;
+  background:#1e1030 !important;
 }
 /* ===================================================
    PRELOADER × LANDING‑PAGE CROSS‑FADE LOGIC
