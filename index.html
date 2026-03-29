@@ -6,18 +6,18 @@
   <title>THYS - Heels Reinvented</title>
   <meta name="description" content="World's first motorized adjustable height heels. Unlimited heights, unlimited transformation, unlimited you. Elevate with THYS. Be notified first!" />
   <link rel="icon" href="/favicon.png" sizes="48x48" type="image/png" />
-
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
-
 </head>
 <body class="landing-page-body landing-loading">
+
+  <!-- ===== LOADING SCREEN ===== -->
   <div id="loading-screen" role="status" aria-hidden="true">
-    <div id="loading-text">
-    </div>
+    <div id="loading-text"></div>
   </div>
 
-  <header class="landing-header" style="position:absolute; top:0; left:0; width:100%; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; z-index:1000;">
+  <!-- ===== HEADER ===== -->
+  <header class="landing-header">
     <a href="index.html" class="landing-logo-link" aria-label="THYS Homepage">
       <img src="logo.svg" alt="THYS Logo" class="landing-logo"/>
     </a>
@@ -27,7 +27,7 @@
         <span class="mobile-text">Join waitlist</span>
       </button>
       <button class="landing-menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -38,37 +38,131 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="learn.html">Learn</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="#investors">Investors</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <div class="video-background-container" style="position:fixed; top:0; left:0; width:100%; height:100vh; overflow:hidden; z-index:-1;">
+  <!-- ===== VIDEO BACKGROUND (fixed, behind hero) ===== -->
+  <div class="video-background-container">
     <video id="landing-video"
-       autoplay
-       muted
-       loop
-       playsinline
-       preload="auto"
-       poster="home-poster.jpg"
-       style="object-fit:cover;width:100%;height:100%;display:block;">
-       <source src="home.mp4" type="video/mp4">
-</video>
-
+      autoplay muted loop playsinline preload="auto" poster="home-poster.jpg"
+      style="object-fit:cover;width:100%;height:100%;display:block;">
+      <source src="home.mp4" type="video/mp4">
+    </video>
   </div>
 
-  <div class="landing-text-overlay">
-    <h1 class="landing-headline">
-      world's first<br class="mobile-break"/>
-      motorized heels
-    </h1>
-    <h2 class="landing-subheadline">
-      with adjustable heel height
-    </h2>
+  <!-- ===== HERO SECTION (full-viewport wrapper) ===== -->
+  <div class="hero-section">
+    <div class="landing-text-overlay">
+      <h1 class="landing-headline">
+        world's first<br class="mobile-break"/>
+        motorized heels
+      </h1>
+      <h2 class="landing-subheadline">
+        with adjustable heel height
+      </h2>
+    </div>
+    <a href="learn.html" class="landing-button elevate-text">Elevate with THYS</a>
   </div>
-  <a href="learn.html" class="landing-button elevate-text">Elevate with THYS</a>
 
-  <script src="script.js" defer></script>
+  <!-- ================================================================
+       INVESTOR LANDING — below-the-fold sections
+       ================================================================ -->
+
+  <!-- 1. TRACTION BANNER -->
+  <div class="traction-banner" role="complementary" aria-label="Traction">
+    2,400+ people already on the waitlist &nbsp;·&nbsp; Coming 2026
+  </div>
+
+  <!-- 2. THE PROBLEM -->
+  <section class="content-section section-problem" id="problem">
+    <div class="section-divider"></div>
+    <span class="section-label">The Problem</span>
+    <h2 class="section-heading">Women have always had to choose between comfort and elegance.</h2>
+    <p class="section-body">The global footwear market is worth $120 billion — and it hasn't seen a meaningful product innovation at the luxury tier since the invention of the stiletto in the 1950s. Decades of design iteration, but the fundamental tension remains unsolved.</p>
+    <p class="section-body">Every woman who has changed shoes before a long walk, packed three pairs for a five-day trip, or chosen flats because she couldn't risk the pain — she has been waiting for an answer. Until now.</p>
+  </section>
+
+  <!-- 3. OUR VISION -->
+  <section class="content-section section-vision" id="vision">
+    <div class="section-divider"></div>
+    <span class="section-label">Our Vision</span>
+    <h2 class="section-heading">The desire for transformation is by design.</h2>
+    <p class="section-body">THYS is building the first shoe that adapts to its wearer — not the other way around. We believe technology and luxury are not in opposition. They are the future of fashion.</p>
+  </section>
+
+  <!-- 4. WHY NOW — stat cards -->
+  <section class="content-section section-why-now" id="why-now">
+    <div class="section-divider"></div>
+    <span class="section-label">Why Now</span>
+    <h2 class="section-heading">A billion-dollar market. An open door.</h2>
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="stat-number">$120B</div>
+        <div class="stat-card-label">Global women's footwear market</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">0</div>
+        <div class="stat-card-label">Direct competitors at the luxury tier</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2,400+</div>
+        <div class="stat-card-label">People already on the waitlist</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. THE TEAM -->
+  <section class="content-section section-team" id="team">
+    <div class="section-divider"></div>
+    <span class="section-label">The Team</span>
+    <h2 class="section-heading">Built by people who understand both craft and code.</h2>
+    <p class="team-placeholder-note"><em>(Replace placeholder names and bios with your actual team details)</em></p>
+    <div class="team-cards">
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true"></div>
+        <span class="team-title">Co-Founder &amp; CEO</span>
+        <h3 class="team-name">Founder Name</h3>
+        <p class="team-bio">A brief sentence about their background and expertise in fashion and luxury. A second sentence about what they bring to THYS and why they founded it.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true"></div>
+        <span class="team-title">Co-Founder &amp; CTO</span>
+        <h3 class="team-name">Founder Name</h3>
+        <p class="team-bio">A brief sentence about their engineering or product background. A second sentence about what drives them and the specific expertise they contribute to the team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. INVESTOR CTA -->
+  <section class="section-investor-cta" id="investors">
+    <div class="section-divider section-divider--light"></div>
+    <span class="section-label section-label--light">Invest in the Future of Footwear</span>
+    <h2 class="section-heading section-heading--light">We're raising our seed round.</h2>
+    <p class="investor-subtext">We're connecting with venture investors at the intersection of fashion, technology, and consumer hardware. If you believe the future of luxury is intelligent, we'd love to talk.</p>
+    <a href="mailto:info@thys.co?subject=Investor Inquiry" class="investor-cta-button">Request Our Deck &rarr;</a>
+  </section>
+
+  <!-- 7. FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-brand">
+        <img src="logo-inverted.svg" alt="THYS" class="site-footer-logo">
+      </div>
+      <div class="site-footer-copy">
+        <p>&copy; 2026 THYS. All rights reserved.</p>
+      </div>
+      <div class="site-footer-links">
+        <a href="mailto:info@thys.co">info@thys.co</a>
+        <a href="#">Privacy Policy</a>
+        <a href="mailto:info@thys.co?subject=Investor Inquiry">Investor Inquiries</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WAITLIST POPUP ===== -->
   <div id="timer-popup" style="display: none;">
     <div class="popup-content">
       <div id="popup-step-1">
@@ -80,7 +174,6 @@
         </div>
         <button type="button" id="popup-next-step">Continue</button>
       </div>
-  
       <div id="popup-step-2" style="display: none;">
         <h2>Almost there!</h2>
         <p>Please enter your email so we can notify you about the launch.</p>
@@ -90,17 +183,18 @@
         </div>
         <button type="submit" id="popup-submit">Submit</button>
       </div>
-  
-       <div id="popup-submitting" style="display: none;">
-          <p>Submitting...</p>
-       </div>
-        <div id="popup-success" style="display: none;">
-          <p>Thank you! Your details have been submitted.</p>
-        </div>
-         <div id="popup-error" style="display: none;">
-          <p>Sorry, there was an error. Please try again later.</p>
-        </div>
-  
-    </div> </div> 
+      <div id="popup-submitting" style="display: none;">
+        <p>Submitting...</p>
+      </div>
+      <div id="popup-success" style="display: none;">
+        <p>Thank you! Your details have been submitted.</p>
+      </div>
+      <div id="popup-error" style="display: none;">
+        <p>Sorry, there was an error. Please try again later.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

@@ -174,7 +174,9 @@ body.landing-page-body #loading-screen #loading-text {
    Landing Page Styles (Should be in main style.css)
    ======================================== */
 
-   .landing-page-body { overflow: hidden; margin: 0; background-color: #1e1030; }
+   .landing-page-body { overflow-x: hidden; margin: 0; background-color: #1e1030; }
+   /* Prevent any scroll while the intro animation plays */
+   body.landing-loading { overflow: hidden; }
   .video-background-container {
     position: fixed;
     top: 0;
@@ -881,5 +883,457 @@ body.learn-page-body #loading-screen{
       margin: 0 auto !important;         /* center align */
       text-align: center !important;
       white-space: normal !important;    /* allow wrapping if needed */
+  }
+}
+
+
+/* ================================================================
+   INVESTOR LANDING — Hero wrapper & sticky header
+   ================================================================ */
+
+/* Full-viewport hero wrapper so sections stack naturally below */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Re-anchor the fixed hero elements to the hero wrapper */
+.hero-section .landing-text-overlay {
+  position: absolute !important;
+}
+.hero-section .landing-button {
+  position: absolute !important;
+}
+
+/* Header is already position:fixed in the existing rules.
+   Add a smooth transition for the scroll state. */
+.landing-header {
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Frosted-glass header once user scrolls past the hero */
+.landing-header.header-scrolled {
+  background-color: rgba(245, 237, 232, 0.9); /* Warm Ivory, semi-transparent */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 2px 20px rgba(30, 16, 48, 0.1);
+}
+
+/* Hamburger icon — warm ivory on dark hero background */
+.landing-header:not(.header-scrolled) .landing-menu-toggle,
+.landing-header:not(.header-scrolled) .landing-menu-toggle svg {
+  color: var(--color-warm-ivory) !important;
+  stroke: var(--color-warm-ivory) !important;
+  fill: var(--color-warm-ivory) !important;
+}
+
+/* Hamburger icon — deep plum when header is light */
+.landing-header.header-scrolled .landing-menu-toggle,
+.landing-header.header-scrolled .landing-menu-toggle svg {
+  color: var(--color-deep-plum) !important;
+  stroke: var(--color-deep-plum) !important;
+  fill: var(--color-deep-plum) !important;
+}
+
+/* Nav dropdown background & link colours in scrolled state */
+.landing-header.header-scrolled .landing-nav {
+  background-color: rgba(245, 237, 232, 0.97);
+}
+.landing-header.header-scrolled .landing-nav a {
+  color: var(--color-deep-plum);
+}
+.landing-header.header-scrolled .landing-nav a:hover,
+.landing-header.header-scrolled .landing-nav a:focus {
+  color: var(--color-antique-lilac-mid);
+}
+
+/* Join-waitlist button stays legible in scrolled state */
+.landing-header.header-scrolled .landing-button.join-waitlist-button {
+  background-color: var(--color-deep-plum);
+  border-color: var(--color-deep-plum);
+  color: var(--color-warm-ivory);
+}
+
+
+/* ================================================================
+   INVESTOR LANDING — Shared section primitives
+   ================================================================ */
+
+/* All below-the-fold sections sit above the fixed video */
+.content-section,
+.traction-banner,
+.section-investor-cta,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Centered hairline divider */
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background-color: var(--color-wisteria-mid);
+  margin: 0 auto 2.5rem;
+}
+.section-divider--light {
+  background-color: rgba(212, 176, 200, 0.4);
+}
+
+/* Small-caps label above headings */
+.section-label {
+  display: block;
+  font-family: var(--font-default);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-antique-lilac-mid);
+  margin-bottom: 1.2rem;
+}
+.section-label--light {
+  color: var(--color-wisteria-mid);
+}
+
+/* Section headline */
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--color-deep-plum);
+  line-height: 1.25;
+  max-width: 680px;
+  margin: 0 auto 1.8rem;
+  letter-spacing: 0.015em;
+}
+.section-heading--light {
+  color: var(--color-warm-ivory);
+}
+
+/* Body copy */
+.section-body {
+  font-family: var(--font-default);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--color-deep-plum);
+  max-width: 580px;
+  margin: 0 auto 1.2rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* Content sections share padding & centering */
+.content-section {
+  background-color: var(--color-antique-lilac);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+
+/* ================================================================
+   INVESTOR LANDING — 1. Traction Banner
+   ================================================================ */
+
+.traction-banner {
+  background-color: var(--color-deep-plum);
+  color: var(--color-warm-ivory);
+  text-align: center;
+  padding: 0.9rem 1.5rem;
+  font-family: var(--font-default);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+
+/* ================================================================
+   INVESTOR LANDING — 3. Vision
+   ================================================================ */
+
+.section-vision {
+  background-color: var(--color-blushed-wisteria);
+}
+
+
+/* ================================================================
+   INVESTOR LANDING — 4. Why Now — stat cards
+   ================================================================ */
+
+.section-why-now {
+  background-color: var(--color-antique-lilac);
+}
+
+.stat-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 2.8rem 2.2rem;
+  box-shadow: 0 4px 28px rgba(30, 16, 48, 0.08);
+  flex: 1 1 200px;
+  max-width: 280px;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--color-deep-plum);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.01em;
+}
+
+.stat-card-label {
+  font-family: var(--font-default);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-antique-lilac-mid);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+
+/* ================================================================
+   INVESTOR LANDING — 5. Team
+   ================================================================ */
+
+.section-team {
+  background-color: var(--color-blushed-wisteria);
+}
+
+.team-placeholder-note {
+  font-family: var(--font-default);
+  font-size: 0.78rem;
+  color: var(--color-antique-lilac-mid);
+  margin: -0.5rem auto 2.8rem;
+  max-width: 480px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.team-cards {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  background-color: var(--color-antique-lilac);
+  border-radius: 14px;
+  padding: 2.8rem 2.2rem;
+  flex: 1 1 240px;
+  max-width: 320px;
+  text-align: center;
+}
+
+/* Circular avatar placeholder */
+.team-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--color-wisteria-mid);
+  margin: 0 auto 1.4rem;
+}
+
+.team-title {
+  display: block;
+  font-family: var(--font-default);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-antique-lilac-mid);
+  margin-bottom: 0.4rem;
+}
+
+.team-name {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--color-deep-plum);
+  margin: 0 0 0.8rem;
+  letter-spacing: 0.01em;
+}
+
+.team-bio {
+  font-family: var(--font-default);
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--color-deep-plum);
+  margin: 0;
+  opacity: 0.75;
+}
+
+
+/* ================================================================
+   INVESTOR LANDING — 6. Investor CTA
+   ================================================================ */
+
+.section-investor-cta {
+  background-color: var(--color-deep-plum);
+  padding: 8rem 2rem;
+  text-align: center;
+}
+
+.investor-subtext {
+  font-family: var(--font-default);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--color-warm-ivory);
+  max-width: 520px;
+  margin: 0 auto 2.8rem;
+  opacity: 0.75;
+}
+
+.investor-cta-button {
+  display: inline-block;
+  padding: 0.65rem 2.2rem;
+  background-color: var(--color-aged-gold);
+  color: var(--color-deep-plum);
+  border: 2px solid var(--color-aged-gold);
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='6' fill='%236a4a90' stroke='%231e1030' stroke-width='1'/></svg>") 8 8, pointer;
+}
+.investor-cta-button:hover,
+.investor-cta-button:focus {
+  background-color: transparent;
+  color: var(--color-aged-gold);
+  border-color: var(--color-aged-gold);
+  outline: none;
+}
+
+
+/* ================================================================
+   INVESTOR LANDING — 7. Footer
+   ================================================================ */
+
+.site-footer {
+  background-color: var(--color-deep-plum);
+  border-top: 1px solid rgba(212, 176, 200, 0.15);
+  padding: 2.8rem 2rem calc(2.8rem + env(safe-area-inset-bottom));
+  font-family: var(--font-default);
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.site-footer-logo {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.site-footer-copy {
+  font-size: 0.68rem;
+  color: var(--color-warm-ivory);
+  opacity: 0.45;
+  text-align: center;
+  flex: 1;
+}
+.site-footer-copy p { margin: 0; }
+
+.site-footer-links {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.site-footer-links a {
+  font-family: var(--font-default);
+  font-size: 0.68rem;
+  color: var(--color-warm-ivory);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+.site-footer-links a:hover,
+.site-footer-links a:focus {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+
+/* ================================================================
+   INVESTOR LANDING — Responsive (mobile)
+   ================================================================ */
+
+@media (max-width: 767px) {
+
+  /* Section headings */
+  .section-heading {
+    font-size: 1.7rem;
+  }
+
+  /* Tighten section padding */
+  .content-section {
+    padding: 4.5rem 1.5rem;
+  }
+  .section-investor-cta {
+    padding: 5.5rem 1.5rem;
+  }
+
+  /* Stat cards: stack vertically, full width */
+  .stat-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .stat-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Team cards: stack vertically, full width */
+  .team-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .team-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Footer: stack columns, center everything */
+  .site-footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+  }
+  .site-footer-copy {
+    order: 2;
+  }
+  .site-footer-links {
+    justify-content: center;
+    order: 3;
+  }
+  .site-footer-brand {
+    order: 1;
   }
 }

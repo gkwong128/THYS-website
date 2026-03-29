@@ -490,4 +490,45 @@ if (document.body.classList.contains('learn-page-body')) {
         hideLoaderIfReady();
     }
   
+    // ===== Sticky header: frosted-glass transition on scroll =====
+    const stickyHdr = document.querySelector('.landing-header');
+    if (stickyHdr) {
+        const logoImg = stickyHdr.querySelector('.landing-logo');
+
+        const onHeroScroll = () => {
+            const pastHero = window.scrollY > window.innerHeight * 0.75;
+            stickyHdr.classList.toggle('header-scrolled', pastHero);
+
+            // Swap logo between light (hero) and dark (scrolled) versions
+            if (logoImg) {
+                logoImg.src = pastHero ? 'logo-inverted.svg' : 'logo.svg';
+            }
+        };
+
+        window.addEventListener('scroll', onHeroScroll, { passive: true });
+        // Run once on load in case page is already scrolled (e.g. browser restore)
+        onHeroScroll();
+    }
+    // ===== End sticky header =====
+
+    // ===== Smooth-scroll "Investors" nav link =====
+    document.querySelectorAll('a[href="#investors"]').forEach(link => {
+        link.addEventListener('click', e => {
+            const target = document.getElementById('investors');
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+                // Close hamburger menu if open
+                const nav = document.getElementById('landing-navigation');
+                const toggle = document.querySelector('.landing-menu-toggle');
+                if (nav && nav.style.display !== 'none') {
+                    nav.style.display = 'none';
+                    nav.setAttribute('aria-hidden', 'true');
+                    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+    });
+    // ===== End smooth-scroll =====
+
 }); // End DOMContentLoaded
