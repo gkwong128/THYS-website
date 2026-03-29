@@ -174,7 +174,9 @@ body.landing-page-body #loading-screen #loading-text {
    Landing Page Styles (Should be in main style.css)
    ======================================== */
 
-   .landing-page-body { overflow-x: hidden; margin: 0; background-color: #1e1030; }
+   /* No background on the body — the video (z-index:-1) must sit above it.
+      The loading screen overlay provides the dark cover during the intro. */
+   .landing-page-body { overflow-x: hidden; margin: 0; }
    /* Prevent any scroll while the intro animation plays */
    body.landing-loading { overflow: hidden; }
   .video-background-container {
@@ -1025,7 +1027,7 @@ body.learn-page-body #loading-screen{
 /* Content sections share padding & centering */
 .content-section {
   background-color: var(--color-antique-lilac);
-  padding: 6rem 2rem;
+  padding: 6rem 2rem 10rem;
   text-align: center;
 }
 
@@ -1182,7 +1184,7 @@ body.learn-page-body #loading-screen{
 
 .section-investor-cta {
   background-color: var(--color-deep-plum);
-  padding: 8rem 2rem;
+  padding: 8rem 2rem 11rem;
   text-align: center;
 }
 
@@ -1291,12 +1293,12 @@ body.learn-page-body #loading-screen{
     font-size: 1.7rem;
   }
 
-  /* Tighten section padding */
+  /* Tighten section padding on mobile */
   .content-section {
-    padding: 4.5rem 1.5rem;
+    padding: 4.5rem 1.5rem 7.5rem;
   }
   .section-investor-cta {
-    padding: 5.5rem 1.5rem;
+    padding: 5.5rem 1.5rem 8rem;
   }
 
   /* Stat cards: stack vertically, full width */
