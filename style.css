@@ -569,7 +569,9 @@ button {
 }
 
 
-   section:not(.video-scrub-section):not(.sidekick-section):not(.explore-section) { margin: var(--section-vertical-margin) auto; padding: 0 var(--container-padding); max-width: var(--container-max-width); box-sizing: border-box; }
+   /* Legacy rule — explicitly excludes the investor landing sections so their
+      own padding / full-width backgrounds are never overridden by this rule. */
+   section:not(.video-scrub-section):not(.sidekick-section):not(.explore-section):not(.content-section):not(.section-investor-cta) { margin: var(--section-vertical-margin) auto; padding: 0 var(--container-padding); max-width: var(--container-max-width); box-sizing: border-box; }
     section h2 { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 1rem; letter-spacing: 0.03em; }
     section p { line-height: 1.6; font-size: 0.9rem; margin-top: 0; margin-bottom: 1rem; }
    section p:last-child { margin-bottom: 0; }
