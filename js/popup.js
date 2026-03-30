@@ -109,19 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Auto-show after 4 minutes (landing page, first visit only) ── //
-  if (document.body.classList.contains('landing-page-body') &&
-      !localStorage.getItem(STORAGE_KEY_DOWNLOAD) &&
-      !localStorage.getItem(STORAGE_KEY_COMPLETED)) {
-    setTimeout(() => {
-      if (!popup.classList.contains('popup-visible')) {
-        localStorage.removeItem(STORAGE_KEY_NAME);
-        isDownloadFlow = false;
-        showPopup();
-      }
-    }, 240000); // 4 minutes
-  }
-
   // ── Close button ── //
   if (popupCloseButton) {
     popupCloseButton.addEventListener('click', hidePopup);
