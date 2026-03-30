@@ -1,0 +1,281 @@
+/* ============================================================
+   HERO  ·  Video background · Fixed header · Hamburger nav
+            Headline · Landing button · Sticky header states
+   ============================================================ */
+
+/* ── Waitlist button text swap (desktop default) ── */
+.join-waitlist-button .desktop-text { display: inline; }
+.join-waitlist-button .mobile-text  { display: none; }
+
+/* ── Header actions layout ── */
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .join-waitlist-button {
+    order: 1;
+    margin: 1rem 0 0.5rem 0 !important;
+  }
+  .landing-menu-toggle {
+    order: 2;
+    margin: 0 !important;
+  }
+}
+
+/* ── Landing page body ── */
+/* No background on body — the fixed video (z-index:-1) must be visible through it */
+.landing-page-body { overflow-x: hidden; margin: 0; }
+body.landing-loading { overflow: hidden; }
+
+/* ── Fixed video background ── */
+.video-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh + env(safe-area-inset-top));
+  margin-top: calc(-1 * env(safe-area-inset-top));
+  z-index: -1;
+  overflow: hidden;
+  /* Poster fallback: no white flash on repeat visits */
+  background: #1e1030 url('../home-poster.jpg') center / cover no-repeat;
+}
+@media (max-width: 767px) {
+  .video-background-container {
+    top: 0 !important;
+    height: calc(100vh + env(safe-area-inset-top)) !important;
+  }
+}
+#landing-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* ── Fixed header ── */
+.landing-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem var(--container-padding, 1.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 101;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+.landing-logo-link { line-height: 0; }
+.landing-logo { width: 150px; height: auto; }
+
+/* Hamburger button */
+.landing-menu-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  color: var(--color-text-light, #000);
+  line-height: 0;
+}
+.landing-menu-toggle svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+/* Default: black icon (contact/learn pages with light backgrounds) */
+.landing-menu-toggle,
+.landing-menu-toggle svg {
+  color: #1e1030 !important;
+  stroke: #1e1030 !important;
+  fill: #1e1030 !important;
+}
+
+/* ── Hamburger dropdown nav ── */
+.landing-nav {
+  position: absolute;
+  top: 100%;
+  right: var(--container-padding);
+  background-color: rgba(30, 16, 48, 0.85);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 102;
+}
+.landing-nav ul { list-style: none; margin: 0; padding: 0; }
+.landing-nav li + li { margin-top: 0.75rem; }
+.landing-nav a {
+  display: block;
+  text-decoration: none;
+  font-family: var(--font-default, 'Manrope', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  transition: color 0.2s ease;
+}
+.landing-nav a:hover,
+.landing-nav a:focus { color: var(--color-accent); }
+.landing-menu-toggle[aria-expanded="true"] + .landing-nav { display: block; }
+
+/* ── Hero text overlay ── */
+.landing-text-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+  z-index: 100;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+@media (min-width: 768px) {
+  .landing-text-overlay { top: 45% !important; }
+}
+
+/* ── Headline & subheadline ── */
+.landing-headline br.mobile-break { display: none; }
+.landing-headline {
+  font-family: var(--font-heading, serif);
+  font-size: 2.5rem !important;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.03em;
+  color: var(--color-text-dark, #000);
+  text-shadow: none !important;
+}
+.landing-subheadline {
+  font-family: var(--font-heading, serif);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 auto;
+  letter-spacing: 0.02em;
+  color: var(--color-text-dark, #000);
+  text-shadow: none;
+}
+
+/* ── Landing button ── */
+.landing-button {
+  position: fixed;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 101;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background-color: var(--color-warm-ivory);
+  color: var(--color-deep-plum);
+  border: 2px solid var(--color-warm-ivory);
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-heading, serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+/* When placed inside the header, reset fixed positioning */
+.landing-header .landing-button {
+  position: static !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+.landing-button:hover,
+.landing-button:focus {
+  background-color: transparent;
+  border-color: var(--color-warm-ivory);
+  color: var(--color-warm-ivory);
+}
+
+/* ── Mobile: headline sizes + button text ── */
+@media (max-width: 767px) {
+  .landing-headline {
+    font-size: 2.8rem !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+  }
+  .landing-headline br.mobile-break { display: block !important; }
+  .landing-subheadline {
+    font-size: 1.8rem !important;
+    font-weight: 600 !important;
+  }
+  .landing-text-overlay { width: 90%; text-shadow: none; }
+  .join-waitlist-button .desktop-text { display: none; }
+  .join-waitlist-button .mobile-text  { display: inline; }
+  .elevate-text { text-align: center; }
+  /* Larger tap targets in hamburger menu */
+  .landing-nav a {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+  }
+}
+@media (max-width: 480px) {
+  .landing-headline {
+    font-size: 2.2rem !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+  }
+  .landing-subheadline { font-size: 1.2rem; }
+}
+
+/* ── Investor landing: full-viewport hero wrapper ── */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+/* Re-anchor the fixed hero elements to the hero wrapper */
+.hero-section .landing-text-overlay { position: absolute !important; }
+.hero-section .landing-button       { position: absolute !important; }
+
+/* ── Sticky header: scroll states ── */
+.landing-header.header-scrolled {
+  background-color: rgba(30, 16, 48, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Hamburger: warm ivory over the video (unscrolled) */
+.landing-header:not(.header-scrolled) .landing-menu-toggle,
+.landing-header:not(.header-scrolled) .landing-menu-toggle svg {
+  color: var(--color-warm-ivory) !important;
+  stroke: var(--color-warm-ivory) !important;
+  fill: var(--color-warm-ivory) !important;
+}
+/* Hamburger: antique lilac over the smoked-glass header */
+.landing-header.header-scrolled .landing-menu-toggle,
+.landing-header.header-scrolled .landing-menu-toggle svg {
+  color: #ddd4e8 !important;
+  stroke: #ddd4e8 !important;
+  fill: #ddd4e8 !important;
+}
+/* Nav dropdown in scrolled state */
+.landing-header.header-scrolled .landing-nav {
+  background-color: rgba(30, 16, 48, 0.85);
+}
+.landing-header.header-scrolled .landing-nav a { color: #ddd4e8; }
+.landing-header.header-scrolled .landing-nav a:hover,
+.landing-header.header-scrolled .landing-nav a:focus { color: var(--color-warm-ivory); }
+/* Waitlist button in scrolled state */
+.landing-header.header-scrolled .landing-button.join-waitlist-button {
+  background-color: transparent;
+  border-color: #ddd4e8;
+  color: #ddd4e8;
+}
