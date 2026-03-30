@@ -243,10 +243,11 @@ body.landing-page-body #loading-screen #loading-text {
   .landing-nav a {
     display: block;
     text-decoration: none;
-    /* Change font family to Italiana and use a medium weight */
-    font-family: var(--font-heading, 'Italiana', serif);
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-family: var(--font-default, 'Manrope', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--color-text-light);
     transition: color 0.2s ease;
   }
