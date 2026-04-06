@@ -30,6 +30,20 @@ document.addEventListener('DOMContentLoaded', () => {
     onHeroScroll(); // run once on load (handles restored scroll position)
   }
 
+  // ── Scroll-in fade-up animations ── //
+  const fadeEls = document.querySelectorAll('.fade-up');
+  if (fadeEls.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
+  }
+
   // ── Smooth-scroll for "Investors" nav link ── //
   document.querySelectorAll('a[href="#investors"]').forEach(link => {
     link.addEventListener('click', e => {
