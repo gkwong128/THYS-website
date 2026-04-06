@@ -151,8 +151,8 @@
   text-align: center;
 }
 .team-avatar {
-  width: 80px;
-  height: 80px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   background-color: var(--color-wisteria-mid);
   margin: 0 auto 1.4rem;
