@@ -86,7 +86,22 @@
 
 
 /* ── 3b. The Product ── */
-.section-product { background-color: var(--color-warm-ivory); }
+.section-product {
+  background-color: var(--color-deep-plum);
+}
+.section-product .section-divider {
+  background-color: var(--color-aged-gold);
+}
+.section-product .section-label {
+  color: var(--color-aged-gold);
+}
+.section-product .section-heading,
+.section-product .section-body {
+  color: var(--color-warm-ivory);
+}
+.section-product .section-body {
+  opacity: 0.75;
+}
 
 .feature-cards {
   display: flex;
@@ -96,7 +111,8 @@
   flex-wrap: wrap;
 }
 .feature-card {
-  background-color: var(--color-antique-lilac);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(200, 160, 110, 0.3);
   border-radius: 14px;
   padding: 2.4rem 2rem;
   flex: 1 1 200px;
@@ -117,26 +133,14 @@
   font-family: var(--font-default);
   font-size: 0.9rem;
   line-height: 1.75;
-  color: var(--color-deep-plum);
+  color: var(--color-warm-ivory);
+  opacity: 0.85;
   margin: 0;
 }
 
 /* ── 4. Why Now — stat cards ── */
 .section-why-now {
-  background-color: var(--color-deep-plum);
-}
-.section-why-now .section-divider {
-  background-color: var(--color-aged-gold);
-}
-.section-why-now .section-label {
-  color: var(--color-aged-gold);
-}
-.section-why-now .section-heading,
-.section-why-now .section-body {
-  color: var(--color-warm-ivory);
-}
-.section-why-now .section-body {
-  opacity: 0.75;
+  background-color: var(--color-antique-lilac);
 }
 
 .stat-cards {
@@ -147,10 +151,10 @@
   flex-wrap: wrap;
 }
 .stat-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(200, 160, 110, 0.3);
+  background-color: var(--color-warm-ivory);
   border-radius: 14px;
   padding: 2.8rem 2.2rem;
+  box-shadow: 0 4px 28px rgba(30, 16, 48, 0.08);
   flex: 1 1 200px;
   max-width: 280px;
   text-align: center;
@@ -168,7 +172,7 @@
   font-family: var(--font-default);
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--color-wisteria-mid);
+  color: var(--color-antique-lilac-mid);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.5;
