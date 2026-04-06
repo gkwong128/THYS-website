@@ -198,7 +198,8 @@
   flex-wrap: wrap;
 }
 .team-card {
-  background-color: var(--color-antique-lilac);
+  background-color: var(--color-deep-plum);
+  border: 1px solid rgba(200, 160, 110, 0.3);
   border-radius: 14px;
   padding: 2.8rem 2.2rem;
   flex: 1 1 240px;
@@ -211,6 +212,7 @@
   border-radius: 50%;
   background-color: var(--color-wisteria-mid);
   margin: 0 auto 1.4rem;
+  border: 2px solid rgba(200, 160, 110, 0.4);
 }
 .team-title {
   display: block;
@@ -219,14 +221,14 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-antique-lilac-mid);
+  color: var(--color-aged-gold);
   margin-bottom: 0.4rem;
 }
 .team-name {
   font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 400;
-  color: var(--color-deep-plum);
+  color: var(--color-warm-ivory);
   margin: 0 0 0.8rem;
   letter-spacing: 0.01em;
 }
@@ -234,7 +236,7 @@
   font-family: var(--font-default);
   font-size: 0.85rem;
   line-height: 1.75;
-  color: var(--color-deep-plum);
+  color: var(--color-warm-ivory);
   margin: 0;
   opacity: 0.75;
 }
