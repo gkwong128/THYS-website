@@ -85,6 +85,42 @@
 .section-vision { background-color: var(--color-blushed-wisteria); }
 
 
+/* ── 3b. The Product ── */
+.section-product { background-color: var(--color-warm-ivory); }
+
+.feature-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+.feature-card {
+  background-color: var(--color-antique-lilac);
+  border-radius: 14px;
+  padding: 2.4rem 2rem;
+  flex: 1 1 200px;
+  max-width: 240px;
+  text-align: center;
+}
+.feature-card-title {
+  font-family: var(--font-default);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-antique-lilac-mid);
+  margin-bottom: 1rem;
+  display: block;
+}
+.feature-card-body {
+  font-family: var(--font-default);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--color-deep-plum);
+  margin: 0;
+}
+
 /* ── 4. Why Now — stat cards ── */
 .section-why-now { background-color: var(--color-antique-lilac); }
 
