@@ -175,17 +175,17 @@ body.landing-loading { overflow: hidden; }
   z-index: 101;
   display: inline-block;
   padding: 0.5rem 1.2rem;
-  background-color: var(--color-warm-ivory);
-  color: var(--color-deep-plum);
-  border: 2px solid var(--color-warm-ivory);
+  background-color: rgba(30, 16, 48, 0.45);
+  color: var(--color-warm-ivory);
+  border: 1.5px solid var(--color-aged-gold);
   border-radius: 50px;
   text-decoration: none;
   font-family: var(--font-heading, serif);
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 /* When placed inside the header, reset fixed positioning */
@@ -199,9 +199,9 @@ body.landing-loading { overflow: hidden; }
 }
 .landing-button:hover,
 .landing-button:focus {
-  background-color: transparent;
-  border-color: var(--color-warm-ivory);
-  color: var(--color-warm-ivory);
+  background-color: rgba(200, 160, 110, 0.2);
+  border-color: var(--color-aged-gold);
+  color: var(--color-aged-gold);
 }
 
 /* ── Mobile: headline sizes + button text ── */
@@ -275,7 +275,7 @@ body.landing-loading { overflow: hidden; }
 .landing-header.header-scrolled .landing-nav a:focus { color: var(--color-warm-ivory); }
 /* Waitlist button in scrolled state */
 .landing-header.header-scrolled .landing-button.join-waitlist-button {
-  background-color: transparent;
-  border-color: #ddd4e8;
-  color: #ddd4e8;
+  background-color: rgba(30, 16, 48, 0.45);
+  border-color: var(--color-aged-gold);
+  color: var(--color-warm-ivory);
 }
