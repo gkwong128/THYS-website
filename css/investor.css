@@ -81,9 +81,185 @@
 }
 
 
-/* ── 3. Vision ── */
-.section-vision { background-color: var(--color-blushed-wisteria); }
+/* ── 3. The Costs ── */
+.section-costs {
+  background-color: var(--color-blushed-wisteria);
+  text-align: center;
+}
+.cost-heading {
+  font-family: var(--font-default);
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-deep-plum);
+  max-width: var(--container-max-width);
+  margin: 0 auto 2.5rem;
+  letter-spacing: 0.005em;
+}
+.cost-cards {
+  display: flex;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+.cost-card {
+  background-color: var(--color-warm-ivory);
+  border: 1px solid var(--color-wisteria-mid);
+  border-radius: 14px;
+  padding: 2rem 1.8rem;
+  flex: 1 1 200px;
+  max-width: 260px;
+  text-align: center;
+}
+.cost-card-label {
+  display: block;
+  font-family: var(--font-default);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-antique-lilac-mid);
+  margin-bottom: 0.8rem;
+}
+.cost-card-rule {
+  width: 40px;
+  border: none;
+  border-top: 2px solid var(--color-aged-gold);
+  margin: 0 auto 1.4rem;
+}
+.cost-card-number {
+  font-family: var(--font-default);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--color-deep-plum);
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: 0.01em;
+}
+.cost-card-body {
+  font-family: var(--font-default);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--color-deep-plum);
+  opacity: 0.85;
+  margin: 0;
+}
+.cost-card-body sup {
+  font-size: 0.7em;
+  color: var(--color-aged-gold);
+  font-weight: 700;
+}
+.cost-footnotes {
+  max-width: var(--container-max-width);
+  margin: 3rem auto 0;
+}
+.cost-footnotes-divider {
+  border: none;
+  border-top: 1px solid rgba(30, 16, 48, 0.14);
+  margin: 0 0 1.5rem;
+}
+.cost-footnotes-text {
+  font-family: var(--font-default);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--color-antique-lilac-mid);
+  opacity: 0.85;
+  text-align: left;
+  margin: 0;
+}
+.cost-footnotes-text strong {
+  font-weight: 700;
+  opacity: 1;
+}
+@media (max-width: 700px) {
+  .cost-card { max-width: 100%; flex: 1 1 100%; }
+}
 
+
+/* ── Image above feature cards ── */
+.hero-above-cards-img {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto 3rem;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* ── Founder quote ── */
+.founder-quote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 3.2rem;
+  color: var(--color-deep-plum);
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  text-align: left;
+  line-height: 1.65;
+}
+.founder-quote p {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+  line-height: 1.65;
+}
+.founder-quote cite {
+  display: block;
+  font-family: var(--font-default);
+  font-style: normal;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-antique-lilac-mid);
+}
+
+/* ── 1b. Hero Product Showcase ── */
+.section-hero-product {
+  background-color: var(--color-deep-plum);
+  padding-top: 8.5rem;
+  padding-bottom: 5.5rem;
+}
+.section-hero-product .section-heading {
+  color: var(--color-warm-ivory);
+}
+.hero-product-tagline {
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  color: var(--color-warm-ivory);
+  opacity: 0.9;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.hero-product-layout {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+.hero-product-text {
+  flex: 1;
+  text-align: left;
+}
+.hero-product-image {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  line-height: 0;
+}
+.hero-product-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
 
 /* ── 3b. The Product ── */
 .section-product {
@@ -110,6 +286,73 @@
   margin-top: 3rem;
   flex-wrap: wrap;
 }
+.hero-feature-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.hero-feature-cards .feature-card {
+  background-color: rgba(30, 16, 48, 0.55);
+  border-color: rgba(200, 160, 110, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.4rem 1.2rem;
+}
+.hero-feature-cards .feature-card-title {
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.6rem;
+}
+.hero-feature-cards .feature-card-body {
+  font-size: 1.3rem;
+}
+.hero-market-line {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-deep-plum);
+  text-align: center;
+  margin: 5rem auto 0;
+  letter-spacing: 0.01em;
+}
+
+/* Hero variant with tall content (cards) instead of the short two-line
+   headline: fall back to normal document flow instead of the fixed
+   vertical-centering used for the short hero text. */
+.hero-section.hero-section-cards {
+  height: auto;
+  min-height: 100vh;
+  padding: 9rem 1.5rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+.hero-cards-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 400;
+  color: var(--color-deep-plum);
+  text-align: center;
+  margin: 0 0 2rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 10px rgba(245, 237, 232, 0.65);
+}
+.hero-section.hero-section-cards .landing-text-overlay {
+  position: static !important;
+  transform: none !important;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-section.hero-section-cards .landing-button {
+  position: static !important;
+  display: inline-block;
+  margin-top: 3rem;
+}
 .feature-card {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(200, 160, 110, 0.3);
@@ -121,7 +364,7 @@
 }
 .feature-card-title {
   font-family: var(--font-default);
-  font-size: 0.72rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -131,51 +374,283 @@
 }
 .feature-card-body {
   font-family: var(--font-default);
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: var(--color-warm-ivory);
   opacity: 0.85;
   margin: 0;
 }
 
-/* ── 4. Why Now — stat cards ── */
-.section-why-now {
-  background-color: var(--color-antique-lilac);
+/* ── Mechanism block (mechanical vs. electronic drive) ── */
+.mechanism-block {
+  max-width: 780px;
+  margin: 5rem auto 0;
+  text-align: left;
+}
+.mechanism-heading {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-warm-ivory);
+  margin: 0 0 2.5rem;
+  letter-spacing: 0.015em;
+}
+.mechanism-heading-italic {
+  display: block;
+  font-style: italic;
+  color: var(--color-aged-gold);
+}
+.mechanism-item {
+  padding: 1.8rem 0;
+}
+.mechanism-item:first-of-type {
+  padding-top: 0;
+}
+.mechanism-label {
+  display: block;
+  font-family: var(--font-default);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-aged-gold);
+  margin-bottom: 0.6rem;
+}
+.mechanism-body {
+  font-family: var(--font-default);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-warm-ivory);
+  opacity: 0.9;
+  max-width: 640px;
+  margin: 0;
+}
+.mechanism-divider {
+  border: none;
+  border-top: 1px solid rgba(200, 160, 110, 0.25);
+  margin: 0;
 }
 
-.stat-cards {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 3rem;
-  flex-wrap: wrap;
+/* ── Meet Thyrsus block ── */
+.thyrsus-block {
+  max-width: 1100px;
+  margin: 5rem auto 0;
+  text-align: left;
 }
-.stat-card {
-  background-color: var(--color-warm-ivory);
-  border-radius: 14px;
-  padding: 2.8rem 2.2rem;
-  box-shadow: 0 4px 28px rgba(30, 16, 48, 0.08);
-  flex: 1 1 200px;
-  max-width: 280px;
+.thyrsus-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-warm-ivory);
+  opacity: 0.9;
+  margin-bottom: 1.2rem;
+}
+.thyrsus-divider {
+  border: none;
+  border-top: 1px solid rgba(245, 237, 232, 0.2);
+  margin: 0 0 2.8rem;
+}
+.thyrsus-grid {
+  display: flex;
+  gap: 3.5rem;
+  align-items: flex-start;
+}
+.thyrsus-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.8rem 3rem;
+  flex: 1 1 auto;
+}
+.thyrsus-stat-title {
+  font-family: var(--font-default);
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-aged-gold);
+  margin-bottom: 0.8rem;
+}
+.thyrsus-stat-rule {
+  border: none;
+  border-top: 1px solid rgba(200, 160, 110, 0.4);
+  width: 70%;
+  margin: 0 0 0.8rem;
+}
+.thyrsus-stat-caption {
+  font-family: var(--font-default);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-warm-ivory);
+  opacity: 0.85;
+  margin: 0;
+}
+.thyrsus-image-wrap {
+  flex: 0 0 320px;
+}
+.thyrsus-image-frame {
+  border: 1px solid var(--color-aged-gold);
+  border-radius: 4px;
+  padding: 14px;
+  background: var(--color-warm-ivory);
+  line-height: 0;
+}
+.thyrsus-image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.thyrsus-image-caption {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--color-warm-ivory);
+  opacity: 0.75;
+  text-align: center;
+  margin-top: 0.8rem;
+}
+@media (max-width: 800px) {
+  .thyrsus-grid {
+    flex-direction: column;
+  }
+  .thyrsus-image-wrap {
+    flex: none;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* ── 4. Why Now — TAM/SAM/SOM diagram ── */
+.section-why-now {
+  background-color: var(--color-blushed-wisteria);
+}
+
+.whynow-content {
+  text-align: left;
+  max-width: var(--container-max-width);
+  margin: 2.5rem auto 0;
+}
+.whynow-heading {
+  font-family: var(--font-default);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  line-height: 1.2;
+  color: var(--color-deep-plum);
+  margin: 0 0 2rem;
+  letter-spacing: 0.005em;
   text-align: center;
 }
-.stat-number {
+.whynow-heading-italic {
   font-family: var(--font-heading);
-  font-size: 3.2rem;
-  font-weight: 400;
-  color: var(--color-aged-gold);
-  line-height: 1;
-  margin-bottom: 0.8rem;
-  letter-spacing: 0.01em;
+  font-style: italic;
+  color: var(--color-antique-lilac-mid);
 }
-.stat-card-label {
+.whynow-sublabel-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+.whynow-sublabel {
+  flex: none;
   font-family: var(--font-default);
   font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--color-antique-lilac-mid);
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--color-antique-lilac-mid);
+  opacity: 0.75;
+}
+.whynow-sublabel-rule {
+  flex: 1 1 auto;
+  border: none;
+  border-top: 1px solid rgba(106, 74, 144, 0.3);
+  margin: 0;
+}
+.whynow-body {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.whynow-diagram {
+  position: relative;
+  flex: 1 1 480px;
+}
+.whynow-svg {
+  display: block;
+  aspect-ratio: 640 / 520;
+  width: 100%;
+  height: auto;
+}
+.whynow-circle-tam { fill: var(--color-antique-lilac); }
+.whynow-circle-sam { fill: var(--color-antique-lilac-mid); }
+.whynow-circle-som { fill: var(--color-aged-gold); }
+.whynow-line-tam { stroke: rgba(106, 74, 144, 0.5); stroke-width: 1.5; }
+.whynow-line-sam { stroke: var(--color-antique-lilac-mid); stroke-width: 1.5; }
+.whynow-line-som { stroke: var(--color-aged-gold); stroke-width: 1.5; }
+.whynow-circle-label {
+  font-family: var(--font-default);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-anchor: middle;
+}
+.whynow-circle-label-tam { font-size: 20px; fill: var(--color-deep-plum); }
+.whynow-circle-label-sam { font-size: 20px; fill: var(--color-warm-ivory); }
+.whynow-circle-label-som { font-size: 16px; fill: var(--color-deep-plum); }
+.whynow-callout {
+  position: absolute;
+  transform: translateY(-50%);
+  max-width: 230px;
+}
+.whynow-callout-value {
+  font-family: var(--font-default);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-deep-plum);
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+.whynow-callout-caption {
+  font-family: var(--font-default);
+  font-size: 0.95rem;
+  color: var(--color-deep-plum);
+  opacity: 0.75;
+  margin: 0;
+  line-height: 1.4;
+}
+.whynow-cards {
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.whynow-card {
+  background-color: var(--color-antique-lilac);
+  padding: 1.6rem 1.8rem;
+}
+.whynow-card-number {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-deep-plum);
+  line-height: 1;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
+}
+.whynow-card-label {
+  font-family: var(--font-default);
+  font-size: 0.85rem;
+  color: var(--color-deep-plum);
+  opacity: 0.75;
   line-height: 1.5;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .whynow-cards { flex: 1 1 100%; }
+  .hero-feature-cards { grid-template-columns: repeat(2, 1fr); }
 }
 
 
@@ -248,6 +723,18 @@
   padding: 8rem 2rem;
   text-align: center;
 }
+.thys-intro {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--color-deep-plum);
+  margin: 0 0 0.8rem;
+  letter-spacing: 0.01em;
+}
+.thys-intro-gold {
+  font-style: italic;
+  color: var(--color-aged-gold);
+}
 .investor-subtext {
   font-family: var(--font-default);
   font-size: 0.95rem;
@@ -285,7 +772,7 @@
 .site-footer {
   background-color: var(--color-antique-lilac);
   border-top: 1px solid var(--color-wisteria-mid);
-  padding: 2.8rem 2rem calc(2.8rem + env(safe-area-inset-bottom));
+  padding: 1.5rem 2rem calc(1.5rem + env(safe-area-inset-bottom));
   font-family: var(--font-default);
   position: relative;
   z-index: 1;
@@ -332,9 +819,20 @@
   .section-heading { font-size: 1.7rem; }
   .content-section      { padding: 4.5rem 1.5rem; }
   .section-investor-cta { padding: 5.5rem 1.5rem; }
+  .section-hero-product { padding-top: 12.75rem; padding-bottom: 6rem; }
+  .hero-feature-cards { grid-template-columns: 1fr; }
+  .hero-product-layout { flex-direction: column; gap: 2rem; }
+  .hero-product-text { text-align: center; }
 
-  .stat-cards { flex-direction: column; align-items: center; }
-  .stat-card  { max-width: 100%; width: 100%; }
+  .whynow-diagram { flex: 0 0 auto; }
+  .whynow-svg { width: auto; height: 230px; }
+  .whynow-callout { width: 118px; max-width: none; }
+  .whynow-callout-value { font-size: 1.15rem; margin-bottom: 0.2rem; }
+  .whynow-callout-caption { font-size: 0.74rem; line-height: 1.35; }
+  .whynow-circle-label-tam,
+  .whynow-circle-label-sam { font-size: 15px; }
+  .whynow-circle-label-som { font-size: 12px; }
+  .whynow-cards { flex: 1 1 100%; }
 
   .team-cards { flex-direction: column; align-items: center; }
   .team-card  { max-width: 100%; width: 100%; }
@@ -343,7 +841,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.2rem;
+    gap: 0.7rem;
   }
   .site-footer-copy  { order: 2; }
   .site-footer-links { justify-content: center; order: 3; }

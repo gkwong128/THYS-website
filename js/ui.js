@@ -19,11 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const stickyHdr = document.querySelector('.landing-header');
   if (stickyHdr) {
     const logoImg = stickyHdr.querySelector('.landing-logo');
+    // Pages that open on a dark section (e.g. the homepage's hero product
+    // showcase) always want the light/inverted logo, even before scrolling.
+    const alwaysInverted = !!document.getElementById('hero-product');
     const onHeroScroll = () => {
       const pastHero = window.scrollY > window.innerHeight * 0.75;
-      stickyHdr.classList.toggle('header-scrolled', pastHero);
+      stickyHdr.classList.toggle('header-scrolled', alwaysInverted || pastHero);
       if (logoImg) {
-        logoImg.src = pastHero ? 'logo-inverted.svg' : 'logo.svg';
+        logoImg.src = (alwaysInverted || pastHero) ? 'logo-inverted.svg' : 'logo.svg';
       }
     };
     window.addEventListener('scroll', onHeroScroll, { passive: true });
