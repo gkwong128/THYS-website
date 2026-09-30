@@ -14,12 +14,12 @@
 }
 @media (max-width: 767px) {
   .header-actions {
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
   }
   .join-waitlist-button {
     order: 1;
-    margin: 1rem 0 0.5rem 0 !important;
+    margin: 0 1rem 0 0 !important;
   }
   .landing-menu-toggle {
     order: 2;
@@ -73,7 +73,7 @@ body.landing-loading { overflow: hidden; }
   transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 .landing-logo-link { line-height: 0; }
-.landing-logo { width: 150px; height: auto; }
+.landing-logo { width: 142px; height: auto; }
 
 /* Hamburger button */
 .landing-menu-toggle {
@@ -197,8 +197,22 @@ body.landing-loading { overflow: hidden; }
   margin-left: auto;
   margin-right: 1rem;
   background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-family: var(--font-default);
+  font-size: 0.9rem;
+  font-weight: 400;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.landing-header .landing-button.join-waitlist-button:hover,
+.landing-header .landing-button.join-waitlist-button:focus {
+  background-color: transparent;
+  color: var(--color-aged-gold);
 }
 .landing-button:hover,
 .landing-button:focus {
@@ -278,7 +292,11 @@ body.landing-loading { overflow: hidden; }
 .landing-header.header-scrolled .landing-nav a:focus { color: var(--color-warm-ivory); }
 /* Waitlist button in scrolled state */
 .landing-header.header-scrolled .landing-button.join-waitlist-button {
-  background-color: rgba(30, 16, 48, 0.45);
+  background-color: transparent;
   border-color: transparent;
   color: var(--color-warm-ivory);
+}
+.landing-header.header-scrolled .landing-button.join-waitlist-button:hover,
+.landing-header.header-scrolled .landing-button.join-waitlist-button:focus {
+  color: var(--color-aged-gold);
 }
