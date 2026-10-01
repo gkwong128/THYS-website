@@ -181,12 +181,11 @@ body.home {
   gap: 18px;
 }
 .stat-label { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-antique-lilac-mid); }
-.stat-value { font-family: var(--font-heading); font-size: 64px; line-height: 1; }
+.stat-value { font-family: var(--font-default); font-weight: 500; font-size: 52px; line-height: 1; letter-spacing: -0.02em; }
 .stat-card p { font-size: 15px; line-height: 1.6; color: var(--color-body-muted); }
 
 .problem-close { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; border-top: 1px solid var(--color-wisteria-mid); padding-top: 28px; }
 .problem-close-line { font-family: var(--font-heading); font-size: 36px; }
-.problem-close small { font-size: 13px; color: #6b5a7a; }
 
 /* ── Founder quote ── */
 .quote-band {
@@ -200,7 +199,7 @@ body.home {
 .quote-photo { grid-column: span 2; height: 240px; border-radius: 4px; overflow: hidden; }
 .quote-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .quote-body { grid-column: 4 / span 9; display: flex; flex-direction: column; gap: 28px; margin: 0; }
-.quote-body blockquote { margin: 0; font-family: var(--font-heading); font-size: 44px; line-height: 1.25; }
+.quote-body blockquote { margin: 0; font-family: var(--font-default); font-weight: 400; font-size: 32px; line-height: 1.45; letter-spacing: -0.01em; }
 .quote-body figcaption { font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #4f3572; }
 
 /* ── Product ── */
@@ -271,40 +270,8 @@ body.home {
 
 /* ── Market ── */
 .market { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: start; }
-.market .section-head { grid-column: span 5; }
-.market .lede { max-width: 440px; }
-.compare { grid-column: 7 / span 6; background: #fff; border: 1px solid var(--color-card-border); border-radius: 4px; overflow: hidden; width: 100%; border-collapse: collapse; font-size: 15px; }
-.compare th, .compare td { padding: 22px 12px; text-align: center; }
-.compare th:first-child, .compare td:first-child { text-align: left; padding-left: 28px; }
-.compare th:last-child, .compare td:last-child { padding-right: 28px; }
-.compare thead th { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a7a; border-bottom: 1px solid var(--color-card-border); }
-.compare thead th:last-child { color: var(--color-deep-plum); }
-.compare tbody tr + tr { border-top: 1px solid #f0e8ee; }
-.compare tbody tr:last-child { background: #f7f1f6; }
-.compare tbody th { font-weight: 600; }
-.compare td { color: var(--color-body-muted); }
-.compare td.no { color: #8a7a98; }
-.compare td.thys { font-weight: 700; color: var(--color-antique-lilac-mid); }
-
-/* ── Team ── */
-.team { display: flex; flex-direction: column; gap: 64px; padding-top: 0; }
-.team .section-head { border-top: 1px solid var(--color-wisteria-mid); padding-top: 72px; }
-.team h2 { font-size: 64px; line-height: 1.06; }
-.team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.person {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 32px;
-  padding: 24px;
-  background: #fff;
-  border: 1px solid var(--color-card-border);
-  border-radius: 4px;
-}
-.person img { width: 240px; height: 300px; object-fit: cover; object-position: center top; border-radius: 2px; }
-.person-body { display: flex; flex-direction: column; gap: 12px; padding-top: 12px; }
-.person-name { margin: 0; font-family: var(--font-heading); font-weight: 400; font-size: 36px; }
-.person-role { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-antique-lilac-mid); }
-.person-bio { margin-top: 8px !important; font-size: 15px; line-height: 1.65; color: var(--color-body-muted); }
+.market .section-head { grid-column: 1 / span 8; }
+.market .lede { max-width: 620px; }
 
 /* ── Invest ── */
 .invest { position: relative; overflow: hidden; padding-bottom: 120px; display: flex; flex-direction: column; gap: 88px; }
@@ -315,16 +282,6 @@ body.home {
 .invest .lede { max-width: 620px; font-size: 18px; }
 .invest-ctas { grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 14px; }
 .invest-ctas .btn { justify-content: space-between; padding: 22px 28px; font-size: 16px; }
-
-.milestones { position: relative; display: flex; flex-direction: column; gap: 24px; }
-.milestones .eyebrow { color: rgba(245, 237, 232, 0.6); }
-.milestone-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(245, 237, 232, 0.2); margin: 0; padding: 0; list-style: none; }
-.milestone { position: relative; padding: 28px 24px 0 0; display: flex; flex-direction: column; gap: 10px; }
-.milestone::before { content: ''; position: absolute; top: -6px; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--color-aged-gold); }
-.milestone.is-current::before { background: var(--color-deep-plum); border: 2px solid var(--color-aged-gold); }
-.milestone strong { font-size: 18px; font-weight: 600; }
-.milestone.is-current strong { color: var(--color-aged-gold); }
-.milestone span { font-size: 14px; color: rgba(245, 237, 232, 0.66); }
 
 /* ── Footer ── */
 .site-footer-new { background: var(--color-night-plum); color: var(--color-warm-ivory); padding-block: 56px; display: flex; flex-direction: column; gap: 28px; }
@@ -351,9 +308,7 @@ body.home {
   :root { --gutter: 64px; --section-pad: 128px; }
   .section h2, .problem-intro h2 { font-size: 56px; }
   .invest h2 { font-size: 72px; }
-  .quote-body blockquote { font-size: 36px; }
-  .person { grid-template-columns: 180px 1fr; }
-  .person img { width: 180px; height: 225px; }
+  .quote-body blockquote { font-size: 28px; }
 }
 
 @media (max-width: 960px) {
@@ -386,7 +341,7 @@ body.home {
 
   .problem-intro, .market, .invest-top, .product-grid, .quote-band { grid-template-columns: 1fr; }
   .problem-intro .section-head, .problem-intro .lede,
-  .market .section-head, .compare,
+  .market .section-head,
   .invest-top .section-head, .invest-ctas,
   .height-demo, .feature-list,
   .quote-photo, .quote-body { grid-column: auto; }
@@ -396,10 +351,8 @@ body.home {
   .product-head { flex-direction: column; align-items: flex-start; gap: 28px; }
   .product-media { height: 440px; }
   .product-grid { gap: 48px; }
-  .team-grid { grid-template-columns: 1fr; }
   .quote-band { padding-block: 96px; gap: 32px; }
   .quote-photo { width: 120px; height: 120px; border-radius: 50%; }
-  .milestone-list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
   .invest-ctas { max-width: 420px; }
 }
 
@@ -421,7 +374,7 @@ body.home {
   .fact-label { font-size: 12px; }
 
   .eyebrow { font-size: 11px; letter-spacing: 0.2em; }
-  .section h2, .problem-intro h2, .team h2 { font-size: 38px; line-height: 1.1; }
+  .section h2, .problem-intro h2 { font-size: 38px; line-height: 1.1; }
   .invest h2 { font-size: 48px; line-height: 1.04; }
   .lede { font-size: 15px; line-height: 1.65; }
 
@@ -430,7 +383,7 @@ body.home {
   .stat-grid { gap: 12px; }
   .stat-card { padding: 20px 16px; gap: 10px; }
   .stat-label { font-size: 10px; letter-spacing: 0.18em; }
-  .stat-value { font-size: 36px; }
+  .stat-value { font-size: 30px; }
   .stat-card p { font-size: 13px; line-height: 1.5; }
   .problem-close { flex-direction: column; gap: 8px; padding-top: 20px; }
   .problem-close-line { font-size: 26px; }
@@ -438,7 +391,7 @@ body.home {
   .quote-band { padding-block: 64px; gap: 24px; }
   .quote-photo { width: 88px; height: 88px; }
   .quote-body { gap: 24px; }
-  .quote-body blockquote { font-size: 27px; line-height: 1.3; }
+  .quote-body blockquote { font-size: 20px; line-height: 1.5; }
   .quote-body figcaption { font-size: 12px; }
 
   .product { gap: 28px; }
@@ -455,31 +408,12 @@ body.home {
   .feature p { font-size: 14px; }
 
   .market { gap: 32px; }
-  .compare { font-size: 13px; }
-  .compare th, .compare td { padding: 16px 6px; }
-  .compare th:first-child, .compare td:first-child { padding-left: 14px; }
-  .compare th:last-child, .compare td:last-child { padding-right: 14px; }
-  .compare thead th { font-size: 10px; letter-spacing: 0.08em; }
-
-  .team { gap: 20px; }
-  .team .section-head { padding-top: 48px; gap: 20px; }
-  .person { grid-template-columns: 104px 1fr; gap: 16px; padding: 14px; }
-  .person img { width: 104px; height: 130px; }
-  .person-body { gap: 6px; padding-top: 0; }
-  .person-name { font-size: 24px; }
-  .person-role { font-size: 11px; letter-spacing: 0.12em; }
-  .person-bio { margin-top: 0 !important; font-size: 13px; line-height: 1.5; }
 
   .invest { gap: 40px; padding-bottom: 72px; }
   .invest-top { gap: 24px; }
   .invest-ctas { max-width: none; }
   .invest-ctas .btn { justify-content: center; padding: 16px 20px; font-size: 15px; }
   .invest-ctas .btn svg { display: none; }
-  .milestone-list { grid-template-columns: 1fr; border-top: 0; row-gap: 14px; }
-  .milestone { flex-direction: row; align-items: center; gap: 12px; padding: 0; }
-  .milestone::before { position: static; flex-shrink: 0; width: 9px; height: 9px; }
-  .milestone span { display: none; }
-  .milestone strong { font-size: 15px; font-weight: 500; }
 
   .site-footer-new { padding-block: 40px; gap: 20px; }
   .footer-top { flex-direction: column; align-items: flex-start; gap: 16px; }
