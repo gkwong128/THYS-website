@@ -305,6 +305,10 @@ body.home {
 .feature h3 { margin: 0; font-size: 19px; font-weight: 600; }
 .feature p { font-size: 15px; line-height: 1.6; color: rgba(245, 237, 232, 0.7); }
 
+/* ── Opportunity ── */
+.opportunity .section-head { max-width: 760px; }
+.opportunity .lede { max-width: 620px; }
+
 /* ── Market (video statement) ── */
 .market {
   position: relative;
