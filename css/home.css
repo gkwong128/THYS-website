@@ -305,24 +305,20 @@ body.home {
 .feature h3 { margin: 0; font-size: 19px; font-weight: 600; }
 .feature p { font-size: 15px; line-height: 1.6; color: rgba(245, 237, 232, 0.7); }
 
-/* ── Market ── */
-.market { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: start; }
-.market { align-items: center; }
-.market .section-head { grid-column: 1 / span 6; }
-.market-card {
-  grid-column: 8 / span 5;
-  padding: 56px 48px;
-  background: var(--color-antique-lilac);
-  border-radius: 4px;
+/* ── Market (video statement) ── */
+.market {
+  position: relative;
+  overflow: hidden;
+  min-height: 640px;
   display: flex;
-  flex-direction: column;
-  gap: 32px;
+  align-items: center;
+  background: var(--color-antique-lilac);
 }
-.market-card-title { font-family: var(--font-heading); font-size: 56px; line-height: 1; }
-.market-card-points { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
-.market-card-points li { padding: 18px 0; border-top: 1px solid rgba(30, 16, 48, 0.14); font-size: 18px; font-weight: 500; line-height: 1.5; }
-.market-card-points li:last-child { border-bottom: 1px solid rgba(30, 16, 48, 0.14); }
-.market .lede { max-width: 620px; }
+.market-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.market::after { content: ''; position: absolute; inset: 0; background: rgba(245, 237, 232, 0.22); }
+.market-copy { position: relative; z-index: 1; width: 100%; padding-block: var(--section-pad); display: flex; flex-direction: column; gap: 24px; }
+.home .market-lead { max-width: 980px; font-size: 80px; line-height: 1.04; }
+.market-line { font-family: var(--font-heading); font-size: 44px; line-height: 1.15; }
 
 /* ── Invest ── */
 .invest { position: relative; overflow: hidden; padding-bottom: 120px; display: flex; flex-direction: column; gap: 88px; }
@@ -350,6 +346,8 @@ body.home {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .height-bar { transition: none; }
+  .market-video { display: none; }
+  .market { background: var(--color-antique-lilac) url('../home-poster.jpg') center / cover; }
   .height-control.is-untouched .height-range::-webkit-slider-thumb { animation: none; }
   .height-control.is-untouched .height-range::-moz-range-thumb { animation: none; }
 }
@@ -362,6 +360,8 @@ body.home {
   .section h2, .problem-intro h2 { font-size: 56px; }
   .invest h2 { font-size: 72px; }
   .quote-body blockquote { font-size: 28px; }
+  .home .market-lead { font-size: 64px; }
+  .market-line { font-size: 36px; }
 }
 
 @media (max-width: 960px) {
@@ -375,15 +375,13 @@ body.home {
   .fact:nth-child(even) { padding-left: 20px !important; border-left: 1px solid rgba(245, 237, 232, 0.14) !important; }
   .fact:nth-child(-n+2) { border-bottom: 1px solid rgba(245, 237, 232, 0.14); }
 
-  .problem-intro, .market, .invest-top, .product-grid, .quote-band { grid-template-columns: 1fr; }
+  .problem-intro, .invest-top, .product-grid, .quote-band { grid-template-columns: 1fr; }
   .problem-intro .section-head, .problem-intro .lede,
-  .market .section-head, .market-card,
   .invest-top .section-head, .invest-ctas,
   .height-demo, .feature-list,
   .quote-photo, .quote-body { grid-column: auto; }
   .problem { gap: 56px; }
   .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .market { gap: 48px; }
   .product-head { flex-direction: column; align-items: flex-start; gap: 28px; }
   .product-media { height: 440px; }
   .product-grid { gap: 48px; }
@@ -446,11 +444,11 @@ body.home {
   .feature h3 { font-size: 17px; }
   .feature p { font-size: 14px; }
 
-  .market { gap: 32px; }
-  .market-card { padding: 32px 24px; gap: 20px; }
-  .market-card-title { font-size: 40px; }
-  .market-card-points li { padding: 14px 0; font-size: 16px; }
 
+  .market { min-height: 0; }
+  .home .market-lead { font-size: 40px; line-height: 1.1; }
+  .market-line { font-size: 26px; }
+  .market-copy { gap: 16px; }
   .invest { gap: 40px; padding-bottom: 72px; }
   .invest-top { gap: 24px; }
   .invest-ctas { max-width: none; }
