@@ -105,12 +105,39 @@ body.home {
   border-bottom: 1px solid rgba(245, 237, 232, 0.12);
 }
 .site-logo img { width: 142px; height: auto; }
-.site-nav { display: flex; align-items: center; gap: 40px; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; }
-.site-nav a:not(.btn) { opacity: 0.78; transition: opacity 0.2s; }
-.site-nav a:not(.btn):hover { opacity: 1; }
-.site-nav .btn { min-height: 44px; padding: 12px 22px; font-size: 14px; font-weight: 600; }
-.nav-toggle {
+.header-actions { display: flex; align-items: center; gap: 16px; }
+.header-cta { min-height: 44px; padding: 12px 22px; font-size: 14px; font-weight: 600; }
+
+/* Menu lives behind the hamburger at every width */
+.site-nav {
   display: none;
+  position: absolute;
+  top: 100%;
+  right: var(--gutter);
+  width: 280px;
+  flex-direction: column;
+  padding: 8px 24px 16px;
+  background: var(--color-deep-plum);
+  border: 1px solid rgba(245, 237, 232, 0.12);
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 16px 32px rgba(21, 10, 36, 0.4);
+}
+.site-nav.is-open { display: flex; }
+.site-nav a {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  transition: opacity 0.2s, color 0.2s;
+}
+.site-nav a + a { border-top: 1px solid rgba(245, 237, 232, 0.08); }
+.site-nav a:hover { opacity: 1; color: var(--color-aged-gold); }
+.nav-toggle {
+  display: inline-flex;
   width: 44px;
   height: 44px;
   align-items: center;
@@ -314,23 +341,6 @@ body.home {
 @media (max-width: 960px) {
   :root { --gutter: 40px; --section-pad: 104px; }
 
-  .nav-toggle { display: inline-flex; }
-  .site-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 8px var(--gutter) 24px;
-    background: var(--color-deep-plum);
-    border-bottom: 1px solid rgba(245, 237, 232, 0.12);
-  }
-  .site-nav.is-open { display: flex; }
-  .site-nav a:not(.btn) { min-height: 52px; display: flex; align-items: center; font-size: 17px; border-bottom: 1px solid rgba(245, 237, 232, 0.08); }
-  .site-nav .btn { margin-top: 16px; min-height: 52px; }
 
   .hero-grid { grid-template-columns: 1fr; gap: 48px; padding-block: 64px; }
   .hero-media { height: 520px; }
@@ -361,6 +371,9 @@ body.home {
 
   .site-header-inner { height: 72px; }
   .site-logo img { width: 112px; }
+  .header-actions { gap: 4px; }
+  .header-cta { min-height: 40px; padding: 10px 14px; font-size: 13px; }
+  .site-nav { left: 0; right: 0; width: auto; padding: 8px var(--gutter) 16px; border-left: 0; border-right: 0; border-radius: 0; }
 
   .hero-grid { padding-block: 44px 36px; gap: 36px; }
   .hero-copy { gap: 22px; }
