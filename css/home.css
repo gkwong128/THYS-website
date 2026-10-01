@@ -193,7 +193,7 @@ body.home {
 /* ── Problem ── */
 .problem { display: flex; flex-direction: column; gap: 80px; padding-bottom: 144px; }
 .problem-intro { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: end; }
-.problem-intro .section-head { grid-column: span 8; }
+.problem-intro .section-head { grid-column: span 10; }
 .problem-intro h2 { font-size: 68px; line-height: 1.06; }
 .problem-intro .lede { grid-column: 10 / span 3; }
 
