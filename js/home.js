@@ -48,7 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
       bar.style.height = Math.round(h * 6) + 'px'; // 4″ = 240px, matches tick marks
       range.setAttribute('aria-valuetext', inches + ' inches');
     };
-    range.addEventListener('input', update);
+    range.addEventListener('input', () => {
+      update();
+      range.parentElement.classList.remove('is-untouched');
+    });
     update();
   }
 
