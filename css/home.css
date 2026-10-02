@@ -165,7 +165,7 @@ body.home {
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; padding-top: 8px; }
 
 .media-frame { position: relative; border-radius: 4px; overflow: hidden; }
-.media-frame img { width: 100%; height: 100%; object-fit: cover; }
+.media-frame img { width: 100%; height: auto; }
 .media-tag {
   position: absolute;
   padding: 12px 16px;
@@ -175,7 +175,7 @@ body.home {
   text-transform: uppercase;
   border-radius: 2px;
 }
-.hero-media { height: 620px; background: var(--color-antique-lilac); }
+.hero-media { background: var(--color-antique-lilac); }
 .hero-media .media-tag { left: 24px; bottom: 24px; background: rgba(30, 16, 48, 0.88); color: var(--color-warm-ivory); }
 
 .fact-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(245, 237, 232, 0.14); }
@@ -223,8 +223,8 @@ body.home {
   gap: 24px;
   align-items: center;
 }
-.quote-photo { grid-column: span 2; height: 240px; border-radius: 4px; overflow: hidden; }
-.quote-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.quote-photo { grid-column: span 2; border-radius: 4px; overflow: hidden; }
+.quote-photo img { width: 100%; height: auto; }
 .quote-body { grid-column: 4 / span 9; display: flex; flex-direction: column; gap: 28px; margin: 0; }
 .quote-body blockquote { margin: 0; font-family: var(--font-default); font-weight: 400; font-size: 32px; line-height: 1.45; letter-spacing: -0.01em; }
 .quote-body figcaption { font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #4f3572; }
@@ -233,8 +233,6 @@ body.home {
 .product { display: flex; flex-direction: column; gap: 72px; }
 .product-head { display: flex; justify-content: space-between; align-items: end; gap: 80px; }
 .product-head .lede { max-width: 400px; }
-.product-media { height: 600px; }
-.product-media img { object-position: center 60%; }
 .product-media .media-tag { right: 24px; bottom: 24px; background: rgba(245, 237, 232, 0.92); color: var(--color-deep-plum); }
 
 .product-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; }
@@ -309,7 +307,10 @@ body.home {
 .market { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: center; }
 .market .section-head { grid-column: 1 / span 6; }
 .market .lede { max-width: 560px; }
-.market-statement { grid-column: 8 / span 5; font-family: var(--font-heading); font-size: 64px; line-height: 1.08; }
+.market-side { grid-column: 8 / span 5; display: flex; flex-direction: column; gap: 40px; }
+.market-figure { margin: 0; border-radius: 4px; overflow: hidden; background: #fff; }
+.market-figure img { width: 100%; height: auto; }
+.market-statement { font-family: var(--font-heading); font-size: 64px; line-height: 1.08; }
 
 /* ── Invest ── */
 .invest { position: relative; overflow: hidden; padding-bottom: 120px; display: flex; flex-direction: column; gap: 88px; }
@@ -357,7 +358,7 @@ body.home {
 
 
   .hero-grid { grid-template-columns: 1fr; gap: 48px; padding-block: 64px; }
-  .hero-media { height: 520px; }
+  .hero-media { max-width: 560px; }
   .fact-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fact { padding: 28px 20px 28px 0 !important; border-left: 0 !important; }
   .fact:nth-child(even) { padding-left: 20px !important; border-left: 1px solid rgba(245, 237, 232, 0.14) !important; }
@@ -368,15 +369,15 @@ body.home {
   .invest-top .section-head, .invest-ctas,
   .height-demo, .feature-list,
   .quote-photo, .quote-body { grid-column: auto; }
-  .market .section-head, .market-statement { grid-column: auto; }
+  .market .section-head, .market-side { grid-column: auto; }
+  .market-side { max-width: 640px; }
   .market { gap: 48px; }
   .problem { gap: 56px; }
   .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .product-head { flex-direction: column; align-items: flex-start; gap: 28px; }
-  .product-media { height: 440px; }
   .product-grid { gap: 48px; }
   .quote-band { padding-block: 96px; gap: 32px; }
-  .quote-photo { width: 120px; height: 120px; border-radius: 50%; }
+  .quote-photo { width: 120px; }
   .invest-ctas { max-width: 420px; }
 }
 
@@ -396,7 +397,6 @@ body.home {
   .hero-sub { font-size: 16px; }
   .hero-ctas .btn { width: 100%; }
   .hero-ctas .btn-ghost { display: none; }
-  .hero-media { height: 380px; }
   .fact-value { font-size: 30px; }
   .fact-label { font-size: 12px; }
 
@@ -416,13 +416,12 @@ body.home {
   .problem-close-line { font-size: 26px; }
 
   .quote-band { padding-block: 64px; gap: 24px; }
-  .quote-photo { width: 88px; height: 88px; }
+  .quote-photo { width: 96px; }
   .quote-body { gap: 24px; }
   .quote-body blockquote { font-size: 20px; line-height: 1.5; }
   .quote-body figcaption { font-size: 12px; }
 
   .product { gap: 28px; }
-  .product-media { height: 260px; }
   .product-media .media-tag { display: none; }
   .height-demo { padding: 24px; gap: 24px; }
   .height-value { font-size: 56px; }
@@ -437,6 +436,7 @@ body.home {
 
   .market { gap: 32px; }
   .market-statement { font-size: 36px; line-height: 1.12; }
+  .market-side { gap: 24px; }
   .invest { gap: 40px; padding-bottom: 72px; }
   .invest-top { gap: 24px; }
   .invest-ctas { max-width: none; }
