@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>THYS - Heels Reinvented</title>
-  <meta name="description" content="The world's first heel with adjustable height. One pair, every occasion. THYS is redefining luxury footwear for women who refuse to choose between beauty and comfort." />
-  <meta property="og:title" content="THYS" />
-  <meta property="og:description" content="Heels that adjust to any height." />
+  <title>THYS — One heel. Every height.</title>
+  <meta name="description" content="THYS is the world's first luxury high heel with continuously adjustable height — any height from 1.7″ to 4″, manual or motorized, in one self-contained mechanism. Now raising our pre-seed round." />
+  <meta property="og:title" content="THYS — One heel. Every height." />
+  <meta property="og:description" content="The world's first heel with continuously adjustable height. Now raising our pre-seed round." />
   <meta property="og:url" content="https://thys.co" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://thys.co/home-poster.jpg" />
@@ -14,176 +14,213 @@
   <meta name="twitter:title" content="THYS — The world's first heel with adjustable height" />
   <meta name="twitter:description" content="Your height. Your choice. Every room." />
   <meta name="twitter:image" content="https://thys.co/home-poster.jpg" />
+  <meta name="theme-color" content="#1e1030" />
   <link rel="icon" href="/favicon.png" sizes="48x48" type="image/png" />
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/loader.css">
-  <link rel="stylesheet" href="css/hero.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/popup.css">
-  <link rel="stylesheet" href="css/legacy.css">
-  <link rel="stylesheet" href="css/investor.css">
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400..700&display=swap" rel="stylesheet" />
 </head>
-<body class="landing-page-body">
+<body class="home">
 
   <!-- ===== HEADER ===== -->
-  <header class="landing-header">
-    <a href="index.html" class="landing-logo-link" aria-label="THYS Homepage">
-      <img src="logo-inverted.svg" alt="THYS Logo" class="landing-logo"/>
-    </a>
-    <div class="header-actions">
-      <a href="mailto:info@thys.co?subject=Investor Inquiry" class="landing-button join-waitlist-button" style="margin-right:1rem;">
-        <span class="desktop-text">Request Our Deck</span>
-        <span class="mobile-text">Request Deck</span>
+  <header class="site-header">
+    <div class="site-header-inner container">
+      <a href="#top" class="site-logo" aria-label="THYS home">
+        <img src="logo-inverted.svg" alt="THYS" width="142" height="65" />
       </a>
-      <button class="landing-menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-      <nav id="landing-navigation" class="landing-nav" aria-hidden="true" style="display:none;">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="#investors">Investors</a></li>
-        </ul>
+      <div class="header-actions">
+        <a class="btn btn-ghost header-cta" href="mailto:info@thys.co?subject=Investor%20Inquiry">Request Our Deck</a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg>
+        </button>
+      </div>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="#top">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="#investors">Investors</a>
       </nav>
     </div>
   </header>
 
-  <!-- ===== VIDEO BACKGROUND (fixed, behind hero) ===== -->
-  <div class="video-background-container">
-    <video id="landing-video"
-      autoplay muted loop playsinline preload="auto" poster="home-poster.jpg"
-      style="object-fit:cover;width:100%;height:100%;display:block;">
-      <source src="home.mp4" type="video/mp4">
-    </video>
-  </div>
+  <main id="top">
 
-  <!-- ================================================================
-       INVESTOR LANDING — below-the-fold sections
-       ================================================================ -->
+    <!-- ===== HERO ===== -->
+    <section class="hero dark">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="hero-kicker">Pre-seed round now open</div>
+            <h1>One heel.<br><span class="accent-gold">Every height.</span></h1>
+            <p class="hero-sub">THYS is the world’s first luxury high heel with continuously adjustable height — any height from 1.7″ to 4″, manual or motorized, in one self-contained mechanism.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-gold" href="mailto:info@thys.co?subject=Investor%20Inquiry">Request Our Deck
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </a>
+              <a class="btn btn-ghost" href="#product">See how it works</a>
+            </div>
+          </div>
+          <div class="media-frame hero-media">
+            <img src="images/shoe-heel.jpg" alt="THYS adjustable-height stiletto sandal in black leather with a telescoping steel heel" width="1400" height="1400" />
+            <div class="media-tag">Telescoping heel · 1.7″ – 4″</div>
+          </div>
+        </div>
 
-  <!-- 1. HERO PRODUCT SHOWCASE -->
-  <section class="content-section section-hero-product" id="hero-product">
-    <div class="hero-product-layout">
-      <div class="hero-product-text fade-up delay-1">
-        <p class="hero-product-tagline">Heels that adjust to any height.</p>
+        <div class="fact-strip">
+          <div class="fact"><div class="fact-value">1.7″ – 4″</div><div class="fact-label">Continuous height, one pair</div></div>
+          <div class="fact"><div class="fact-value">$1.5B</div><div class="fact-label">US market</div></div>
+          <div class="fact"><div class="fact-value">0</div><div class="fact-label">Direct competitors</div></div>
+          <div class="fact"><div class="fact-value">Patent</div><div class="fact-label">Pending, proprietary mechanism</div></div>
+        </div>
       </div>
-      <div class="hero-product-image fade-up delay-2">
-        <img src="ShoewHeel.jpg" alt="THYS adjustable heel" />
+    </section>
+
+    <!-- ===== 01 PROBLEM ===== -->
+    <section id="problem" class="section problem container">
+      <div class="problem-intro reveal">
+        <div class="section-head">
+          <h2>35 million U.S. women choose between <span class="accent-lilac">comfort</span> and <span class="accent-gold-ink">presence</span> before they leave the house.</h2>
+        </div>
       </div>
+
+      <div class="stat-grid reveal">
+        <div class="stat-card">
+          <div class="stat-label">Her body</div>
+          <div class="stat-value">123,355</div>
+          <p>U.S. ER visits for high-heel injuries — 1 in 5 was a fracture.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Her pressure</div>
+          <div class="stat-value">+144%</div>
+          <p>More forefoot pressure standing in a 4″ heel vs. flat.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Her day</div>
+          <div class="stat-value">61%</div>
+          <p>Of women have carried a second pair to change into.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Her closet</div>
+          <div class="stat-value">17 : 3</div>
+          <p>Pairs she owns : pairs she actually wears.</p>
+        </div>
+      </div>
+
+      <div class="problem-close reveal">
+        <div class="problem-close-line">Her shoes decide her day.</div>
+      </div>
+    </section>
+
+    <!-- ===== 02 PRODUCT ===== -->
+    <section id="product" class="section product dark container">
+      <div class="product-head reveal">
+        <div class="section-head">
+          <h2>Precision engineering.<br>Luxury craft.</h2>
+        </div>
+        <p class="lede">A self-contained telescoping mechanism hidden inside a stiletto silhouette. Nothing to swap, carry or lose — she changes height, not shoes.</p>
+      </div>
+
+      <div class="media-frame product-media reveal">
+        <img src="images/heel-prototype.jpg" alt="THYS heel mechanism prototype resting on black blocks" width="2000" height="1333" loading="lazy" />
+        <div class="media-tag">Mechanism prototype</div>
+      </div>
+
+      <div class="product-grid">
+        <div class="height-demo reveal">
+          <div class="height-demo-top">
+            <div>
+              <div class="eyebrow">Try it</div>
+              <div class="height-demo-hint">Drag the gold dot to set the heel height</div>
+            </div>
+            <div class="height-readout" aria-live="polite">
+              <div class="height-value" id="height-value">3.2″</div>
+              <div class="height-occasion" id="height-occasion">Dinner &amp; events</div>
+            </div>
+          </div>
+          <div class="height-gauge" aria-hidden="true">
+            <div class="height-ticks">
+              <span style="bottom: 240px">4″ · Gala</span>
+              <span style="bottom: 195px">3.25″ · Dinner</span>
+              <span style="bottom: 150px">2.5″ · Office</span>
+              <span style="bottom: 102px">1.7″ · Commute</span>
+            </div>
+            <div class="height-bar-wrap"><div class="height-bar" id="height-bar"></div></div>
+          </div>
+          <div class="height-control is-untouched">
+            <label for="heel-height">Heel height (inches)</label>
+            <input id="heel-height" class="height-range" type="range" min="17" max="40" step="1" value="32" aria-valuetext="3.2 inches" />
+            <div class="height-control-ends"><span>1.7″</span><span>4″</span></div>
+          </div>
+        </div>
+
+        <ul class="feature-list reveal">
+          <li class="feature"><span class="feature-num">01</span><h3>Infinite heights, one pair</h3><p>Any continuous height between 1.7″ and 4″.</p></li>
+          <li class="feature"><span class="feature-num">02</span><h3>Manual or motorized</h3><p>Two adjustment modes on one platform.</p></li>
+          <li class="feature"><span class="feature-num">03</span><h3>Self-contained mechanism</h3><p>Nothing to swap, carry, or lose.</p></li>
+          <li class="feature"><span class="feature-num">04</span><h3>Engineered to endure</h3><p>High yield strength, stiffness, endurance and corrosion resistance.</p></li>
+          <li class="feature"><span class="feature-num">05</span><h3>Comfort is the new luxury</h3><p>Wellness without giving up the silhouette.</p></li>
+          <li class="feature"><span class="feature-num">06</span><h3>Category defining</h3><p>No direct competitors today.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== FOUNDER QUOTE ===== -->
+    <section class="quote-band container" aria-label="Founder story">
+      <div class="quote-photo">
+        <img src="images/denise-kwong.jpg" alt="Denise Kwong, co-founder and CEO of THYS" width="643" height="900" loading="lazy" />
+      </div>
+      <figure class="quote-body reveal">
+        <blockquote>“In 2019 I was sprinting to a client meeting with my investment banking team through underground tunnels in 4″ stilettos. That night I quit looking for the right heel and decided to make it.”</blockquote>
+        <figcaption>Denise Kwong · Co-founder &amp; CEO</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===== 03 OPPORTUNITY ===== -->
+    <section id="market" class="section market container">
+      <div class="section-head reveal">
+        <h2>A $1.5B US market.<br><span class="accent-lilac">Wide open.</span></h2>
+        <p class="lede">The high-heel industry hasn’t fundamentally changed its product in decades. THYS sits at the intersection of fashion, technology, robotics and consumer hardware — with no direct competitor offering continuous height in a single pair.</p>
+      </div>
+      <div class="market-side reveal">
+        <figure class="media-frame market-figure">
+          <img src="images/heel-mechanism-scale.jpg" alt="THYS heel mechanism, fully collapsed, beside a U.S. quarter for scale" width="1800" height="1200" loading="lazy" />
+          <figcaption class="media-tag">Collapsed heel · Quarter for scale</figcaption>
+        </figure>
+        <p class="market-statement">The high-heel industry is ripe for disruption.</p>
+      </div>
+    </section>
+
+    <!-- ===== 05 INVEST ===== -->
+    <section id="investors" class="section invest dark container">
+      <img class="invest-texture" src="images/texture.jpg" alt="" loading="lazy" />
+      <div class="invest-top reveal">
+        <div class="section-head">
+          <div class="eyebrow">Invest in the future of footwear</div>
+          <h2>We’re raising<br>our pre-seed round.</h2>
+          <p class="lede">We’re connecting with venture investors at the intersection of fashion, technology, robotics and consumer hardware. If you believe the future of luxury is intelligent, we’d love to talk.</p>
+        </div>
+        <div class="invest-ctas">
+          <a class="btn btn-gold" href="mailto:info@thys.co?subject=Investor%20Inquiry">Request Our Deck
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="mailto:info@thys.co">info@thys.co</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer-new container">
+    <div class="footer-top">
+      <img src="logo-inverted.svg" alt="THYS" width="120" height="55" />
+      <nav class="footer-links" aria-label="Footer">
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy policy</a>
+      </nav>
     </div>
-    <h2 class="section-heading fade-up delay-3" style="font-size: 3rem; letter-spacing: 0.03em; margin-top: 2.5rem; margin-bottom: 0.7rem;">Precision engineering.<br>Luxury craft.</h2>
-    <p class="fade-up delay-3" style="font-family: var(--font-default); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-aged-gold); margin: 0 auto 0; opacity: 0.85;">Patent Pending</p>
-  </section>
-
-  <!-- 2. TRACTION BANNER -->
-  <div class="traction-banner" role="complementary" aria-label="Traction">
-    Now accepting early access requests &nbsp;·&nbsp; Coming Soon
-  </div>
-
-  <!-- ===== HERO SECTION (full-viewport video wrapper) ===== -->
-  <div class="hero-section hero-section-cards">
-    <div class="landing-text-overlay">
-      <img src="heel-prototype.jpg" alt="THYS heel mechanism prototype" class="hero-above-cards-img" />
-      <div class="feature-cards hero-feature-cards">
-        <div class="feature-card">
-          <span class="feature-card-title">Infinitely Many Heights.<br>One pair.</span>
-          <p class="feature-card-body">Any continuous height between 1.7" and 4".</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-card-title">Manual or Motorized Adjustment</span>
-        </div>
-        <div class="feature-card">
-          <span class="feature-card-title">Category Defining. No Direct Competitors.</span>
-        </div>
-        <div class="feature-card">
-          <span class="feature-card-title">Self-contained Mechanism</span>
-          <p class="feature-card-body">Nothing to swap, carry, or lose.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-card-title">Luxury is Comfort/Wellness</span>
-        </div>
-        <div class="feature-card">
-          <span class="feature-card-title">Luxury craftsmanship meets innovation</span>
-          <p class="feature-card-body">High yield strength, endurance, stiffness, and corrosion resistance.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. THE PROBLEM -->
-  <section class="content-section section-problem" id="problem">
-    <p class="hero-market-line fade-up delay-1" style="margin: 0 auto 2.5rem;">The high heel industry is ripe for disruption.</p>
-    <p class="fade-up delay-3" style="font-family: 'Manrope', sans-serif; font-size: 1.1rem; font-weight: 400; letter-spacing: 0.02em; color: var(--color-deep-plum); max-width: 680px; margin: 0 auto 1.8rem;"></p>
-    <h2 class="section-heading fade-up delay-2" style="font-size: 3.2rem; letter-spacing: 0.03em; font-style: italic; max-width: 1100px;">35 million U.S. women decide between<br><span style="font-family: 'Manrope', sans-serif; font-style: normal;color: #6a4a90;">mobility, practicality, logistics</span> or<br><span style="font-family: 'Manrope', sans-serif; font-style: normal; color: #c8a06e;">BEAUTY, PRESENCE, CONFIDENCE</span><br>before heading out the door.</h2>
-    <div class="section-divider fade-up" style="margin-top: 2.5rem;"></div>
-    <blockquote class="founder-quote fade-up delay-4">
-      <p>"In 2019 I was sprinting to a client meeting with my investment banking team through underground tunnels in 4″ stilettos. That night I quit looking for the right heel and decided to make it."</p>
-      <cite>Denise Kwong, Co-founder &amp; CEO</cite>
-    </blockquote>
-  </section>
-
-  <!-- 3b. THE COSTS -->
-  <section class="content-section section-costs" id="costs">
-    <h2 class="cost-heading fade-up delay-1">The Costs of Wearing High Heels</h2>
-    <div class="cost-cards fade-up delay-2">
-      <div class="cost-card">
-        <span class="cost-card-label">Her Body</span>
-        <hr class="cost-card-rule">
-        <div class="cost-card-number">123,355</div>
-        <p class="cost-card-body">U.S. ER visits for high-heel injuries, 1 in 5 was a fracture.</p>
-      </div>
-      <div class="cost-card">
-        <span class="cost-card-label">Her Pressure</span>
-        <hr class="cost-card-rule">
-        <div class="cost-card-number">144%</div>
-        <p class="cost-card-body">More forefoot pressure standing in a 4″ heel vs. flat.</sup></p>
-      </div>
-      <div class="cost-card">
-        <span class="cost-card-label">Her Day</span>
-        <hr class="cost-card-rule">
-        <div class="cost-card-number">61%</div>
-        <p class="cost-card-body">of women have carried a second pair to change into.</p>
-      </div>
-      <div class="cost-card">
-        <span class="cost-card-label">Her Closet</span>
-        <hr class="cost-card-rule">
-        <div class="cost-card-number">17 : 3</div>
-        <p class="cost-card-body">Pairs she owns : pairs she actually wears.</p>
-      </div>
-    </div>
-    <p class="fade-up delay-3" style="font-family: 'Manrope', sans-serif; font-size: 1.35rem; font-weight: 400; letter-spacing: 0.02em; color: var(--color-deep-plum); max-width: 680px; margin: 2.5rem auto 0;">Her shoes decide her day.</p>
-  </section>
-
-  <!-- 6. INVESTOR CTA -->
-  <section class="section-investor-cta" id="investors">
-    <div class="section-divider section-divider--light fade-up"></div>
-    <span class="section-label section-label--light fade-up delay-1">Invest in the Future of Footwear</span>
-    <p class="thys-intro fade-up delay-1">This is <span class="thys-intro-gold">THYS.</span></p>
-    <h2 class="whynow-heading fade-up delay-1">A $7.2B category. <span class="whynow-heading-italic">Wide open.</span></h2>
-    <h2 class="section-heading section-heading--light fade-up delay-2" style="font-size: 3.2rem; letter-spacing: 0.03em; font-family: 'Manrope', sans-serif;">We're raising our seed round.</h2>
-    <p class="investor-subtext fade-up delay-3">We're connecting with venture investors at the intersection of fashion, technology, robotics and consumer hardware. If you believe the future of luxury is intelligent, we'd love to talk.</p>
-    <a href="mailto:info@thys.co?subject=Investor Inquiry" class="investor-cta-button fade-up delay-4" style="font-family: 'Manrope', sans-serif;">Request Our Deck</a>
-  </section>
-
-  <!-- 7. FOOTER -->
-  <footer class="site-footer">
-    <div class="site-footer-inner">
-      <div class="site-footer-brand">
-        <img src="logo.svg" alt="THYS" class="site-footer-logo">
-      </div>
-      <div class="site-footer-copy">
-        <p>&copy; 2026 THYS. All rights reserved. Patent Pending.</p>
-        <p style="margin-top:0.4rem; font-size:0.6rem; opacity:0.55;">This website does not constitute an offer to sell or solicitation to purchase securities.</p>
-      </div>
-      <div class="site-footer-links">
-        <a href="mailto:info@thys.co">info@thys.co</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="mailto:info@thys.co?subject=Investor Inquiry">Investor Inquiries</a>
-      </div>
+    <div class="footer-legal">
+      <span>© 2026 THYS. All rights reserved. Patent pending.</span>
     </div>
   </footer>
 
@@ -220,8 +257,7 @@
     </div>
   </div>
 
-  <script src="js/loader.js" defer></script>
   <script src="js/popup.js" defer></script>
-  <script src="js/ui.js" defer></script>
+  <script src="js/home.js" defer></script>
 </body>
 </html>

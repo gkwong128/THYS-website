@@ -300,3 +300,11 @@ body.landing-loading { overflow: hidden; }
 .landing-header.header-scrolled .landing-button.join-waitlist-button:focus {
   color: var(--color-aged-gold);
 }
+
+/* Contact page: light background, so keep the hamburger dark */
+.contact-page .landing-header:not(.header-scrolled) .landing-menu-toggle,
+.contact-page .landing-header:not(.header-scrolled) .landing-menu-toggle svg {
+  color: #1e1030 !important;
+  stroke: #1e1030 !important;
+  fill: #1e1030 !important;
+}
