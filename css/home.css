@@ -310,7 +310,7 @@ body.home {
 .market-side { grid-column: 8 / span 5; display: flex; flex-direction: column; gap: 40px; }
 .market-figure { margin: 0; border-radius: 4px; overflow: hidden; background: #fff; }
 .market-figure img { width: 100%; height: auto; }
-.market-statement { font-family: var(--font-heading); font-size: 64px; line-height: 1.08; }
+.market-statement { font-family: var(--font-heading); font-size: 44px; line-height: 1.12; }
 
 /* ── Invest ── */
 .invest { position: relative; overflow: hidden; padding-bottom: 120px; display: flex; flex-direction: column; gap: 88px; }
@@ -350,7 +350,7 @@ body.home {
   .section h2, .problem-intro h2 { font-size: 56px; }
   .invest h2 { font-size: 72px; }
   .quote-body blockquote { font-size: 28px; }
-  .market-statement { font-size: 52px; }
+  .market-statement { font-size: 38px; }
 }
 
 @media (max-width: 960px) {
@@ -435,7 +435,7 @@ body.home {
 
 
   .market { gap: 32px; }
-  .market-statement { font-size: 36px; line-height: 1.12; }
+  .market-statement { font-size: 28px; line-height: 1.2; }
   .market-side { gap: 24px; }
   .invest { gap: 40px; padding-bottom: 72px; }
   .invest-top { gap: 24px; }
