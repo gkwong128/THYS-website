@@ -9,8 +9,21 @@ exports.handler = async (event) => {
   }
 
   try {
-    // Parse the incoming data (name and email from the frontend)
-    const { name, email, flowType } = JSON.parse(event.body);
+    // Parse the incoming data (name and email from the frontend;
+    // size and source come from the /list QR signup page)
+    const body = JSON.parse(event.body);
+    const { flowType } = body;
+
+    // Keep cell values short and stop anything a visitor types from being
+    // read by Sheets as a formula (USER_ENTERED treats "=..." as a formula).
+    const clean = (v, max) => {
+      const s = String(v == null ? '' : v).trim().slice(0, max);
+      return /^[=+\-@]/.test(s) ? "'" + s : s;
+    };
+    const name   = clean(body.name, 80);
+    const email  = String(body.email || '').trim().slice(0, 120);
+    const size   = clean(body.size, 30);
+    const source = clean(body.source, 40);
 
     if (!name || !email || !/\S+@\S+\.\S+/.test(email)) { // Basic validation
       return { statusCode: 400, body: 'Missing name or invalid email' };
@@ -25,6 +38,8 @@ exports.handler = async (event) => {
     const sheetName = 'THYS emails'; // Your specific sheet tab name
     const nameColumn = 'B'; // Assuming Name is in Column B
     const emailColumn = 'C'; // Assuming Email is in Column C
+    const sizeColumn = 'D'; // Shoe size (from /list)
+    // Column E = Source (which QR code / event the signup came from)
     const fullEmailRange = `${sheetName}!${emailColumn}:${emailColumn}`; // Range to read emails
 
     const auth = new google.auth.GoogleAuth({ credentials, scopes: ['https://www.googleapis.com/auth/spreadsheets'] });
@@ -63,29 +78,31 @@ exports.handler = async (event) => {
       const updateRange = `${sheetName}!${nameColumn}${rowNumber}`; // e.g., 'THYS emails'!B5
       console.log(`Email found at row ${rowNumber}, updating name in range: ${updateRange}`);
 
+      // Update the name, and the size too if this signup included one
+      const data = [{ range: updateRange, values: [[name]] }];
+      if (size) data.push({ range: `${sheetName}!${sizeColumn}${rowNumber}`, values: [[size]] });
+
       const updateRequest = {
         spreadsheetId: sheetId,
-        range: updateRange,
-        valueInputOption: 'USER_ENTERED', // Interpret input as if user typed it
         requestBody: {
-          // The data structure for update is slightly different than append
-          // It expects a 2D array for the specified range.
-          values: [[name]], // Update only the name cell in the found row
+          valueInputOption: 'USER_ENTERED', // Interpret input as if user typed it
+          data,
         },
       };
-      // *** This is the .update call ***
-      const updateResponse = await sheets.spreadsheets.values.update(updateRequest);
+      // *** This is the .batchUpdate call ***
+      const updateResponse = await sheets.spreadsheets.values.batchUpdate(updateRequest);
       sheetsResponseData = updateResponse.data;
       console.log('Google Sheets name update response:', sheetsResponseData);
 
     } else {
       // Email NOT found, append a new row
       const valuesToAppend = [
-        [new Date().toISOString(), name, email], // Timestamp (A), Name (B), Email (C)
+        // Timestamp (A), Name (B), Email (C), Size (D), Source (E)
+        [new Date().toISOString(), name, email, size, source || (flowType === 'list' ? 'direct' : 'website-popup')],
       ];
       const appendRequest = {
         spreadsheetId: sheetId,
-        range: `${sheetName}!A:C`, // Append to columns A, B, C
+        range: `${sheetName}!A:E`, // Append to columns A through E
         valueInputOption: 'USER_ENTERED',
         insertDataOption: 'INSERT_ROWS',
         requestBody: { values: valuesToAppend },
@@ -97,6 +114,14 @@ exports.handler = async (event) => {
     }
     // --- End Conditional Action ---
 
+
+    // QR-code signups (/list) get no confirmation email — the page's thank-you screen is enough
+    if (flowType === 'list') {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: 'Data successfully processed!' }),
+      };
+    }
 
     // Determine Mailjet email content based on flowType
     let subject, textPart, htmlPart;

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>THYS — Join the list</title>
+  <meta name="description" content="One heel. Every height. Join the THYS list for first access at launch." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#1e1030" />
+  <meta property="og:title" content="THYS — One heel. Every height." />
+  <meta property="og:description" content="Join the list for first access at launch." />
+  <meta property="og:image" content="https://thys.co/images/shoe-heel.jpg" />
+  <link rel="icon" href="/favicon.png" sizes="48x48" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/list.css" />
+</head>
+<body class="list-page">
+
+  <header class="list-bar">
+    <a href="/" aria-label="THYS home"><img src="/logo-inverted.svg" alt="THYS" width="96" height="44" /></a>
+  </header>
+
+  <main class="list-main">
+    <figure class="list-media">
+      <img src="/images/shoe-heel.jpg" alt="THYS stiletto sandal in black leather with a telescoping steel heel" width="1400" height="1400" />
+    </figure>
+
+    <section class="list-panel" aria-labelledby="list-title">
+      <div id="list-form-wrap">
+        <h1 id="list-title">One heel.<br><span class="gold">Every height.</span></h1>
+        <p class="list-sub">The first edition is very small. Join the list for first access.</p>
+
+        <form id="list-form" novalidate>
+          <div class="field">
+            <label for="list-name">Name</label>
+            <input id="list-name" name="name" type="text" autocomplete="name" autocapitalize="words" maxlength="80" required />
+          </div>
+          <div class="field">
+            <label for="list-email">Email</label>
+            <input id="list-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="120" required />
+          </div>
+          <div class="field">
+            <label for="list-size">Shoe size</label>
+            <div class="select-wrap">
+              <select id="list-size" name="size" required>
+                <option value="" disabled selected>Select your size</option>
+                <option value="US 5 / EU 35">US 5 · EU 35</option>
+                <option value="US 5.5 / EU 35.5">US 5.5 · EU 35.5</option>
+                <option value="US 6 / EU 36">US 6 · EU 36</option>
+                <option value="US 6.5 / EU 36.5">US 6.5 · EU 36.5</option>
+                <option value="US 7 / EU 37">US 7 · EU 37</option>
+                <option value="US 7.5 / EU 37.5">US 7.5 · EU 37.5</option>
+                <option value="US 8 / EU 38">US 8 · EU 38</option>
+                <option value="US 8.5 / EU 38.5">US 8.5 · EU 38.5</option>
+                <option value="US 9 / EU 39">US 9 · EU 39</option>
+                <option value="US 9.5 / EU 39.5">US 9.5 · EU 39.5</option>
+                <option value="US 10 / EU 40">US 10 · EU 40</option>
+                <option value="US 10.5 / EU 40.5">US 10.5 · EU 40.5</option>
+                <option value="US 11 / EU 41">US 11 · EU 41</option>
+                <option value="Other / not sure">Other / not sure</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="form-error" id="list-error" role="alert" hidden></p>
+
+          <button type="submit" id="list-submit" class="list-btn">Keep me updated</button>
+          <p class="fine">No spam. Unsubscribe anytime. <a href="/privacy.html">Privacy</a></p>
+        </form>
+      </div>
+
+      <div id="list-success" class="list-success" hidden tabindex="-1">
+        <h1>You’re on the list<span id="success-name"></span>.</h1>
+        <p class="list-sub">The first edition is small, so we’ll reach out by size. Watch your inbox.</p>
+        <a class="list-btn list-btn-ghost" href="https://www.instagram.com/thisisthys/" target="_blank" rel="noopener">Follow @thisisthys</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/list.js" defer></script>
+</body>
+</html>
