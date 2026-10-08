@@ -20,7 +20,7 @@ exports.handler = async (event) => {
       const s = String(v == null ? '' : v).trim().slice(0, max);
       return /^[=+\-@]/.test(s) ? "'" + s : s;
     };
-    const name   = clean(body.name, 60);
+    const name   = clean(body.name, 80);
     const email  = String(body.email || '').trim().slice(0, 120);
     const size   = clean(body.size, 30);
     const source = clean(body.source, 40);
