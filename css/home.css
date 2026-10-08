@@ -311,9 +311,9 @@ body.home {
 
 /* ── Join the list ── */
 .list-band { background: var(--color-antique-lilac); }
-.list-band-inner { padding-block: 64px; display: flex; align-items: center; gap: 40px; }
-.list-band-text { max-width: 720px; font-family: var(--font-default); font-weight: 500; font-size: 24px; line-height: 1.45; }
-.list-band .btn { flex-shrink: 0; }
+.list-band-inner { padding-block: 64px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: center; }
+.list-band .btn { grid-column: 1 / span 4; justify-content: space-between; padding: 22px 28px; font-size: 16px; }
+.list-band-text { grid-column: 6 / span 7; text-align: right; font-family: var(--font-default); font-weight: 500; font-size: 24px; line-height: 1.45; }
 
 /* ── Invest ── */
 .invest { position: relative; overflow: hidden; padding-bottom: 120px; display: flex; flex-direction: column; gap: 88px; }
@@ -438,8 +438,10 @@ body.home {
   .feature p { font-size: 14px; }
 
 
-  .list-band-inner { flex-direction: column-reverse; align-items: stretch; gap: 20px; padding-block: 48px; }
-  .list-band-text { font-size: 18px; }
+  .list-band-inner { display: flex; flex-direction: column-reverse; align-items: stretch; gap: 20px; padding-block: 48px; }
+  .list-band .btn { justify-content: center; padding: 16px 20px; font-size: 15px; }
+  .list-band .btn svg { display: none; }
+  .list-band-text { text-align: left; font-size: 18px; }
   .market { gap: 32px; }
   .market-statement { font-size: 28px; line-height: 1.2; }
   .market-side { gap: 24px; }
