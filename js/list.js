@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = emailEl.value.trim();
     const size  = sizeEl.value;
 
-    if (!name) return showError('Please enter your first name.', nameEl);
+    if (!name) return showError('Please enter your name.', nameEl);
     if (!/^\S+@\S+\.\S+$/.test(email)) return showError('Please enter a valid email.', emailEl);
     if (!size) return showError('Please choose your shoe size.', sizeEl);
 
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);
 
-      successName.textContent = ', ' + name;
+      successName.textContent = ', ' + name.split(/\s+/)[0]; // greet by first name
       formWrap.hidden = true;
       success.hidden = false;
       success.focus();
