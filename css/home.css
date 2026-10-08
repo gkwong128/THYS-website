@@ -76,8 +76,6 @@ body.home {
 .btn svg { width: 16px; height: 16px; }
 .btn-gold { background: var(--color-aged-gold); color: var(--color-deep-plum) !important; }
 .btn-gold:hover { background: var(--color-aged-gold-light); }
-.btn-plum { background: var(--color-deep-plum); color: var(--color-warm-ivory) !important; }
-.btn-plum:hover { background: #33204d; }
 .btn-ghost { border: 1px solid rgba(245, 237, 232, 0.35); color: var(--color-warm-ivory) !important; font-weight: 600; }
 .btn-ghost:hover { border-color: var(--color-aged-gold); color: var(--color-aged-gold) !important; }
 .btn:focus-visible, .site-nav a:focus-visible, .nav-toggle:focus-visible {
@@ -313,8 +311,8 @@ body.home {
 
 /* ── Join the list ── */
 .list-band { background: var(--color-antique-lilac); }
-.list-band-inner { padding-block: 72px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-.list-band-text { max-width: 720px; font-family: var(--font-heading); font-size: 40px; line-height: 1.15; }
+.list-band-inner { padding-block: 64px; display: flex; align-items: center; gap: 40px; }
+.list-band-text { max-width: 720px; font-family: var(--font-default); font-weight: 500; font-size: 24px; line-height: 1.45; }
 .list-band .btn { flex-shrink: 0; }
 
 /* ── Invest ── */
@@ -440,8 +438,8 @@ body.home {
   .feature p { font-size: 14px; }
 
 
-  .list-band-inner { flex-direction: column; align-items: stretch; gap: 24px; padding-block: 56px; }
-  .list-band-text { font-size: 28px; }
+  .list-band-inner { flex-direction: column-reverse; align-items: stretch; gap: 20px; padding-block: 48px; }
+  .list-band-text { font-size: 18px; }
   .market { gap: 32px; }
   .market-statement { font-size: 28px; line-height: 1.2; }
   .market-side { gap: 24px; }
