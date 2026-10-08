@@ -192,6 +192,22 @@ body.list-page {
 .fine a { text-underline-offset: 2px; }
 
 .list-success { outline: none; padding-top: 8px; }
+
+.list-link {
+  display: block;
+  margin: 18px auto 0;
+  padding: 8px 12px;
+  border: 0;
+  background: none;
+  color: var(--lilac-mid);
+  font-family: var(--font-default);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.list-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .list-success h1 { margin-bottom: 12px; }
 
 /* ── Desktop: image left, form right ── */
