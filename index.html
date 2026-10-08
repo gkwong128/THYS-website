@@ -20,7 +20,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/popup.css">
 </head>
 <body class="home">
 
@@ -40,6 +39,7 @@
         <a href="#top">Home</a>
         <a href="contact.html">Contact</a>
         <a href="#investors">Investors</a>
+        <a href="/list">Join the List</a>
       </nav>
     </div>
   </header>
@@ -191,6 +191,16 @@
       </div>
     </section>
 
+    <!-- ===== JOIN THE LIST ===== -->
+    <section class="list-band" aria-labelledby="list-band-title">
+      <div class="list-band-inner container reveal">
+        <a class="btn btn-gold" href="/list" aria-describedby="list-band-title">Join the List
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+        <p id="list-band-title" class="list-band-text">The first edition is very small. Join the list for first access.</p>
+      </div>
+    </section>
+
     <!-- ===== 05 INVEST ===== -->
     <section id="investors" class="section invest dark container">
       <img class="invest-texture" src="images/texture.jpg" alt="" loading="lazy" />
@@ -224,40 +234,6 @@
     </div>
   </footer>
 
-  <!-- ===== WAITLIST POPUP ===== -->
-  <div id="timer-popup" style="display: none;">
-    <div class="popup-content">
-      <div id="popup-step-1">
-        <h2>This is THYS</h2>
-        <p>Be notified first! Enter your name to join our community.</p>
-        <div class="popup-input-group">
-          <label for="popup-name">Name:</label>
-          <input type="text" id="popup-name" name="name" required>
-        </div>
-        <button type="button" id="popup-next-step">Continue</button>
-      </div>
-      <div id="popup-step-2" style="display: none;">
-        <h2>Almost there!</h2>
-        <p>Please enter your email so we can notify you about the launch.</p>
-        <div class="popup-input-group">
-          <label for="popup-email">Email:</label>
-          <input type="email" id="popup-email" name="email" required>
-        </div>
-        <button type="submit" id="popup-submit">Submit</button>
-      </div>
-      <div id="popup-submitting" style="display: none;">
-        <p>Submitting...</p>
-      </div>
-      <div id="popup-success" style="display: none;">
-        <p>Thank you! Your details have been submitted.</p>
-      </div>
-      <div id="popup-error" style="display: none;">
-        <p>Sorry, there was an error. Please try again later.</p>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/popup.js" defer></script>
   <script src="js/home.js" defer></script>
 </body>
 </html>
